@@ -1,8 +1,10 @@
-# Kalicube website redesign
+# Kalicube and Jason Barnard website redesigns
 
-Draft redesign of the kalicube.com homepage, aimed at high-end personal and corporate brands.
+Draft redesigns of two homepages, aimed at high-end personal and corporate brands.
 
-- `index.html` is the homepage, a desktop mockup authored at 1440px wide. On narrower windows it scales down to fit.
-- `images/` holds the photographs and logos, taken from kalicube.com and jasonbarnard.com.
+- Kalicube: `index.html`, viewable at https://kalicube-tech.github.io/kalicube-website-redesign/
+- Jason Barnard: `jasonbarnard/index.html`, viewable at https://kalicube-tech.github.io/kalicube-website-redesign/jasonbarnard/
 
-This is a design draft, not the production site. The page is marked `noindex` so search engines are asked not to list it.
+Both are desktop mockups authored at 1440px wide; on narrower windows they scale down to fit. Photographs and logos come from kalicube.com and jasonbarnard.com, and the reel plays from YouTube when clicked.
+
+These are design drafts, not the production sites. Every page is marked `noindex` so search engines are asked not to list it.

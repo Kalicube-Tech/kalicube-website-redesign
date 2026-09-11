@@ -17,12 +17,33 @@
   </style>
 <style>
   /* Desktop mockup authored at 1440px: scale it down to fit narrower windows. */
-  html { background: #0F1830; }
+  html { background: #0F1830; scroll-behavior: smooth; }
 </style>
 <script>
   function fitPage() { document.body.style.zoom = Math.min(1, document.documentElement.clientWidth / 1440); }
   window.addEventListener('resize', fitPage);
   document.addEventListener('DOMContentLoaded', fitPage);
+</script>
+<script>
+  document.addEventListener('click', function (e) {
+    var trigger = e.target.closest('[data-yt]');
+    if (!trigger) return;
+    var id = trigger.getAttribute('data-yt');
+    var poster = document.querySelector('[data-yt-poster="' + id + '"]');
+    if (!poster) return;
+    e.preventDefault();
+    poster.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    if (poster.querySelector('iframe')) return;
+    var frame = document.createElement('iframe');
+    frame.src = 'https://www.youtube-nocookie.com/embed/' + id + '?autoplay=1&rel=0';
+    frame.allow = 'autoplay; encrypted-media; picture-in-picture; fullscreen';
+    frame.allowFullscreen = true;
+    frame.title = 'Jason Barnard reel';
+    frame.style.cssText = 'position:absolute;top:0;left:0;width:100%;height:100%;border:0;';
+    poster.removeAttribute('href');
+    poster.innerHTML = '';
+    poster.appendChild(frame);
+  });
 </script>
 </head>
 <body>
@@ -48,7 +69,7 @@
     </div>
 
     <!-- Headline block -->
-    <div style="position: absolute; right: 110px; bottom: 60px; width: 540px; display: flex; flex-direction: column; gap: 24px;">
+    <div style="position: absolute; right: 110px; bottom: 44px; width: 540px; display: flex; flex-direction: column; gap: 24px;">
       <div style="font-size: 17px; font-weight: 500; color: rgba(255,255,255,0.82);">Your brand is what Google and AI say it is.</div>
       <h1 style="font-weight: 700; font-size: 52px; line-height: 1.06; letter-spacing: -0.025em;"><span style="display: block;">Define who you are.</span> Take control of what <span style="position: relative; white-space: nowrap;">Google and AI<svg style="position: absolute; left: -4px; right: -4px; bottom: -10px; width: calc(100% + 8px); height: 16px;" viewBox="0 0 300 16" preserveAspectRatio="none" fill="none"><path d="M3 11 C 55 4, 120 13, 180 7 S 270 4, 297 9" stroke="#E8AA2E" stroke-width="4" stroke-linecap="round"></path></svg></span> say about you.</h1>
       <p style="font-size: 18px; line-height: 1.6; color: rgba(255,255,255,0.84);">Kalicube engineers how AI understands, trusts and recommends your brand, for you and your company.</p>
@@ -62,6 +83,7 @@
       <div style="display: flex; flex-direction: column; gap: 6px; font-size: 15px; color: rgba(255,255,255,0.78); padding-top: 4px;">
         <div style="display: flex; align-items: center; gap: 12px;"><div style="width: 5px; height: 5px; border-radius: 50%; background: #E8AA2E; flex-shrink: 0;"></div><span style="white-space: nowrap;">Led by Jason Barnard, in search since 1998</span></div>
         <div style="display: flex; align-items: center; gap: 12px;"><div style="width: 5px; height: 5px; border-radius: 50%; background: #E8AA2E; flex-shrink: 0;"></div><span style="white-space: nowrap;">Hired by Google to speak on AI search</span></div>
+        <a href="#reel" data-yt="NeDpt8dBr1M" style="display: flex; align-items: center; gap: 10px; color: #FFFFFF; font-weight: 700; align-self: flex-start; margin-left: -5px;"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="7.25" stroke="#E8AA2E" stroke-width="1.5"></circle><path d="M6.5 5.2v5.6L11 8z" fill="#E8AA2E"></path></svg><span style="white-space: nowrap; border-bottom: 1px solid rgba(255,255,255,0.5);">Watch Jason in action</span></a>
       </div>
     </div>
 
@@ -81,6 +103,19 @@
       <img src="images/p-yahoo.png" alt="Yahoo! News" style="height: 30px; width: auto; display: block; filter: grayscale(1); mix-blend-mode: multiply; opacity: 0.65;">
       <img src="images/p-msn.png" alt="MSN" style="height: 28px; width: auto; display: block; filter: grayscale(1); mix-blend-mode: multiply; opacity: 0.65;">
     </div>
+  </div>
+
+  <!-- Reel -->
+  <div id="reel" class="scribble" style="background-color: #0F1830; color: #FFFFFF; padding: 112px 120px; display: flex; gap: 80px; align-items: center;">
+    <div style="width: 380px; flex-shrink: 0; display: flex; flex-direction: column; gap: 22px;">
+      <h2 style="font-weight: 700; font-size: 48px; line-height: 1.08; letter-spacing: -0.02em;">Watch Jason in action</h2>
+      <p style="font-size: 19px; line-height: 1.6; color: rgba(255,255,255,0.8);">The founder of Kalicube on stage, from Google Marketing Live to BrightonSEO, PubCon and SMX.</p>
+      <a href="https://www.youtube.com/watch?v=NeDpt8dBr1M" data-yt="NeDpt8dBr1M" style="align-self: flex-start; display: flex; align-items: center; gap: 8px; color: #FFFFFF; font-size: 16px; font-weight: 700; padding-bottom: 3px; border-bottom: 2px solid #E8AA2E;"><span>Play the reel</span><svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg></a>
+    </div>
+    <a href="https://www.youtube.com/watch?v=NeDpt8dBr1M" data-yt="NeDpt8dBr1M" data-yt-poster="NeDpt8dBr1M" style="flex: 1; position: relative; display: block; aspect-ratio: 16 / 9; border-radius: 8px; overflow: hidden; box-shadow: 0 30px 80px -30px rgba(0,0,0,0.7);">
+      <img src="images/reel.jpg" alt="Reel: Jason Barnard, serial entrepreneur and world authority on Digital Brand Intelligence" style="width: 100%; height: 100%; object-fit: cover; display: block;">
+      <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 96px; height: 96px; border-radius: 50%; background: #E8AA2E; display: flex; align-items: center; justify-content: center; box-shadow: 0 10px 30px rgba(0,0,0,0.35);"><svg width="34" height="34" viewBox="0 0 24 24"><path d="M8.5 5.5v13l10.5-6.5z" fill="#0F1830"></path></svg></div>
+    </a>
   </div>
 
   <!-- A note from Jason -->
@@ -207,6 +242,10 @@
     <div style="flex: 1; display: flex; flex-direction: column; gap: 24px;">
       <h2 style="font-weight: 700; font-size: 48px; line-height: 1.08; letter-spacing: -0.02em;">Nearly three decades teaching machines who people really are</h2>
       <p style="font-size: 20px; line-height: 1.65; color: #384256;">Kalicube is a digital brand engineering consultancy. Every engagement draws on Kalicube Pro, our own platform, and on a methodology that Google now invites Jason to teach.</p>
+      <div style="display: flex; flex-direction: column; gap: 10px; padding-top: 8px;">
+        <img src="images/gml.jpg" alt="Jason Barnard teaching The Kalicube Process at Google Marketing Live 2026" style="width: 100%; aspect-ratio: 16 / 10; object-fit: cover; object-position: 40% 50%; border-radius: 6px; display: block;">
+        <div style="font-size: 14px; color: #5B6475;">Teaching The Kalicube Process™ at Google Marketing Live 2026</div>
+      </div>
       <a href="#" style="align-self: flex-start; display: flex; align-items: center; gap: 8px; font-size: 16px; font-weight: 700; padding-bottom: 3px; border-bottom: 2px solid #BA7517; margin-top: 8px;"><span>About Kalicube</span><svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg></a>
     </div>
     <div style="width: 620px; flex-shrink: 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 48px 56px;">
