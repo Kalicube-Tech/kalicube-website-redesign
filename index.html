@@ -20,7 +20,7 @@
   html { background: #0F1830; }
 </style>
 <script>
-  function fitPage() { document.body.style.zoom = Math.min(1, window.innerWidth / 1440); }
+  function fitPage() { document.body.style.zoom = Math.min(1, document.documentElement.clientWidth / 1440); }
   window.addEventListener('resize', fitPage);
   document.addEventListener('DOMContentLoaded', fitPage);
 </script>
