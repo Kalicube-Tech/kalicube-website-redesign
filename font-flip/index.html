@@ -28,7 +28,7 @@
   .pages button:hover { border-color: var(--ink); }
   .pages button[aria-current="page"] { background: var(--on); border-color: var(--on); color: var(--on-ink); }
   button:focus-visible, select:focus-visible { outline: 2px solid var(--gold); outline-offset: 2px; }
-  .font { display: flex; flex-direction: column; align-items: flex-end; gap: 4px; }
+  .font { display: flex; flex-direction: column; align-items: flex-end; gap: 6px; }
   .font label { display: flex; align-items: center; gap: 8px; font-size: 12px; letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted); }
   select { font: inherit; font-size: 15px; font-weight: 700; color: var(--ink); background: var(--bar) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath d='M2.5 4.5L6 8l3.5-3.5' fill='none' stroke='%231B2A4A' stroke-width='1.6' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") no-repeat right 14px center; border: 1px solid var(--rule); border-radius: 999px; padding: 8px 38px 8px 16px; appearance: none; -webkit-appearance: none; cursor: pointer; min-width: 220px; text-transform: none; letter-spacing: 0; }
   select:hover { border-color: var(--ink); }
@@ -51,7 +51,12 @@
       <option value="arial">3 · Arial</option>
       <option value="ubuntu">4 · Ubuntu and Arial</option>
     </select></label>
-    <div class="hint"><kbd>←</kbd> <kbd>→</kbd> pages · <kbd>space</kbd> or <kbd>1</kbd>–<kbd>4</kbd> fonts</div>
+    <label>Buttons <select id="buttons">
+      <option value="mono">DM Mono (now)</option>
+      <option value="arial">Arial Bold</option>
+      <option value="code">Google Sans Code</option>
+    </select></label>
+    <div class="hint"><kbd>←</kbd> <kbd>→</kbd> pages · <kbd>space</kbd> or <kbd>1</kbd>–<kbd>4</kbd> fonts · <kbd>B</kbd> buttons</div>
   </div>
 </header>
 <main class="stage">
@@ -81,6 +86,38 @@
   var current = 0;
   var fontSelect = document.getElementById('font');
   var pageBar = document.getElementById('pages');
+
+  var buttonSelect = document.getElementById('buttons');
+  var BUTTON_CSS = {
+    mono: '',
+    arial: "font-family: Arial, Helvetica, sans-serif !important; font-weight: 700 !important; letter-spacing: 0 !important;",
+    code: "font-family: 'Google Sans Code', Menlo, monospace !important; font-weight: 500 !important; letter-spacing: 0 !important;"
+  };
+  var BUTTON_ORDER = ['mono', 'arial', 'code'];
+  var buttonFont = 'mono';
+
+  function styleButtons(k) {
+    var w = win(k);
+    if (!w || !w.document || !w.document.head) return;
+    var d = w.document;
+    if (!d.getElementById('ff-code-font')) {
+      var l = d.createElement('link');
+      l.id = 'ff-code-font';
+      l.rel = 'stylesheet';
+      l.href = 'https://fonts.googleapis.com/css2?family=Google+Sans+Code:wght@500&display=swap';
+      d.head.appendChild(l);
+    }
+    var st = d.getElementById('ff-buttons');
+    if (!st) { st = d.createElement('style'); st.id = 'ff-buttons'; d.head.appendChild(st); }
+    st.textContent = BUTTON_CSS[buttonFont] ? '[style*="\'DM Mono\'"] { ' + BUTTON_CSS[buttonFont] + ' }' : '';
+  }
+
+  function setButtons(v) {
+    buttonFont = BUTTON_CSS.hasOwnProperty(v) ? v : 'mono';
+    buttonSelect.value = buttonFont;
+    ORDER.forEach(styleButtons);
+    try { localStorage.setItem('font-flip-buttons', buttonFont); } catch (e) {}
+  }
 
   function win(k) { try { return frames[k].contentWindow; } catch (e) { return null; } }
 
@@ -123,6 +160,8 @@
       show(ORDER[(ORDER.indexOf(shown) + 1) % ORDER.length]);
     } else if (/^[1-4]$/.test(e.key)) {
       show(ORDER[Number(e.key) - 1]);
+    } else if (e.key === 'b' || e.key === 'B') {
+      setButtons(BUTTON_ORDER[(BUTTON_ORDER.indexOf(buttonFont) + 1) % BUTTON_ORDER.length]);
     } else if (e.key === 'ArrowRight' || e.key === 'ArrowLeft') {
       e.preventDefault();
       load(current + (e.key === 'ArrowRight' ? 1 : -1));
@@ -135,6 +174,7 @@
       if (!w) return;
       w.addEventListener('scroll', function () { if (k === shown) syncFrom(k); }, { passive: true });
       w.document.addEventListener('keydown', onKey);
+      styleButtons(k);
     });
   });
   document.addEventListener('keydown', onKey);
@@ -161,6 +201,7 @@
     sites[p[0]].appendChild(b);
   });
   fontSelect.addEventListener('change', function () { show(fontSelect.value); fontSelect.blur(); });
+  buttonSelect.addEventListener('change', function () { setButtons(buttonSelect.value); buttonSelect.blur(); });
 
   var startPage = 0, startFont = 'google';
   try {
@@ -170,6 +211,9 @@
   } catch (e) {}
   load(startPage);
   show(startFont);
+  var startButtons = 'mono';
+  try { startButtons = localStorage.getItem('font-flip-buttons') || 'mono'; } catch (e) {}
+  setButtons(startButtons);
 </script>
 </body>
 </html>
