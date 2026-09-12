@@ -180,6 +180,16 @@
       if (Number(b.dataset.i) === current) b.setAttribute('aria-current', 'page'); else b.removeAttribute('aria-current');
     });
     try { localStorage.setItem('font-flip-page', String(current)); } catch (e) {}
+    try { history.replaceState(null, '', '?page=' + slug(PAGES[current][2])); } catch (e) {}
+  }
+
+  // Links like font-flip/?page=strategy-plus open that page, so each draft can be shared.
+  function slug(dir) { return dir ? dir.replace(/\/$/, '') : 'home'; }
+  function pageFromUrl() {
+    var q = (new URLSearchParams(location.search).get('page') || '').replace(/^\/+|\/+$/g, '');
+    var idx = -1;
+    if (q) PAGES.forEach(function (p, i) { if (slug(p[2]) === q) idx = i; });
+    return idx;
   }
 
   function onKey(e) {
@@ -240,6 +250,7 @@
     var f = localStorage.getItem('font-flip-house-font');
     if (ORDER.indexOf(f) >= 0) startFont = f;
   } catch (e) {}
+  if (pageFromUrl() >= 0) startPage = pageFromUrl();
   load(startPage);
   show(startFont);
   var startButtons = 'arial';
