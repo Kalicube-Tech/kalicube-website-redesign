@@ -10,7 +10,7 @@ Draft redesigns of three homepages, one per audience: entrepreneurs (jasonbarnar
 - Problem landing page, Template 1 ("I’ve changed my name, and AI still uses the old one"): `landing/changed-my-name/index.html`, viewable at https://kalicube-tech.github.io/kalicube-website-redesign/landing/changed-my-name/
 - Problem landing page, Template 1 ("When people look me up, Google and AI lead with the one bad story"), for the online reputation management intent: `landing/reputation/index.html`, viewable at https://kalicube-tech.github.io/kalicube-website-redesign/landing/reputation/
 - Comparison page for companies (kalicube.com): `compare/companies/index.html`, viewable at https://kalicube-tech.github.io/kalicube-website-redesign/compare/companies/
-- Comparison page for executives (kalicube.com): `compare/executives/index.html`, viewable at https://kalicube-tech.github.io/kalicube-website-redesign/compare/executives/
+- Comparison page for entrepreneurs (kalicube.com): `compare/entrepreneurs/index.html`, viewable at https://kalicube-tech.github.io/kalicube-website-redesign/compare/entrepreneurs/ (the old `compare/executives/` address redirects here)
 - Mind, Machine, Practice (the team reference on how Jason, Kalicube Pro and Kalicube fit together): `mind-machine-practice/index.html`, viewable at https://kalicube-tech.github.io/kalicube-website-redesign/mind-machine-practice/
 
 Both are desktop mockups authored at 1440px wide; on narrower windows they scale down to fit. Photographs and logos come from kalicube.com and jasonbarnard.com, and the reel plays from YouTube when clicked.

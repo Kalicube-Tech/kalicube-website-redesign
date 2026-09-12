@@ -1,0 +1,316 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Jason Barnard homepage redesign (draft) · Google Sans Flex</title>
+<meta name="robots" content="noindex, nofollow">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,700&amp;family=Source+Serif+4:ital,opsz,wght@1,8..60,400&amp;family=DM+Mono:wght@400;500&amp;family=Caveat:wght@600&amp;display=swap">
+  <style>
+    html, body { margin: 0; background: #1E1B18; }
+    body { font-family: 'Google Sans Flex', Arial, sans-serif; -webkit-font-smoothing: antialiased;}
+    a { color: #1E1B18; text-decoration: none; } a:hover { color: #990000; }
+    h1, h2, h3, p { margin: 0; }
+    h1, h2 { text-wrap: balance; }
+    p { text-wrap: pretty; }
+    .scribble-light { background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='120'%3E%3Cg stroke='%23FFFFFF' stroke-opacity='0.09' stroke-width='2.5' stroke-linecap='round' fill='none'%3E%3Cpath d='M10 40 L34 22'/%3E%3Cpath d='M52 18 L70 6'/%3E%3Cpath d='M96 52 L126 30'/%3E%3Cpath d='M20 96 L40 82'/%3E%3Cpath d='M70 110 L102 88'/%3E%3Cpath d='M128 96 L150 80'/%3E%3Cpath d='M58 66 L74 55'/%3E%3Cpath d='M138 20 L154 9'/%3E%3C/g%3E%3C/svg%3E"); }
+  </style>
+<style>
+  /* Desktop mockup authored at 1440px: scale it down to fit narrower windows. */
+  html { background: #0F1830; scroll-behavior: smooth; }
+</style>
+<script>
+  function fitPage() {
+    var root = document.documentElement, body = document.body;
+    body.style.zoom = Math.min(1, root.clientWidth / 1440);
+    // A vertical scrollbar can appear after the first pass and narrow the page; fit again if so.
+    if (root.scrollWidth > root.clientWidth) body.style.zoom = Math.min(1, root.clientWidth / 1440);
+  }
+  window.addEventListener('resize', fitPage);
+  document.addEventListener('DOMContentLoaded', fitPage);
+  window.addEventListener('load', function () { requestAnimationFrame(fitPage); });
+</script>
+<script>
+  document.addEventListener('click', function (e) {
+    var trigger = e.target.closest('[data-yt]');
+    if (!trigger) return;
+    var id = trigger.getAttribute('data-yt');
+    var poster = document.querySelector('[data-yt-poster="' + id + '"]');
+    if (!poster) return;
+    e.preventDefault();
+    poster.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    if (poster.querySelector('iframe')) return;
+    var frame = document.createElement('iframe');
+    frame.src = 'https://www.youtube-nocookie.com/embed/' + id + '?autoplay=1&rel=0';
+    frame.allow = 'autoplay; encrypted-media; picture-in-picture; fullscreen';
+    frame.allowFullscreen = true;
+    frame.title = 'Jason Barnard reel';
+    frame.style.cssText = 'position:absolute;top:0;left:0;width:100%;height:100%;border:0;';
+    poster.removeAttribute('href');
+    poster.innerHTML = '';
+    poster.appendChild(frame);
+  });
+</script>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Google+Sans+Flex:wght@400;500;700&display=swap">
+</head>
+<body>
+<div style="max-width: 1440px; margin: 0 auto;">
+<div style="width: 1440px; background: #FFFFFF; color: #1E1B18;">
+
+  <!-- Navigation -->
+  <div style="height: 84px; background: #990000; color: #FFFFFF; padding: 0 120px; display: flex; align-items: center; justify-content: space-between;">
+    <div style="display: flex; align-items: center; gap: 14px;">
+      <img src="images/jason.jpg" alt="Jason Barnard" style="width: 46px; height: 46px; border-radius: 50%; object-fit: cover; object-position: 50% 30%; border: 2px solid rgba(255,255,255,0.85); display: block;">
+      <div style="font-family: 'Google Sans Flex', Arial, sans-serif; font-size: 21px; font-weight: 700; letter-spacing: -0.01em;">Jason Barnard</div>
+    </div>
+    <div style="display: flex; align-items: center; gap: 32px; font-size: 16px; font-weight: 500; white-space: nowrap;">
+      <a href="#" style="color: #FFFFFF;">Speaking</a>
+      <a href="#" style="color: #FFFFFF;">Writing</a>
+      <a href="../" style="color: #FFFFFF;">Kalicube</a>
+      <a href="#" style="color: #FFFFFF;">About</a>
+      <a href="#" style="font-family: 'DM Mono', Menlo, monospace; background: #E8AA2E; color: #1E1B18; border-radius: 999px; padding: 11px 22px; font-weight: 500; font-size: 0.94em; letter-spacing: -0.01em;">Book Jason</a>
+    </div>
+  </div>
+
+  <!-- Hero: red panel + stage photograph -->
+  <div style="display: flex; height: 820px;">
+    <div class="scribble-light" style="width: 660px; flex-shrink: 0; background-color: #990000; color: #FFFFFF; padding: 0 64px 0 120px; display: flex; flex-direction: column; justify-content: center; gap: 26px; box-sizing: border-box;">
+      <div style="font-size: 16px; font-weight: 500; color: rgba(255,255,255,0.85);">Keynote speaker · Author · Founder and CEO of Kalicube</div>
+      <h1 style="font-family: 'Google Sans Flex', Arial, sans-serif; font-weight: 700; font-size: 96px; line-height: 0.98; letter-spacing: -0.015em;">Jason Barnard</h1>
+      <p style="font-size: 23px; line-height: 1.45; color: rgba(255,255,255,0.92);">The world’s leading authority on Digital Brand Engineering, the discipline he named, and on how Google and AI decide who to recommend.</p>
+      <div style="display: flex; align-items: center; gap: 12px; font-size: 15px; color: rgba(255,255,255,0.85);">
+        <div style="width: 6px; height: 6px; border-radius: 50%; background: #E8AA2E; flex-shrink: 0;"></div>
+        <span>Hired by Google to speak on the future of AI Search and how brands win at organic optimization</span>
+      </div>
+      <div style="display: flex; align-items: center; gap: 12px; font-size: 15px; color: rgba(255,255,255,0.85); margin-top: -14px;">
+        <div style="width: 6px; height: 6px; border-radius: 50%; background: #E8AA2E; flex-shrink: 0;"></div>
+        <span>Architect of Kalicube Pro: 25 billion data points, 73 million entities</span>
+      </div>
+      <div style="display: flex; align-items: center; gap: 16px; padding-top: 10px;">
+        <a href="../apply/" style="font-family: 'DM Mono', Menlo, monospace; display: flex; align-items: center; gap: 10px; background: #E8AA2E; color: #1E1B18; padding: 18px 28px; border-radius: 999px; font-size: 16px; font-weight: 500; white-space: nowrap; letter-spacing: -0.01em;">
+          <span>Work with Jason’s team</span>
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+        </a>
+        <a href="#reel" data-yt="NeDpt8dBr1M" style="font-family: 'DM Mono', Menlo, monospace; display: flex; align-items: center; gap: 10px; color: #FFFFFF; border: 1.5px solid rgba(255,255,255,0.75); padding: 16px 24px; border-radius: 999px; font-size: 16px; font-weight: 500; white-space: nowrap; letter-spacing: -0.01em;">
+          <svg width="18" height="18" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="7.25" stroke="#FFFFFF" stroke-width="1.5"></circle><path d="M6.5 5.2v5.6L11 8z" fill="#FFFFFF"></path></svg>
+          <span>Watch the reel</span>
+        </a>
+      </div>
+    </div>
+    <div style="flex: 1; position: relative; overflow: hidden; background: #1E1B18;">
+      <img src="images/saigon.jpg" alt="Jason Barnard on stage in front of a full ballroom at SEO Mastery Summit, Saigon" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; object-position: 62% 32%; display: block;">
+      <div style="position: absolute; left: 0; right: 0; bottom: 0; height: 160px; background: linear-gradient(180deg, rgba(30,27,24,0) 0%, rgba(30,27,24,0.7) 100%);"></div>
+      <div style="position: absolute; left: 32px; bottom: 28px; font-size: 13px; color: rgba(255,255,255,0.8);">On stage at SEO Mastery Summit, Saigon, 2024</div>
+    </div>
+  </div>
+
+  <!-- Proof strip -->
+  <div style="padding: 32px 120px; display: flex; align-items: center; gap: 48px; border-bottom: 1px solid #ECE6DF;">
+    <div style="display: flex; align-items: center; gap: 20px; padding-right: 48px; border-right: 1px solid #E2DBD2;">
+      <div style="font-size: 14px; font-weight: 500; color: #6B625A; white-space: nowrap;">Hired by</div>
+      <img src="images/google.png" alt="Google" style="height: 30px; width: auto; display: block;">
+    </div>
+    <div style="font-size: 14px; font-weight: 500; color: #6B625A; white-space: nowrap;">Featured in</div>
+    <div style="flex: 1; display: flex; justify-content: space-between; align-items: center;">
+      <img src="images/p-forbes.png" alt="Forbes" style="height: 22px; width: auto; display: block; filter: grayscale(1); mix-blend-mode: multiply; opacity: 0.65;">
+      <img src="images/p-entrepreneur.png" alt="Entrepreneur" style="height: 20px; width: auto; display: block; filter: grayscale(1); mix-blend-mode: multiply; opacity: 0.65;">
+      <img src="images/p-lemonde.png" alt="Le Monde" style="height: 22px; width: auto; display: block; filter: grayscale(1); mix-blend-mode: multiply; opacity: 0.65;">
+      <img src="images/p-skynews.png" alt="Sky News" style="height: 24px; width: auto; display: block; filter: grayscale(1); mix-blend-mode: multiply; opacity: 0.65;">
+      <img src="images/p-usatoday.png" alt="USA Today" style="height: 30px; width: auto; display: block; filter: grayscale(1); mix-blend-mode: multiply; opacity: 0.65;">
+      <img src="images/p-yahoo.png" alt="Yahoo! News" style="height: 28px; width: auto; display: block; filter: grayscale(1); mix-blend-mode: multiply; opacity: 0.65;">
+      <img src="images/p-msn.png" alt="MSN" style="height: 26px; width: auto; display: block; filter: grayscale(1); mix-blend-mode: multiply; opacity: 0.65;">
+    </div>
+  </div>
+
+  <!-- The reel -->
+  <div id="reel" style="background: #1E1B18; color: #FFFFFF; padding: 112px 120px 120px; display: flex; flex-direction: column; align-items: center; gap: 44px;">
+    <div style="display: flex; flex-direction: column; align-items: center; gap: 16px; text-align: center; max-width: 820px;">
+      <h2 style="font-family: 'Google Sans Flex', Arial, sans-serif; font-weight: 700; font-size: 56px; line-height: 1.05; letter-spacing: -0.0125em;">Watch Jason in action</h2>
+      <p style="font-size: 20px; line-height: 1.6; color: rgba(255,255,255,0.78);">Serial entrepreneur, keynote speaker and CEO of Kalicube. Watch it once and you will want him on your stage.</p>
+    </div>
+    <a href="https://www.youtube.com/watch?v=NeDpt8dBr1M" data-yt="NeDpt8dBr1M" data-yt-poster="NeDpt8dBr1M" style="position: relative; display: block; width: 1000px; aspect-ratio: 16 / 9; border-radius: 10px; overflow: hidden; box-shadow: 0 40px 100px -40px rgba(0,0,0,0.8);">
+      <img src="images/reel.jpg" alt="Reel: Jason Barnard, serial entrepreneur and world authority on Digital Brand Intelligence" style="width: 100%; height: 100%; object-fit: cover; display: block;">
+      <div style="position: absolute; left: 32px; bottom: 64px; display: flex; align-items: center; gap: 12px; background: #E8AA2E; color: #1E1B18; padding: 14px 24px 14px 18px; border-radius: 999px; font-size: 17px; font-weight: 700; box-shadow: 0 10px 30px rgba(0,0,0,0.35);"><svg width="22" height="22" viewBox="0 0 24 24"><path d="M7 4.5v15l12.5-7.5z" fill="#1E1B18"></path></svg><span>Play the reel</span></div>
+    </a>
+    <div style="font-size: 16px; color: rgba(255,255,255,0.7); text-align: center;">Keynotes at BrightonSEO, PubCon Las Vegas, SMX London, YoastCon and Entrepreneurs’ Organization, and for Google</div>
+  </div>
+
+  <!-- The complete record -->
+  <div style="padding: 128px 120px; display: flex; flex-direction: column; gap: 56px;">
+    <div style="display: flex; justify-content: space-between; align-items: flex-end; gap: 80px;">
+      <h2 style="font-family: 'Google Sans Flex', Arial, sans-serif; font-weight: 700; font-size: 48px; line-height: 1.08; letter-spacing: -0.01em; max-width: 720px;">The complete record</h2>
+      <p style="font-size: 18px; line-height: 1.6; color: #4A433C; max-width: 460px;">Three companies, thirteen awards, three books and more than two hundred industry terms, built up since 1991.</p>
+    </div>
+    <div style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 48px 56px;">
+      <div style="display: flex; flex-direction: column; gap: 12px; border-top: 3px solid #990000; padding-top: 22px;">
+        <h3 style="font-family: 'Google Sans Flex', Arial, sans-serif; font-weight: 700; font-size: 24px; letter-spacing: -0.01em;">Entrepreneur</h3>
+        <p style="font-size: 17px; line-height: 1.6; color: #4A433C;">WTPL Music in 1991, UpToTen in 2000, Kalicube in 2015. All three are still trading and profitable.</p>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 12px; border-top: 3px solid #990000; padding-top: 22px;">
+        <h3 style="font-family: 'Google Sans Flex', Arial, sans-serif; font-weight: 700; font-size: 24px; letter-spacing: -0.01em;">Award-winning innovator</h3>
+        <p style="font-size: 17px; line-height: 1.6; color: #4A433C;">Thirteen awards, from a Gold Davey for technological innovation in 2008 to Webflow’s Voice to Watch for 2026.</p>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 12px; border-top: 3px solid #990000; padding-top: 22px;">
+        <h3 style="font-family: 'Google Sans Flex', Arial, sans-serif; font-weight: 700; font-size: 24px; letter-spacing: -0.01em;">Keynote speaker</h3>
+        <p style="font-size: 17px; line-height: 1.6; color: #4A433C;">Keynotes on Digital Brand Engineering, search and AI at BrightonSEO, PubCon, SMX and YoastCon. Hired by Google to speak on the future of AI Search and how brands win at organic optimization.</p>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 12px; border-top: 3px solid #990000; padding-top: 22px;">
+        <h3 style="font-family: 'Google Sans Flex', Arial, sans-serif; font-weight: 700; font-size: 24px; letter-spacing: -0.01em;">Bestselling author</h3>
+        <p style="font-size: 17px; line-height: 1.6; color: #4A433C;">The Fundamentals of Brand SERPs for Business, and two further books on Knowledge Panels and entrepreneurship.</p>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 12px; border-top: 3px solid #990000; padding-top: 22px;">
+        <h3 style="font-family: 'Google Sans Flex', Arial, sans-serif; font-weight: 700; font-size: 24px; letter-spacing: -0.01em;">Named 200+ industry terms</h3>
+        <p style="font-size: 17px; line-height: 1.6; color: #4A433C;">Brand SERP in 2012, Answer Engine Optimisation in 2017, Digital Brand Engineering in 2024 and Assistive Agent Optimisation in 2025.</p>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 12px; border-top: 3px solid #990000; padding-top: 22px;">
+        <h3 style="font-family: 'Google Sans Flex', Arial, sans-serif; font-weight: 700; font-size: 24px; letter-spacing: -0.01em;">Peer-reviewed researcher</h3>
+        <p style="font-size: 17px; line-height: 1.6; color: #4A433C;">Sole author of Engineering the AI Résumé in the Journal of AI, Robotics and Workplace Automation, 2026.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Recent stages -->
+  <div style="background: #F6F1EB; padding: 120px 120px 128px; display: flex; flex-direction: column; gap: 56px;">
+    <div style="display: flex; justify-content: space-between; align-items: flex-end;">
+      <h2 style="font-family: 'Google Sans Flex', Arial, sans-serif; font-weight: 700; font-size: 48px; line-height: 1.08; letter-spacing: -0.01em;">Recent stages</h2>
+      <a href="#" style="font-family: 'DM Mono', Menlo, monospace; display: flex; align-items: center; gap: 8px; font-size: 15px; font-weight: 500; padding-bottom: 3px; border-bottom: 2px solid #990000; letter-spacing: -0.01em;"><span>Book Jason to speak</span><svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg></a>
+    </div>
+    <div style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 32px;">
+      <div style="display: flex; flex-direction: column; gap: 16px;">
+        <img src="images/gml.jpg" alt="Jason Barnard speaking for Google" style="width: 100%; aspect-ratio: 4 / 3; object-fit: cover; object-position: 40% 50%; border-radius: 6px; display: block;">
+        <div style="display: flex; flex-direction: column; gap: 4px;">
+          <div style="font-size: 19px; font-weight: 700;">Hired by Google, 2026</div>
+          <div style="font-size: 16px; color: #6B625A;">Speaking on the future of AI Search and how brands win at organic optimization</div>
+        </div>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 16px;">
+        <img src="images/eo-paris-may.jpg" alt="EO Paris online event, May 2026: Your Brand Has AI Employees. Train Them to Sell for You." style="width: 100%; aspect-ratio: 4 / 3; object-fit: contain; background: #1E1B18; border-radius: 6px; display: block;">
+        <div style="display: flex; flex-direction: column; gap: 4px;">
+          <div style="font-size: 19px; font-weight: 700;">EO Paris online event, May 2026</div>
+          <div style="font-size: 16px; color: #6B625A;">Your Brand Has AI Employees. Train Them to Sell for You.</div>
+        </div>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 16px;">
+        <img src="images/stage.jpg" alt="Jason Barnard on stage at Digital Marketing Europe" style="width: 100%; aspect-ratio: 4 / 3; object-fit: cover; object-position: 40% 40%; border-radius: 6px; display: block;">
+        <div style="display: flex; flex-direction: column; gap: 4px;">
+          <div style="font-size: 19px; font-weight: 700;">Digital Marketing Europe 2024</div>
+          <div style="font-size: 16px; color: #6B625A;">Live audience participation, with Google on the big screen</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- John Mueller -->
+  <div style="padding: 128px 120px; display: flex; gap: 72px; align-items: center;">
+    <img src="images/mueller.jpg" alt="John Mueller" style="width: 168px; height: 168px; border-radius: 50%; object-fit: cover; display: block; flex-shrink: 0;">
+    <div style="flex: 1; display: flex; flex-direction: column; gap: 28px;">
+      <p style="font-weight: 400; font-family: 'Source Serif 4', Georgia, serif; font-size: 39.5px; line-height: 1.22; color: #1E1B18; font-style: italic;">“From Google’s side, they are just algorithmic… I honestly don’t know anyone else externally who has as much insight.”</p>
+      <div style="display: flex; flex-direction: column; gap: 3px;">
+        <div style="font-size: 18px; font-weight: 700;">John Mueller</div>
+        <div style="font-size: 16px; color: #6B625A;">Google’s Senior Search Analyst and Spokesperson, on Knowledge Panels</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- What people say about Jason -->
+  <div style="padding: 0 120px 128px; display: flex; flex-direction: column; gap: 48px;">
+    <h2 style="font-family: 'Google Sans Flex', Arial, sans-serif; font-weight: 700; font-size: 48px; line-height: 1.08; letter-spacing: -0.01em;">What people say about Jason</h2>
+    <div style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 48px;">
+      <div style="display: flex; flex-direction: column; justify-content: space-between; gap: 28px;">
+        <p style="font-weight: 400; font-family: 'Source Serif 4', Georgia, serif; font-size: 25px; line-height: 1.36; color: #1E1B18; font-style: italic;">“I’ve been a member of the Entrepreneurs’ Organization for over 30 years, so I’ve heard a lot of talks… Jason’s talk ranks near the very top, WAY up there, in terms of actionable insights that can truly drive business growth.”</p>
+        <div style="display: flex; align-items: center; gap: 16px; border-top: 1px solid #E2DBD2; padding-top: 20px;">
+          <div style="position: relative; width: 56px; height: 56px; flex-shrink: 0;" role="img" aria-label="Placeholder: client photo still needed"><svg viewBox="0 0 60 60" width="56" height="56" aria-hidden="true" style="display: block; border-radius: 50%;"><rect width="60" height="60" fill="#E97F5E"></rect><circle cx="30" cy="23" r="10" fill="#FFF3EE"></circle><path d="M10 60c1.5-12 10-19 20-19s18.5 7 20 19z" fill="#FFF3EE"></path></svg><span style="position: absolute; left: 50%; bottom: -8px; transform: translateX(-50%); background: #FFFFFF; color: #B7482A; border: 1px solid #E97F5E; font-size: 9.5px; font-weight: 700; letter-spacing: 0.08em; padding: 1px 7px; border-radius: 999px; white-space: nowrap;">PHOTO</span></div>
+          <div style="display: flex; flex-direction: column; gap: 3px;">
+            <div style="font-size: 17px; font-weight: 700;">Brian Scudamore</div>
+            <div style="font-size: 15px; color: #6B625A;">Founder and CEO, 1-800-GOT-JUNK?</div>
+          </div>
+        </div>
+      </div>
+      <div style="display: flex; flex-direction: column; justify-content: space-between; gap: 28px;">
+        <p style="font-weight: 400; font-family: 'Source Serif 4', Georgia, serif; font-size: 25px; line-height: 1.36; color: #1E1B18; font-style: italic;">“Nobody understands how Google and AI actually see you better than Jason Barnard… Jason is the only person I’ve found who shows you how to take control of that narrative instead of getting blindsided by it.”</p>
+        <div style="display: flex; align-items: center; gap: 16px; border-top: 1px solid #E2DBD2; padding-top: 20px;">
+          <div style="position: relative; width: 56px; height: 56px; flex-shrink: 0;" role="img" aria-label="Placeholder: client photo still needed"><svg viewBox="0 0 60 60" width="56" height="56" aria-hidden="true" style="display: block; border-radius: 50%;"><rect width="60" height="60" fill="#E97F5E"></rect><circle cx="30" cy="23" r="10" fill="#FFF3EE"></circle><path d="M10 60c1.5-12 10-19 20-19s18.5 7 20 19z" fill="#FFF3EE"></path></svg><span style="position: absolute; left: 50%; bottom: -8px; transform: translateX(-50%); background: #FFFFFF; color: #B7482A; border: 1px solid #E97F5E; font-size: 9.5px; font-weight: 700; letter-spacing: 0.08em; padding: 1px 7px; border-radius: 999px; white-space: nowrap;">PHOTO</span></div>
+          <div style="display: flex; flex-direction: column; gap: 3px;">
+            <div style="font-size: 17px; font-weight: 700;">Nick Berry</div>
+            <div style="font-size: 15px; color: #6B625A;">Entrepreneur and business advisor, Redesigned.Business</div>
+          </div>
+        </div>
+      </div>
+      <div style="display: flex; flex-direction: column; justify-content: space-between; gap: 28px;">
+        <p style="font-weight: 400; font-family: 'Source Serif 4', Georgia, serif; font-size: 25px; line-height: 1.36; color: #1E1B18; font-style: italic;">“Jason was absolutely fantastic! He was the top rated speaker at our latest AI conference. I highly recommend bringing Jason to your next meeting or event.”</p>
+        <div style="display: flex; align-items: center; gap: 16px; border-top: 1px solid #E2DBD2; padding-top: 20px;">
+          <div style="position: relative; width: 56px; height: 56px; flex-shrink: 0;" role="img" aria-label="Placeholder: client photo still needed"><svg viewBox="0 0 60 60" width="56" height="56" aria-hidden="true" style="display: block; border-radius: 50%;"><rect width="60" height="60" fill="#E97F5E"></rect><circle cx="30" cy="23" r="10" fill="#FFF3EE"></circle><path d="M10 60c1.5-12 10-19 20-19s18.5 7 20 19z" fill="#FFF3EE"></path></svg><span style="position: absolute; left: 50%; bottom: -8px; transform: translateX(-50%); background: #FFFFFF; color: #B7482A; border: 1px solid #E97F5E; font-size: 9.5px; font-weight: 700; letter-spacing: 0.08em; padding: 1px 7px; border-radius: 999px; white-space: nowrap;">PHOTO</span></div>
+          <div style="display: flex; flex-direction: column; gap: 3px;">
+            <div style="font-size: 17px; font-weight: 700;">Scott Duffy</div>
+            <div style="font-size: 15px; color: #6B625A;">CEO and Founder, AI Mavericks</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Recognition -->
+  <div style="padding: 0 120px 128px; display: flex; flex-direction: column; gap: 40px;">
+    <h2 style="font-family: 'Google Sans Flex', Arial, sans-serif; font-weight: 700; font-size: 48px; line-height: 1.08; letter-spacing: -0.01em;">Recognition</h2>
+    <div style="display: flex; flex-direction: column;">
+      <div style="display: flex; gap: 40px; align-items: baseline; padding: 26px 0; border-top: 1px solid #E2DBD2;">
+        <div style="font-weight: 500; font-family: 'Google Sans Flex', Arial, sans-serif; font-size: 36px; color: #990000; width: 110px; flex-shrink: 0;">2026</div>
+        <div style="font-size: 19px; font-weight: 700; width: 360px; flex-shrink: 0;">Webflow</div>
+        <div style="font-size: 18px; line-height: 1.5; color: #4A433C;">Named a Voice to Watch in Answer Engine Optimisation, the term Jason coined in 2017</div>
+      </div>
+      <div style="display: flex; gap: 40px; align-items: baseline; padding: 26px 0; border-top: 1px solid #E2DBD2;">
+        <div style="font-weight: 500; font-family: 'Google Sans Flex', Arial, sans-serif; font-size: 36px; color: #990000; width: 110px; flex-shrink: 0;">2025</div>
+        <div style="font-size: 19px; font-weight: 700; width: 360px; flex-shrink: 0;">Kevin Harrington, the original Shark</div>
+        <div style="font-size: 18px; line-height: 1.5; color: #4A433C;">Spotlighted Jason as a top global entrepreneur to watch</div>
+      </div>
+      <div style="display: flex; gap: 40px; align-items: baseline; padding: 26px 0; border-top: 1px solid #E2DBD2;">
+        <div style="font-weight: 500; font-family: 'Google Sans Flex', Arial, sans-serif; font-size: 36px; color: #990000; width: 110px; flex-shrink: 0;">2025</div>
+        <div style="font-size: 19px; font-weight: 700; width: 360px; flex-shrink: 0;">Authoritas</div>
+        <div style="font-size: 18px; line-height: 1.5; color: #4A433C;">Ranked the most cited expert on AI assistive engines, by Weighted Citability Score</div>
+      </div>
+      <div style="display: flex; gap: 40px; align-items: baseline; padding: 26px 0; border-top: 1px solid #E2DBD2; border-bottom: 1px solid #E2DBD2;">
+        <div style="font-weight: 500; font-family: 'Google Sans Flex', Arial, sans-serif; font-size: 36px; color: #990000; width: 110px; flex-shrink: 0;">2024</div>
+        <div style="font-size: 19px; font-weight: 700; width: 360px; flex-shrink: 0;">Search Engine Land</div>
+        <div style="font-size: 18px; line-height: 1.5; color: #4A433C;">Named a Top SEO Expert of 2024</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Work with Kalicube -->
+  <div style="padding: 0 120px 128px;">
+    <div class="scribble-light" style="background-color: #990000; color: #FFFFFF; border-radius: 10px; padding: 88px 96px; display: flex; justify-content: space-between; align-items: center; gap: 80px;">
+      <div style="display: flex; flex-direction: column; gap: 20px; max-width: 720px;">
+        <h2 style="font-family: 'Google Sans Flex', Arial, sans-serif; font-weight: 700; font-size: 48px; line-height: 1.08; letter-spacing: -0.01em;">What Jason does for his own brand, Kalicube does for yours.</h2>
+        <p style="font-size: 20px; line-height: 1.6; color: rgba(255,255,255,0.88);">Kalicube’s team applies Jason’s methodology with Kalicube Pro, the platform he built, and has been doing this work since 2015.</p>
+      </div>
+      <a href="../apply/" style="font-family: 'DM Mono', Menlo, monospace; display: flex; align-items: center; gap: 10px; background: #E8AA2E; color: #1E1B18; padding: 20px 32px; border-radius: 999px; font-size: 17px; font-weight: 500; white-space: nowrap; flex-shrink: 0; letter-spacing: -0.01em;">
+        <span>Apply to work with Jason’s team</span>
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+      </a>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <div style="background: #1E1B18; color: rgba(255,255,255,0.72); padding: 72px 120px 48px; display: flex; flex-direction: column; gap: 56px;">
+    <div style="display: flex; justify-content: space-between; align-items: flex-start; gap: 64px;">
+      <div style="display: flex; align-items: center; gap: 16px;">
+        <img src="images/jason.jpg" alt="Jason Barnard" style="width: 56px; height: 56px; border-radius: 50%; object-fit: cover; object-position: 50% 30%; display: block;">
+        <div style="display: flex; flex-direction: column; gap: 2px;">
+          <div style="font-family: 'Google Sans Flex', Arial, sans-serif; font-size: 20px; font-weight: 700; color: #FFFFFF;">Jason Barnard</div>
+          <div style="font-size: 15px;">Founder and CEO, Kalicube</div>
+        </div>
+      </div>
+      <div style="display: flex; gap: 48px; font-size: 15px;">
+        <span>Speaking</span><span>Writing</span><span>Books</span><span>Free guides</span><span>Kalicube</span><span>Contact</span>
+      </div>
+    </div>
+    <div style="display: flex; justify-content: space-between; font-size: 14px; color: rgba(255,255,255,0.6); border-top: 1px solid rgba(255,255,255,0.12); padding-top: 28px;">
+      <span>© 2026 Jason Barnard</span>
+      <span>Privacy · Legal</span>
+    </div>
+  </div>
+
+</div>
+</div>
+</body>
+</html>
