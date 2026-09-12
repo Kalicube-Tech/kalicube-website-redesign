@@ -23,15 +23,17 @@
   .name { font-weight: 700; font-size: 17px; }
   .group { display: flex; flex-wrap: wrap; align-items: center; gap: 6px; }
   .label { font-size: 12px; letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted); margin-right: 4px; }
-  button { font: inherit; font-size: 14px; color: var(--ink); background: var(--bar); border: 1px solid var(--rule); border-radius: 999px; padding: 6px 13px; cursor: pointer; }
+  select { font: inherit; font-size: 15px; font-weight: 700; color: var(--ink); background: var(--bar) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath d='M2.5 4.5L6 8l3.5-3.5' fill='none' stroke='%231B2A4A' stroke-width='1.6' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") no-repeat right 14px center; border: 1px solid var(--rule); border-radius: 999px; padding: 8px 38px 8px 16px; appearance: none; -webkit-appearance: none; cursor: pointer; min-width: 260px; }
+  select:hover { border-color: var(--ink); }
+  select:focus-visible { outline: 2px solid var(--gold); outline-offset: 2px; }
+  button { font: inherit; font-size: 15px; font-weight: 700; color: var(--ink); background: var(--bar); border: 1px solid var(--rule); border-radius: 999px; padding: 8px 16px; cursor: pointer; }
   button:hover { border-color: var(--ink); }
   button:focus-visible { outline: 2px solid var(--gold); outline-offset: 2px; }
   button[aria-pressed="true"] { background: var(--on); border-color: var(--on); color: var(--on-ink); }
-  .font button { font-size: 15px; font-weight: 700; padding: 8px 16px; }
-  .font button[data-font="dm"] { font-family: 'DM Sans', Arial, sans-serif; }
-  .font button[data-font="ubuntu"] { font-family: 'Ubuntu', Arial, sans-serif; font-weight: 500; }
-  .font button[data-font="google"] { font-family: 'Google Sans Flex', Arial, sans-serif; }
-  .font button .key { font-weight: 400; opacity: 0.6; margin-right: 6px; }
+  button[data-font="dm"] { font-family: 'DM Sans', Arial, sans-serif; }
+  button[data-font="ubuntu"] { font-family: 'Ubuntu', Arial, sans-serif; font-weight: 500; }
+  button[data-font="google"] { font-family: 'Google Sans Flex', Arial, sans-serif; }
+  button .key { font-weight: 400; opacity: 0.6; margin-right: 6px; }
   .hint { color: var(--muted); font-size: 13px; margin-left: auto; }
   kbd { font: inherit; font-weight: 700; border: 1px solid var(--rule); border-bottom-width: 2px; border-radius: 4px; padding: 0 5px; background: var(--bar); }
   .stage { position: relative; flex: 1; min-height: 0; }
@@ -44,8 +46,8 @@
 <body>
 <header>
   <div class="name">Font Flip</div>
-  <div class="group" id="pages" role="group" aria-label="Page"><span class="label">Page</span></div>
-  <div class="group font" role="group" aria-label="Font">
+  <label class="group"><span class="label">Page</span><select id="page" aria-label="Page"></select></label>
+  <div class="group" role="group" aria-label="Font">
     <span class="label">Font</span>
     <button type="button" data-font="dm" aria-pressed="true"><span class="key">1</span>DM Sans</button>
     <button type="button" data-font="arial" aria-pressed="false"><span class="key">2</span>Arial</button>
@@ -62,22 +64,23 @@
 </main>
 <script>
   var PAGES = [
-    ['kalicube.com', ''],
-    ['jasonbarnard.com', 'jasonbarnard/'],
-    ['kalicube.pro', 'kalicubepro/'],
-    ['Strategy Plus', 'strategy-plus/'],
-    ['Application', 'apply/'],
-    ['Name change page', 'landing/changed-my-name/'],
-    ['Reputation page', 'landing/reputation/'],
-    ['Compare: companies', 'compare/companies/'],
-    ['Compare: entrepreneurs', 'compare/entrepreneurs/']
+    ['kalicube.com', 'Homepage', ''],
+    ['kalicube.com', 'Strategy Plus', 'strategy-plus/'],
+    ['kalicube.com', 'Application page', 'apply/'],
+    ['kalicube.com', 'Compare: for companies', 'compare/companies/'],
+    ['kalicube.com', 'Compare: for entrepreneurs', 'compare/entrepreneurs/'],
+    ['kalicube.com', 'Landing page: I’ve changed my name', 'landing/changed-my-name/'],
+    ['kalicube.com', 'Landing page: the one bad story', 'landing/reputation/'],
+    ['jasonbarnard.com', 'Homepage', 'jasonbarnard/'],
+    ['kalicube.pro', 'Homepage, with how Kalicube Pro works', 'kalicubepro/'],
+    ['For the team', 'Mind, Machine, Practice', 'mind-machine-practice/']
   ];
   var ORDER = ['dm', 'arial', 'ubuntu', 'google'];
   var FILES = { dm: 'index.html', arial: 'index-arial.html', ubuntu: 'index-ubuntu.html', google: 'index-google.html' };
   var frames = {};
   ORDER.forEach(function (k) { frames[k] = document.getElementById(k); });
   var shown = 'dm';
-  var pageBar = document.getElementById('pages');
+  var select = document.getElementById('page');
 
   function win(k) { try { return frames[k].contentWindow; } catch (e) { return null; } }
 
@@ -100,7 +103,7 @@
     syncFrom(shown);
     ORDER.forEach(function (o) { frames[o].classList.toggle('off', o !== k); });
     shown = k;
-    document.querySelectorAll('.font button').forEach(function (b) { b.setAttribute('aria-pressed', String(b.dataset.font === k)); });
+    document.querySelectorAll('[data-font]').forEach(function (b) { b.setAttribute('aria-pressed', String(b.dataset.font === k)); });
   }
 
   function onKey(e) {
@@ -125,21 +128,26 @@
   document.addEventListener('keydown', onKey);
 
   function load(i) {
-    var path = '../' + PAGES[i][1];
+    var path = '../' + PAGES[i][2];
     ORDER.forEach(function (k) { frames[k].src = path + FILES[k]; });
-    pageBar.querySelectorAll('button').forEach(function (b, j) { b.setAttribute('aria-pressed', String(j === i)); });
+    select.value = String(i);
     try { localStorage.setItem('font-flip-page', String(i)); } catch (e) {}
   }
 
+  var groups = {};
   PAGES.forEach(function (p, i) {
-    var b = document.createElement('button');
-    b.type = 'button';
-    b.textContent = p[0];
-    b.setAttribute('aria-pressed', 'false');
-    b.addEventListener('click', function () { load(i); });
-    pageBar.appendChild(b);
+    if (!groups[p[0]]) {
+      groups[p[0]] = document.createElement('optgroup');
+      groups[p[0]].label = p[0];
+      select.appendChild(groups[p[0]]);
+    }
+    var o = document.createElement('option');
+    o.value = String(i);
+    o.textContent = p[1];
+    groups[p[0]].appendChild(o);
   });
-  document.querySelectorAll('.font button').forEach(function (b) { b.addEventListener('click', function () { show(b.dataset.font); }); });
+  select.addEventListener('change', function () { load(Number(select.value)); select.blur(); });
+  document.querySelectorAll('[data-font]').forEach(function (b) { b.addEventListener('click', function () { show(b.dataset.font); }); });
 
   var start = 0;
   try { start = Math.min(PAGES.length - 1, Math.max(0, parseInt(localStorage.getItem('font-flip-page') || '0', 10) || 0)); } catch (e) {}
