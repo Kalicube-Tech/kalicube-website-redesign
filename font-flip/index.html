@@ -147,7 +147,8 @@
   function load(i) {
     current = (i + PAGES.length) % PAGES.length;
     var path = '../' + PAGES[current][2];
-    ORDER.forEach(function (k) { frames[k].src = path + FILES[k]; });
+    var fresh = '?v=' + Date.now();
+    ORDER.forEach(function (k) { frames[k].src = path + FILES[k] + fresh; });
     pageBar.querySelectorAll('button').forEach(function (b) { b.toggleAttribute('aria-current', Number(b.dataset.i) === current); if (Number(b.dataset.i) === current) b.setAttribute('aria-current', 'page'); });
     try { localStorage.setItem('font-flip-page', String(current)); } catch (e) {}
   }
