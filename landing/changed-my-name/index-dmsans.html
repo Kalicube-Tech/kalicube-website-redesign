@@ -20,6 +20,8 @@
     .hero > * { position: relative; z-index: 1; }
     .hero > *:nth-child(3) { z-index: 2; }
     .hero > .hero-bg { position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 0; }
+    .hero > img.hero-bg { left: var(--split, 50%); width: calc(100% - var(--split, 50%)); }
+    .hero > *:nth-child(3) { background-color: inherit; }
   </style>
 <style>
   /* Desktop mockup authored at 1440px: scale it down to fit narrower windows. */
@@ -64,9 +66,9 @@
 <div style="width: 1440px; background: #FFFFFF; color: #1B2A4A;">
 
   <!-- Navigation + hero -->
-  <section class="hero" style="background: #0F1830; color: #FFFFFF;">
+  <section class="hero" style="--split: 50%; background: #0F1830; color: #FFFFFF;">
     <img class="hero-bg" src="images/hero-name-change.jpg" alt="" style="object-fit: cover; object-position: center 35%; display: block;">
-    <div class="hero-bg" style="background: linear-gradient(90deg, rgba(15,24,48,0.97) 0%, rgba(15,24,48,0.9) 40%, rgba(15,24,48,0.62) 72%, rgba(15,24,48,0.45) 100%);"></div>
+    <div class="hero-bg" style="background: linear-gradient(90deg, rgb(15,24,48) 0%, rgb(15,24,48) var(--split, 50%), rgba(15,24,48,0.55) calc(var(--split, 50%) + 4%), rgba(15,24,48,0) calc(var(--split, 50%) + 10%));"></div>
     <div style="height: 96px; padding: 0 120px; display: flex; align-items: center; justify-content: space-between;">
       <a href="../../" style="display: block;"><img src="images/logo.png" alt="Kalicube, Digital Brand Engineers" style="height: 42px; width: auto; display: block; filter: brightness(0) invert(1);"></a>
       <a href="../../apply/" class="act" style="font-family: Arial, 'Helvetica Neue', Helvetica, sans-serif; background: #E8AA2E; color: #0F1830; border-radius: 999px; padding: 12px 24px; font-size: 15px; font-weight: 700; white-space: nowrap; letter-spacing: 0;">Book a call</a>
@@ -93,7 +95,7 @@
           </div>
           <div style="font-family: 'Caveat', 'Bradley Hand', cursive; font-size: 29px; font-weight: 600; line-height: 1.1; color: #BA7517; transform: rotate(-2deg); transform-origin: left center;">Same person. One story, both names.</div>
         </div>
-        <p style="font-size: 14px; line-height: 1.5; color: rgba(255,255,255,0.6);">Example: the answer before the record is corrected, marked up the way we fix it.</p>
+        <p style="font-size: 14px; line-height: 1.5; color: rgba(255,255,255,0.85); background: rgba(15,24,48,0.88); padding: 6px 12px; border-radius: 6px; align-self: flex-start;">Example: the answer before the record is corrected, marked up the way we fix it.</p>
       </div>
     </div>
   </section>

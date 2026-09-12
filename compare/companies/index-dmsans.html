@@ -25,6 +25,8 @@
     .hero > * { position: relative; z-index: 1; }
     .hero > *:nth-child(3) { z-index: 2; }
     .hero > .hero-bg { position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 0; }
+    .hero > img.hero-bg { left: var(--split, 50%); width: calc(100% - var(--split, 50%)); }
+    .hero > *:nth-child(3) { background-color: inherit; }
   </style>
 <style>
   /* Desktop mockup authored at 1440px: scale it down to fit narrower windows. */
@@ -69,9 +71,9 @@
 <div style="width: 1440px; background: #FFFFFF; color: #1B2A4A;">
 
   <!-- Navigation + hero -->
-  <section class="hero" style="background: #0F1830; color: #FFFFFF;">
+  <section class="hero" style="--split: 58%; background: #0F1830; color: #FFFFFF;">
     <img class="hero-bg" src="images/hero-compare-companies.jpg" alt="" style="object-fit: cover; object-position: center; display: block;">
-    <div class="hero-bg" style="background: linear-gradient(90deg, rgba(15,24,48,0.97) 0%, rgba(15,24,48,0.9) 40%, rgba(15,24,48,0.62) 72%, rgba(15,24,48,0.45) 100%);"></div>
+    <div class="hero-bg" style="background: linear-gradient(90deg, rgb(15,24,48) 0%, rgb(15,24,48) var(--split, 50%), rgba(15,24,48,0.55) calc(var(--split, 50%) + 4%), rgba(15,24,48,0) calc(var(--split, 50%) + 10%));"></div>
     <div style="height: 96px; padding: 0 120px; display: flex; align-items: center; justify-content: space-between; border-bottom: 1px solid rgba(255,255,255,0.08);">
       <a href="../../" style="display: block;"><img src="images/logo.png" alt="Kalicube, Digital Brand Engineers" style="height: 44px; width: auto; display: block; filter: brightness(0) invert(1);"></a>
       <div style="display: flex; align-items: center; gap: 32px; font-size: 16px; font-weight: 500; white-space: nowrap;">
@@ -91,13 +93,13 @@
       </div>
     </div>
 
-    <div style="padding: 96px 120px 112px; display: flex; flex-direction: column; gap: 30px; max-width: 1120px;">
+    <div style="padding: 96px 120px 112px; display: flex; flex-direction: column; gap: 30px; max-width: 700px;">
       <div style="display: flex; align-items: center; gap: 4px; align-self: flex-start; border: 1px solid rgba(255,255,255,0.28); border-radius: 999px; padding: 4px; font-size: 15px; font-weight: 700;">
         <span style="background: #FFFFFF; color: #0F1830; border-radius: 999px; padding: 8px 18px;">For companies</span>
         <a href="../entrepreneurs/" style="color: #FFFFFF; border-radius: 999px; padding: 8px 18px;">For entrepreneurs</a>
       </div>
       <div style="font-size: 13px; font-weight: 500; letter-spacing: 0.08em; color: #E8AA2E;">HOW KALICUBE COMPARES</div>
-      <p style="font-weight: 700; font-size: 68px; line-height: 1.03; letter-spacing: -0.015em;">We engineer cornerstone brands in depth, <span style="color: #E8AA2E;">for long-term growth.</span></p>
+      <p style="font-weight: 700; font-size: 58px; line-height: 1.03; letter-spacing: -0.015em;">We engineer cornerstone brands in depth, <span style="color: #E8AA2E;">for long-term growth.</span></p>
       <h1 style="font-size: 22px; line-height: 1.4; font-weight: 500; letter-spacing: 0; color: rgba(255,255,255,0.92); max-width: 780px;">How Kalicube compares with WordLift, InLinks, Schema App, Yext, Five Blocks, ReputationX, Profound and Otterly</h1>
       <p style="font-size: 22px; line-height: 1.58; color: rgba(255,255,255,0.85); max-width: 860px;">Across the LLMs, search and the knowledge graph that together produce the AI answers your audience sees. Every firm on this page is good at its corner. We engineer the whole of it.</p>
       <p style="font-size: 18px; line-height: 1.6; color: rgba(255,255,255,0.65); max-width: 760px;">This page will point some readers elsewhere. That’s the page doing its job.</p>
