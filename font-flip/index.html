@@ -121,7 +121,6 @@
     buttonFont = BUTTON_CSS.hasOwnProperty(v) ? v : 'arial';
     buttonSelect.value = buttonFont;
     ORDER.forEach(styleButtons);
-    try { localStorage.setItem('font-flip-action', buttonFont); } catch (e) {}
   }
 
   function win(k) { try { return frames[k].contentWindow; } catch (e) { return null; } }
@@ -142,7 +141,6 @@
 
   function show(k) {
     fontSelect.value = k;
-    try { localStorage.setItem('font-flip-house-font', k); } catch (e) {}
     if (k === shown) return;
     syncFrom(shown);
     ORDER.forEach(function (o) { frames[o].classList.toggle('off', o !== k); });
@@ -244,18 +242,15 @@
   fontSelect.addEventListener('change', function () { show(fontSelect.value); fontSelect.blur(); });
   buttonSelect.addEventListener('change', function () { setButtons(buttonSelect.value); buttonSelect.blur(); });
 
-  var startPage = 0, startFont = 'google';
+  // Every visit opens in the house fonts: Google Sans Flex, with Arial Bold buttons.
+  var startPage = 0;
   try {
     startPage = Math.min(PAGES.length - 1, Math.max(0, parseInt(localStorage.getItem('font-flip-page') || '0', 10) || 0));
-    var f = localStorage.getItem('font-flip-house-font');
-    if (ORDER.indexOf(f) >= 0) startFont = f;
   } catch (e) {}
   if (pageFromUrl() >= 0) startPage = pageFromUrl();
   load(startPage);
-  show(startFont);
-  var startButtons = 'arial';
-  try { startButtons = localStorage.getItem('font-flip-action') || 'arial'; } catch (e) {}
-  setButtons(startButtons);
+  show('google');
+  setButtons('arial');
 </script>
 </body>
 </html>
