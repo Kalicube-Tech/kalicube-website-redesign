@@ -29,14 +29,16 @@
   button[aria-pressed="true"] { background: var(--on); border-color: var(--on); color: var(--on-ink); }
   .font button { font-size: 15px; font-weight: 700; padding: 8px 18px; }
   .font button[data-font="dm"] { font-family: 'DM Sans', Arial, sans-serif; }
+  .font button[data-font="ubuntu"] { font-family: 'Ubuntu', Arial, sans-serif; font-weight: 500; }
+  .font button .key { font-weight: 400; opacity: 0.6; margin-right: 6px; }
   .hint { color: var(--muted); font-size: 13px; margin-left: auto; }
   kbd { font: inherit; font-weight: 700; border: 1px solid var(--rule); border-bottom-width: 2px; border-radius: 4px; padding: 0 5px; background: var(--bar); }
   .stage { position: relative; flex: 1; min-height: 0; }
   iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; background: #FFFFFF; }
   iframe.off { visibility: hidden; }
-  @media (max-width: 760px) { .hint { display: none; } }
+  @media (max-width: 900px) { .hint { display: none; } }
 </style>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,700&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,700&family=Ubuntu:wght@500&display=swap">
 </head>
 <body>
 <header>
@@ -44,14 +46,16 @@
   <div class="group" id="pages" role="group" aria-label="Page"><span class="label">Page</span></div>
   <div class="group font" role="group" aria-label="Font">
     <span class="label">Font</span>
-    <button type="button" data-font="dm" aria-pressed="true">DM Sans</button>
-    <button type="button" data-font="arial" aria-pressed="false">Arial</button>
+    <button type="button" data-font="dm" aria-pressed="true"><span class="key">1</span>DM Sans</button>
+    <button type="button" data-font="arial" aria-pressed="false"><span class="key">2</span>Arial</button>
+    <button type="button" data-font="ubuntu" aria-pressed="false"><span class="key">3</span>Ubuntu and Arial</button>
   </div>
-  <div class="hint">Press <kbd>space</kbd> to flip at the same spot</div>
+  <div class="hint">Press <kbd>space</kbd> to flip at the same spot, or <kbd>1</kbd> <kbd>2</kbd> <kbd>3</kbd></div>
 </header>
 <main class="stage">
   <iframe id="dm" title="Page in DM Sans"></iframe>
   <iframe id="arial" class="off" title="Page in Arial"></iframe>
+  <iframe id="ubuntu" class="off" title="Page in Ubuntu and Arial"></iframe>
 </main>
 <script>
   var PAGES = [
@@ -62,39 +66,50 @@
     ['Application', 'apply/'],
     ['Landing page', 'landing/changed-my-name/']
   ];
-  var frames = { dm: document.getElementById('dm'), arial: document.getElementById('arial') };
+  var ORDER = ['dm', 'arial', 'ubuntu'];
+  var FILES = { dm: 'index.html', arial: 'index-arial.html', ubuntu: 'index-ubuntu.html' };
+  var frames = {};
+  ORDER.forEach(function (k) { frames[k] = document.getElementById(k); });
   var shown = 'dm';
   var pageBar = document.getElementById('pages');
 
-  function other(k) { return k === 'dm' ? 'arial' : 'dm'; }
   function win(k) { try { return frames[k].contentWindow; } catch (e) { return null; } }
 
   function syncFrom(k) {
-    var a = win(k), b = win(other(k));
-    if (!a || !b) return;
-    var da = a.document.documentElement, db = b.document.documentElement;
-    var maxA = da.scrollHeight - a.innerHeight, maxB = db.scrollHeight - b.innerHeight;
+    var a = win(k);
+    if (!a) return;
+    var da = a.document.documentElement;
+    var maxA = da.scrollHeight - a.innerHeight;
     var ratio = maxA > 0 ? a.scrollY / maxA : 0;
-    b.scrollTo(0, Math.round(ratio * Math.max(maxB, 0)));
+    ORDER.forEach(function (o) {
+      if (o === k) return;
+      var b = win(o);
+      if (!b) return;
+      var maxB = b.document.documentElement.scrollHeight - b.innerHeight;
+      b.scrollTo(0, Math.round(ratio * Math.max(maxB, 0)));
+    });
   }
 
   function show(k) {
     if (k === shown) return;
     syncFrom(shown);
-    frames[k].classList.remove('off');
-    frames[shown].classList.add('off');
+    ORDER.forEach(function (o) { frames[o].classList.toggle('off', o !== k); });
     shown = k;
     document.querySelectorAll('.font button').forEach(function (b) { b.setAttribute('aria-pressed', String(b.dataset.font === k)); });
   }
 
   function onKey(e) {
-    if (e.code === 'Space' && !/INPUT|TEXTAREA|SELECT|BUTTON/.test((e.target && e.target.tagName) || '')) {
+    var tag = (e.target && e.target.tagName) || '';
+    if (/INPUT|TEXTAREA|SELECT/.test(tag)) return;
+    if (e.code === 'Space' && tag !== 'BUTTON') {
       e.preventDefault();
-      show(other(shown));
+      show(ORDER[(ORDER.indexOf(shown) + 1) % ORDER.length]);
+    } else if (e.key === '1' || e.key === '2' || e.key === '3') {
+      show(ORDER[Number(e.key) - 1]);
     }
   }
 
-  Object.keys(frames).forEach(function (k) {
+  ORDER.forEach(function (k) {
     frames[k].addEventListener('load', function () {
       var w = win(k);
       if (!w) return;
@@ -106,8 +121,7 @@
 
   function load(i) {
     var path = '../' + PAGES[i][1];
-    frames.dm.src = path + 'index.html';
-    frames.arial.src = path + 'index-arial.html';
+    ORDER.forEach(function (k) { frames[k].src = path + FILES[k]; });
     pageBar.querySelectorAll('button').forEach(function (b, j) { b.setAttribute('aria-pressed', String(j === i)); });
     try { localStorage.setItem('font-flip-page', String(i)); } catch (e) {}
   }
