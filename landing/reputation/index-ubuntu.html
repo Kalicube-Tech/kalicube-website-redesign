@@ -1,0 +1,148 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>When people look me up, Google and AI lead with the one bad story (draft) · Ubuntu and Arial</title>
+<meta name="robots" content="noindex, nofollow">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,700&amp;family=Source+Serif+4:ital,opsz,wght@1,8..60,400&amp;family=DM+Mono:wght@400;500&amp;family=Caveat:wght@600&amp;display=swap">
+  <style>
+    html, body { margin: 0; background: #0F1830; }
+    body { font-family: Arial, Helvetica, sans-serif; -webkit-font-smoothing: antialiased;}
+    a { color: #1B2A4A; text-decoration: none; } a:hover { color: #BA7517; }
+    a:focus-visible { outline: 2px solid #E8AA2E; outline-offset: 4px; border-radius: 4px; }
+    h1, h2, h3, p { margin: 0; }
+    h1, h2 { text-wrap: balance; }
+    p { text-wrap: pretty; }
+    .struck { position: relative; display: inline-block; line-height: 1.2; text-decoration: line-through; text-decoration-color: #BA7517; text-decoration-thickness: 2.5px; }
+    .fix { position: absolute; left: 2px; top: -27px; font-family: 'Caveat', 'Bradley Hand', cursive; font-size: 27px; font-weight: 600; line-height: 1; color: #BA7517; white-space: nowrap; transform: rotate(-4deg); text-decoration: none; }
+  </style>
+<style>
+  /* Desktop mockup authored at 1440px: scale it down to fit narrower windows. */
+  html { background: #0F1830; scroll-behavior: smooth; }
+</style>
+<script>
+  function fitPage() {
+    var root = document.documentElement, body = document.body;
+    body.style.zoom = Math.min(1, root.clientWidth / 1440);
+    // A vertical scrollbar can appear after the first pass and narrow the page; fit again if so.
+    if (root.scrollWidth > root.clientWidth) body.style.zoom = Math.min(1, root.clientWidth / 1440);
+  }
+  window.addEventListener('resize', fitPage);
+  document.addEventListener('DOMContentLoaded', fitPage);
+  window.addEventListener('load', function () { requestAnimationFrame(fitPage); });
+</script>
+<script>
+  document.addEventListener('click', function (e) {
+    var trigger = e.target.closest('[data-yt]');
+    if (!trigger) return;
+    var id = trigger.getAttribute('data-yt');
+    var poster = document.querySelector('[data-yt-poster="' + id + '"]');
+    if (!poster) return;
+    e.preventDefault();
+    poster.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    if (poster.querySelector('iframe')) return;
+    var frame = document.createElement('iframe');
+    frame.src = 'https://www.youtube-nocookie.com/embed/' + id + '?autoplay=1&rel=0';
+    frame.allow = 'autoplay; encrypted-media; picture-in-picture; fullscreen';
+    frame.allowFullscreen = true;
+    frame.title = 'Jason Barnard reel';
+    frame.style.cssText = 'position:absolute;top:0;left:0;width:100%;height:100%;border:0;';
+    poster.removeAttribute('href');
+    poster.innerHTML = '';
+    poster.appendChild(frame);
+  });
+</script>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;500&display=swap">
+</head>
+<body>
+<div style="max-width: 1440px; margin: 0 auto;">
+<div style="width: 1440px; background: #FFFFFF; color: #1B2A4A;">
+
+  <!-- Navigation + hero -->
+  <div style="background: #0F1830; color: #FFFFFF;">
+    <div style="height: 96px; padding: 0 120px; display: flex; align-items: center; justify-content: space-between;">
+      <a href="../../" style="display: block;"><img src="images/logo.png" alt="Kalicube, Digital Brand Engineers" style="height: 42px; width: auto; display: block; filter: brightness(0) invert(1);"></a>
+      <a href="#call" style="font-family: 'DM Mono', Menlo, monospace; background: #E8AA2E; color: #0F1830; border-radius: 999px; padding: 12px 24px; font-size: 15px; font-weight: 500; white-space: nowrap; letter-spacing: -0.01em;">Book a call</a>
+    </div>
+
+    <div style="padding: 64px 120px 120px; display: grid; grid-template-columns: minmax(0, 1fr) 560px; gap: 88px; align-items: center;">
+      <div style="display: flex; flex-direction: column; gap: 32px;">
+        <h1 style="font-family: 'Ubuntu', Arial, sans-serif; font-weight: 500; font-size: 62px; line-height: 1.05; letter-spacing: -0.01em;">When people look me up, Google and AI lead with the one bad story.</h1>
+        <p style="font-size: 21px; line-height: 1.62; color: rgba(255,255,255,0.82); max-width: 600px;">Someone Googles you before a meeting, or asks ChatGPT whether you can be trusted, and the first thing they get is an old dispute, a bad review or one unfair article. Your personal brand is years of good work, but the machines lead with the story that’s easiest to find.</p>
+      </div>
+
+      <!-- The record, corrected -->
+      <div style="display: flex; flex-direction: column; gap: 18px;">
+        <div style="background: #FFFFFF; color: #1B2A4A; border-radius: 6px; padding: 34px 40px 36px; box-shadow: 0 32px 64px rgba(0, 0, 0, 0.38); display: flex; flex-direction: column; gap: 22px;">
+          <div style="display: flex; flex-direction: column; gap: 8px;">
+            <div style="font-family: Arial, Helvetica, sans-serif; font-size: 12px; letter-spacing: 0.08em; color: #5A6680; font-weight: 500;">THE QUESTION</div>
+            <div style="font-family: 'Ubuntu', Arial, sans-serif; font-size: 23px; font-weight: 500;">Can I trust Dana Whitfield?</div>
+          </div>
+          <div style="height: 1px; background: #E3E7EE;"></div>
+          <div style="display: flex; flex-direction: column; gap: 4px;">
+            <div style="font-family: Arial, Helvetica, sans-serif; font-size: 12px; letter-spacing: 0.08em; color: #5A6680; font-weight: 500;">WHAT AI ANSWERS</div>
+            <div style="padding-top: 6px;">
+              <p style="font-size: 20px; line-height: 2.7; color: #1B2A4A;">Dana Whitfield runs a logistics firm in Leeds.</p>
+              <p style="font-size: 20px; line-height: 2.7; color: #1B2A4A;"><span class="struck">Serious allegations<span class="fix">A settled contract dispute</span></span> from a former business partner followed Whitfield in 2019.</p>
+              <p style="font-size: 20px; line-height: 2.7; color: #1B2A4A;">Reviews of the firm are <span class="struck">mixed<span class="fix">4.7 out of 5</span></span>.</p>
+            </div>
+          </div>
+          <div style="font-family: 'Caveat', 'Bradley Hand', cursive; font-size: 29px; font-weight: 600; line-height: 1.1; color: #BA7517; transform: rotate(-2deg); transform-origin: left center;">Nothing buried. The whole story, accurately.</div>
+        </div>
+        <p style="font-size: 14px; line-height: 1.5; color: rgba(255,255,255,0.6);">Example: the answer before the record is corrected, marked up the way we fix it.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- What's going on, and what we do -->
+  <div style="padding: 64px 120px 80px; display: flex; flex-direction: column;">
+    <div style="display: grid; grid-template-columns: 440px minmax(0, 1fr); gap: 96px; padding: 56px 0; border-bottom: 1px solid #E3E7EE;">
+      <h2 style="font-family: 'Ubuntu', Arial, sans-serif; font-weight: 500; font-size: 42px; line-height: 1.12;">Pushing it down the page no longer works</h2>
+      <p style="font-size: 20px; line-height: 1.7; color: #3A4660; max-width: 640px;">Traditional reputation management drowns the problem in content, hoping the bad result slips to page two. That worked when people scrolled through ten blue links. AI doesn’t scroll. It reads everything and writes one answer, and if the only detailed account of you is the bad one, that’s the one it repeats. Machines don’t count content. They look for the same answer in enough places, for long enough, to believe it.</p>
+    </div>
+    <div style="display: grid; grid-template-columns: 440px minmax(0, 1fr); gap: 96px; padding: 56px 0;">
+      <h2 style="font-family: 'Ubuntu', Arial, sans-serif; font-weight: 500; font-size: 42px; line-height: 1.12;">What we do about it</h2>
+      <p style="font-size: 20px; line-height: 1.7; color: #3A4660; max-width: 640px;">We don’t hide anything, and we don’t drown it. We correct the record. We build one complete, accurate account of who you are on your own website, with the structured data that tells machines it’s the source. We connect your profiles to it, and we put the difficult story in its context: what happened, how it ended and everything since. Then the answer AI gives has the whole truth to work from. We do the work. You tell us the story and approve it. We show you the change in Google and AI, measured against what you asked for.</p>
+    </div>
+  </div>
+
+  <!-- Call to action and proof -->
+  <div id="call" style="background: #1B2A4A; color: #FFFFFF; padding: 88px 120px 80px; display: flex; flex-direction: column; gap: 48px;">
+    <div style="display: flex; flex-direction: column; align-items: flex-start; gap: 22px;">
+      <a href="#" style="font-family: 'DM Mono', Menlo, monospace; display: flex; align-items: center; gap: 10px; background: #E8AA2E; color: #0F1830; padding: 20px 34px; border-radius: 999px; font-size: 18px; font-weight: 500; white-space: nowrap; letter-spacing: -0.01em;">
+        <span>Book a call</span>
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+      </a>
+      <p style="font-weight: 400; font-family: 'Ubuntu', Arial, sans-serif; font-size: 28px; line-height: 1.3; color: rgba(255,255,255,0.9); max-width: 760px;">To close the deal today, you need Google, ChatGPT and AI search on your side.</p>
+    </div>
+    <div style="border-top: 1px solid rgba(255,255,255,0.16); padding-top: 32px; display: flex; flex-direction: column; gap: 8px; max-width: 900px;">
+      <p style="font-size: 17px; line-height: 1.6; color: rgba(255,255,255,0.82);">The Kalicube team works on your brand using Kalicube Pro: 25 billion data points, and proprietary algorithms and technical infrastructure protected by 17 patent applications.</p>
+      <p style="font-size: 17px; line-height: 1.6; color: rgba(255,255,255,0.62);">Kalicube has been doing this since 2015. Jason Barnard has worked in search since 1998.</p>
+    </div>
+  </div>
+
+  <!-- Testimonials -->
+  <div style="padding: 104px 120px 112px; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 80px;">
+    <div style="display: flex; flex-direction: column; justify-content: space-between; gap: 24px;">
+      <p style="font-weight: 400; font-family: 'Source Serif 4', Georgia, serif; font-size: 29px; line-height: 1.3; color: #1B2A4A; font-style: italic;">“Your digital reputation is being shaped with or without you. Jason is the only person I’ve found who shows you how to take control of that narrative instead of getting blindsided by it.”</p>
+      <div style="display: flex; align-items: center; gap: 16px; border-top: 2px solid #BA7517; padding-top: 20px;"><div style="position: relative; width: 56px; height: 56px; flex-shrink: 0;" role="img" aria-label="Placeholder: client photo still needed"><svg viewBox="0 0 60 60" width="56" height="56" aria-hidden="true" style="display: block; border-radius: 50%;"><rect width="60" height="60" fill="#E97F5E"></rect><circle cx="30" cy="23" r="10" fill="#FFF3EE"></circle><path d="M10 60c1.5-12 10-19 20-19s18.5 7 20 19z" fill="#FFF3EE"></path></svg><span style="position: absolute; left: 50%; bottom: -8px; transform: translateX(-50%); background: #FFFFFF; color: #B7482A; border: 1px solid #E97F5E; font-size: 9.5px; font-weight: 700; letter-spacing: 0.08em; padding: 1px 7px; border-radius: 999px; white-space: nowrap;">PHOTO</span></div><div style="display: flex; flex-direction: column; gap: 3px;"><div style="font-size: 18px; font-weight: 700;">Nick Berry</div>
+        <div style="font-size: 16px; color: #5A6680;">Entrepreneur and business advisor, Redesigned.Business</div></div></div>
+    </div>
+    <div style="display: flex; flex-direction: column; justify-content: space-between; gap: 24px;">
+      <p style="font-weight: 400; font-family: 'Source Serif 4', Georgia, serif; font-size: 29px; line-height: 1.3; color: #1B2A4A; font-style: italic;">“Kalicube Pro changes the game in reputation management. Brand Reputation on Steroids.”</p>
+      <div style="display: flex; align-items: center; gap: 16px; border-top: 2px solid #BA7517; padding-top: 20px;"><div style="position: relative; width: 56px; height: 56px; flex-shrink: 0;" role="img" aria-label="Placeholder: client photo still needed"><svg viewBox="0 0 60 60" width="56" height="56" aria-hidden="true" style="display: block; border-radius: 50%;"><rect width="60" height="60" fill="#E97F5E"></rect><circle cx="30" cy="23" r="10" fill="#FFF3EE"></circle><path d="M10 60c1.5-12 10-19 20-19s18.5 7 20 19z" fill="#FFF3EE"></path></svg><span style="position: absolute; left: 50%; bottom: -8px; transform: translateX(-50%); background: #FFFFFF; color: #B7482A; border: 1px solid #E97F5E; font-size: 9.5px; font-weight: 700; letter-spacing: 0.08em; padding: 1px 7px; border-radius: 999px; white-space: nowrap;">PHOTO</span></div><div style="display: flex; flex-direction: column; gap: 3px;"><div style="font-size: 18px; font-weight: 700;">Andrea Volpini</div>
+        <div style="font-size: 16px; color: #5A6680;">CEO, WordLift</div></div></div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <div style="background: #0F1830; color: rgba(255,255,255,0.7); padding: 40px 120px 44px; display: flex; justify-content: space-between; align-items: center; font-size: 15px;">
+    <a href="../../" style="display: block;"><img src="images/logo.png" alt="Kalicube" style="height: 34px; width: auto; display: block; filter: brightness(0) invert(1);"></a>
+    <span style="color: rgba(255,255,255,0.6);">© 2026 Kalicube · Privacy · Terms</span>
+  </div>
+
+</div>
+</div>
+</body>
+</html>
