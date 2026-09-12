@@ -20,9 +20,15 @@
   html { background: #0F1830; scroll-behavior: smooth; }
 </style>
 <script>
-  function fitPage() { document.body.style.zoom = Math.min(1, document.documentElement.clientWidth / 1440); }
+  function fitPage() {
+    var root = document.documentElement, body = document.body;
+    body.style.zoom = Math.min(1, root.clientWidth / 1440);
+    // A vertical scrollbar can appear after the first pass and narrow the page; fit again if so.
+    if (root.scrollWidth > root.clientWidth) body.style.zoom = Math.min(1, root.clientWidth / 1440);
+  }
   window.addEventListener('resize', fitPage);
   document.addEventListener('DOMContentLoaded', fitPage);
+  window.addEventListener('load', function () { requestAnimationFrame(fitPage); });
 </script>
 <script>
   document.addEventListener('click', function (e) {
@@ -241,7 +247,7 @@
     <div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 36px 48px;">
       <div style="display: flex; flex-direction: column; gap: 8px; border-top: 2px solid #13243A; padding-top: 18px;">
         <h3 style="font-weight: 700; font-size: 20px;">SERP and AI Results, weekly</h3>
-        <p style="font-size: 16px; line-height: 1.6; color: #3A4A60;">What Google, Bing, ChatGPT, Gemini, Perplexity and the rest actually said this week, for each question set. The answers cite your site and other people’s pages, and we keep those apart: the website you own, and the profiles and articles you don’t.</p>
+        <p style="font-size: 16px; line-height: 1.6; color: #3A4A60;">What Google, Bing, ChatGPT, Gemini, Perplexity and the rest actually said this week, for each question set. This brand, in and of itself, not a scoreboard against one rival. The answers cite your site and other people’s pages, and we keep those apart: the website you own, and the profiles and articles you don’t.</p>
       </div>
       <div style="display: flex; flex-direction: column; gap: 8px; border-top: 2px solid #13243A; padding-top: 18px;">
         <h3 style="font-weight: 700; font-size: 20px;">Historical Brand SERP and Knowledge Panel</h3>
@@ -252,8 +258,40 @@
         <p style="font-size: 16px; line-height: 1.6; color: #3A4A60;">Where the name appears, on-site and off-site.</p>
       </div>
       <div style="display: flex; flex-direction: column; gap: 8px; border-top: 2px solid #13243A; padding-top: 18px;">
-        <h3 style="font-weight: 700; font-size: 20px;">Your audience and your market</h3>
-        <p style="font-size: 16px; line-height: 1.6; color: #3A4A60;">How AI perceives the group, not how to copy one company. Brand SERP Comparison and Knowledge Comparison run on your Audience and Active Market today; the Competitive Landscape and the Audience Landscape land in the next few weeks.</p>
+        <h3 style="font-weight: 700; font-size: 20px;">The questions we collect</h3>
+        <p style="font-size: 16px; line-height: 1.6; color: #3A4A60;">Kalicube mints the question sets and collects the answers. You still read how the story is going: Narrative Status, notes and your stage.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- See inside: 1. Collect, your audience and your market -->
+  <div style="background: #FFFFFF; padding: 112px 120px 120px; display: flex; flex-direction: column; gap: 56px; border-top: 1px solid #E1E8F0; border-bottom: 1px solid #E1E8F0;">
+    <div style="display: flex; gap: 96px; align-items: center;">
+      <div style="flex: 1; display: flex; flex-direction: column; gap: 18px;">
+        <div style="font-family: 'DM Mono', Menlo, monospace; font-size: 13px; letter-spacing: 0.06em; color: #1F6FA8;">EVERY FEATURE · 1 · COLLECT · YOUR AUDIENCE AND YOUR MARKET</div>
+        <h2 style="font-weight: 700; font-size: 40px; line-height: 1.1; letter-spacing: -0.02em;">How AI perceives the group, not how to copy one company</h2>
+        <p style="font-size: 18px; line-height: 1.65; color: #3A4A60;">We group the data around two claims: your Audience, who this is for, and your Active Market, the market you play in. Where the two cross is how you act correctly, address the right audience and position yourself according to the AI’s understanding of both.</p>
+        <p style="font-size: 18px; line-height: 1.65; color: #3A4A60;">You don’t chase one competitor. How AI perceives the competition as a group is how you act, and how it perceives the audience as a group is who you talk to, and where.</p>
+      </div>
+      <svg viewBox="0 0 460 300" width="460" height="300" role="img" aria-label="Two overlapping groups, Audience and Active Market. Where they overlap is where you act." style="display: block; flex-shrink: 0;">
+        <circle cx="170" cy="150" r="120" fill="#4FA8E0" fill-opacity="0.16" stroke="#1F6FA8" stroke-width="1.5"></circle>
+        <circle cx="290" cy="150" r="120" fill="#E8AA2E" fill-opacity="0.18" stroke="#BA7517" stroke-width="1.5"></circle>
+        <text x="110" y="146" text-anchor="middle" font-family="DM Sans, Arial, sans-serif" font-size="18" font-weight="700" fill="#13243A">Audience</text>
+        <text x="110" y="168" text-anchor="middle" font-family="DM Sans, Arial, sans-serif" font-size="13" fill="#52627A">who this is for</text>
+        <text x="352" y="146" text-anchor="middle" font-family="DM Sans, Arial, sans-serif" font-size="18" font-weight="700" fill="#13243A">Active Market</text>
+        <text x="352" y="168" text-anchor="middle" font-family="DM Sans, Arial, sans-serif" font-size="13" fill="#52627A">where you play</text>
+        <text x="230" y="146" text-anchor="middle" font-family="DM Mono, Menlo, monospace" font-size="12" letter-spacing="0.6" fill="#13243A">WHERE</text>
+        <text x="230" y="164" text-anchor="middle" font-family="DM Mono, Menlo, monospace" font-size="12" letter-spacing="0.6" fill="#13243A">YOU ACT</text>
+      </svg>
+    </div>
+    <div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 32px;">
+      <div style="background: #F5F8FB; border-radius: 10px; padding: 32px 36px; display: flex; flex-direction: column; gap: 12px;">
+        <div style="font-family: 'DM Mono', Menlo, monospace; font-size: 12px; letter-spacing: 0.06em; color: #1F6FA8;">HERE NOW</div>
+        <p style="font-size: 17px; line-height: 1.6; color: #3A4A60;"><span style="font-weight: 700; color: #13243A;">Brand SERP Comparison and Knowledge Comparison</span> on those groups, and <span style="font-weight: 700; color: #13243A;">Pillar Pages</span>, where Audience and Active Market get claimed. Kalicube fills in who is in each group.</p>
+      </div>
+      <div style="border: 1px dashed #B9C6D6; border-radius: 10px; padding: 32px 36px; display: flex; flex-direction: column; gap: 12px;">
+        <div style="font-family: 'DM Mono', Menlo, monospace; font-size: 12px; letter-spacing: 0.06em; color: #52627A;">IN THE NEXT FEW WEEKS</div>
+        <p style="font-size: 17px; line-height: 1.6; color: #3A4A60;">The <span style="font-weight: 700; color: #13243A;">Competitive Landscape</span> and the <span style="font-weight: 700; color: #13243A;">Audience Landscape</span>, read the way we already read you: how AI perceives the competitive group, and where the audience hangs out, what they do and what they engage with, according to the AI. Same Sunday collection.</p>
       </div>
     </div>
   </div>
@@ -300,7 +338,7 @@
       </div>
       <div style="display: flex; flex-direction: column; gap: 8px; border-top: 2px solid #13243A; padding-top: 18px;">
         <h3 style="font-weight: 700; font-size: 20px;">On-page Analyzer</h3>
-        <p style="font-size: 16px; line-height: 1.6; color: #3A4A60;">Any page on your site, or a page you control on someone else’s. Technical, content and the six trust signals (notability, experience, expertise, authoritativeness, trustworthiness and transparency), plus entities, sentiment and AI readability. Findings with quotes, not a score, analysed when you look.</p>
+        <p style="font-size: 16px; line-height: 1.6; color: #3A4A60;">Put in any page on your site, or a page you control on someone else’s, and it reads it the way a machine does: technical, content and the six trust signals (notability, experience, expertise, authoritativeness, trustworthiness and transparency), plus entities, sentiment and AI readability. You get findings with quotes, not a score, so you know exactly what that page needs. It runs when you look, not on every URL every Sunday.</p>
       </div>
       <div style="display: flex; flex-direction: column; gap: 8px; border-top: 2px solid #13243A; padding-top: 18px;">
         <h3 style="font-weight: 700; font-size: 20px;">Help and Ask</h3>
@@ -344,7 +382,7 @@
       </div>
       <div style="display: flex; flex-direction: column; gap: 8px; border-top: 2px solid #BA7517; padding-top: 18px;">
         <h3 style="font-weight: 700; font-size: 20px;">URL Optimizer</h3>
-        <p style="font-size: 16px; line-height: 1.6; color: #3A4A60;">The pages you can change now. Classify them, add a page and work from the top down. The On-page Analyzer tells you what to change.</p>
+        <p style="font-size: 16px; line-height: 1.6; color: #3A4A60;">The pages you can change now, on the websites you own and the profiles you control. Classify them, add a page and work from the top down. The On-page Analyzer tells you what to change.</p>
       </div>
     </div>
   </div>
