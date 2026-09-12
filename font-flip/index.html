@@ -22,7 +22,7 @@
   header { background: var(--bar); border-bottom: 1px solid var(--rule); padding: 10px 20px; display: grid; grid-template-columns: minmax(0, 1fr) auto; align-items: start; gap: 12px 32px; }
   .name { font-weight: 700; font-size: 17px; white-space: nowrap; }
   .pages { display: flex; flex-direction: column; gap: 6px; }
-  .site { display: flex; flex-wrap: wrap; align-items: center; gap: 6px; }
+  .site { display: flex; flex-wrap: nowrap; align-items: center; gap: 6px; overflow-x: auto; scrollbar-width: thin; padding-bottom: 2px; }
   .site-name { font-size: 12px; letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted); width: 136px; flex-shrink: 0; }
   .pages button { font: inherit; font-size: 13px; font-weight: 700; color: var(--ink); background: var(--bar); border: 1px solid var(--rule); border-radius: 999px; padding: 6px 13px; cursor: pointer; white-space: nowrap; }
   .font-top { display: flex; align-items: center; gap: 14px; }
@@ -38,7 +38,7 @@
   .stage { position: relative; flex: 1; min-height: 0; }
   iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; background: #FFFFFF; }
   iframe.off { visibility: hidden; }
-  @media (max-width: 900px) { header { grid-template-columns: minmax(0, 1fr); } .site-name { width: 100%; } .font { align-items: flex-start; } .hint { display: none; } }
+  @media (max-width: 900px) { header { grid-template-columns: minmax(0, 1fr); } .site-name { width: 104px; } .font { align-items: flex-start; } .hint { display: none; } }
 </style>
 </head>
 <body>
@@ -72,13 +72,13 @@
   var PAGES = [
     ['kalicube.com', 'Homepage', ''],
     ['kalicube.com', 'Strategy Plus', 'strategy-plus/'],
-    ['kalicube.com', 'For entrepreneurs', 'landing/lead-your-field/'],
-    ['kalicube.com', 'Application: entrepreneurs', 'apply/'],
-    ['kalicube.com', 'Application: companies', 'apply/companies/'],
+    ['kalicube.com', 'Entrepreneurs', 'landing/lead-your-field/'],
+    ['kalicube.com', 'Apply: entrepreneurs', 'apply/'],
+    ['kalicube.com', 'Apply: companies', 'apply/companies/'],
     ['kalicube.com', 'Compare: companies', 'compare/companies/'],
     ['kalicube.com', 'Compare: entrepreneurs', 'compare/entrepreneurs/'],
-    ['kalicube.com', 'Landing: name change', 'landing/changed-my-name/'],
-    ['kalicube.com', 'Landing: the one bad story', 'landing/reputation/'],
+    ['kalicube.com', 'Name change', 'landing/changed-my-name/'],
+    ['kalicube.com', 'One bad story', 'landing/reputation/'],
     ['jasonbarnard.com', 'Homepage', 'jasonbarnard/'],
     ['kalicube.pro', 'Homepage', 'kalicubepro/'],
     ['Team', 'Mind, Machine, Practice', 'mind-machine-practice/']

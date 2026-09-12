@@ -17,6 +17,6 @@ Draft redesigns of three homepages, one per audience: entrepreneurs (jasonbarnar
 
 Both are desktop mockups authored at 1440px wide; on narrower windows they scale down to fit. Photographs and logos come from kalicube.com and jasonbarnard.com, and the reel plays from YouTube when clicked.
 
-Hero photographs are free-licence photos from Unsplash (unsplash.com/license), downloaded 12 September 2026: name change, photo w3jVXGkYZCw; reputation, xj8qrWvuOEs by Bruce Mars; entrepreneurs, LlcpQWSWPUo by Vitaly Gariev; Strategy Plus, 5txln04Cx7I by Vitaly Gariev; application, _ObjhzjnMmc by Olawale Munna; compare for companies, omGSZqBXkqY by Vitaly Gariev; compare for entrepreneurs, ljXkKfbOlXs by Helen Cramer; kalicube.pro, JKUTrJ4vK00 by Luke Chesser. Each ID opens at unsplash.com/photos/ID.
+Hero photographs are free-licence photos from Unsplash (unsplash.com/license), downloaded 12 September 2026: name change, photo w3jVXGkYZCw; reputation, xj8qrWvuOEs by Bruce Mars; entrepreneurs (also used on compare for entrepreneurs), LlcpQWSWPUo by Vitaly Gariev; Strategy Plus, 5txln04Cx7I by Vitaly Gariev; application, _ObjhzjnMmc by Olawale Munna; compare for companies, omGSZqBXkqY by Vitaly Gariev; kalicube.pro, JKUTrJ4vK00 by Luke Chesser. Each ID opens at unsplash.com/photos/ID.
 
 These are design drafts, not the production sites. Every page is marked `noindex` so search engines are asked not to list it.
