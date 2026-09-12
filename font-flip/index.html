@@ -69,6 +69,7 @@
   var PAGES = [
     ['kalicube.com', 'Homepage', ''],
     ['kalicube.com', 'Strategy Plus', 'strategy-plus/'],
+    ['kalicube.com', 'For entrepreneurs', 'landing/lead-your-field/'],
     ['kalicube.com', 'Application', 'apply/'],
     ['kalicube.com', 'Compare: companies', 'compare/companies/'],
     ['kalicube.com', 'Compare: entrepreneurs', 'compare/entrepreneurs/'],
@@ -149,7 +150,31 @@
     var path = '../' + PAGES[current][2];
     var fresh = '?v=' + Date.now();
     ORDER.forEach(function (k) { frames[k].src = path + FILES[k] + fresh; });
-    pageBar.querySelectorAll('button').forEach(function (b) { b.toggleAttribute('aria-current', Number(b.dataset.i) === current); if (Number(b.dataset.i) === current) b.setAttribute('aria-current', 'page'); });
+    markTabs();
+  }
+
+  // A click inside a page (a toggle, a nav link) moves every font with it, keeps the chosen font and updates the tabs.
+  function followNavigation(k, w) {
+    var m = (w.location.pathname || '').match(/kalicube-website-redesign\/(.*?)(index(?:-[a-z]+)?\.html)?$/);
+    if (!m) return false;
+    var dir = m[1], file = m[2] || 'index.html';
+    var idx = -1;
+    PAGES.forEach(function (p, i) { if (p[2] === dir) idx = i; });
+    if (idx < 0) return false;
+    var fresh = '?v=' + Date.now();
+    if (k === shown && idx !== current) {
+      current = idx;
+      markTabs();
+      ORDER.forEach(function (o) { if (o !== k) frames[o].src = '../' + dir + FILES[o] + fresh; });
+    }
+    if (file !== FILES[k]) { frames[k].src = '../' + dir + FILES[k] + fresh; return true; }
+    return false;
+  }
+
+  function markTabs() {
+    pageBar.querySelectorAll('button').forEach(function (b) {
+      if (Number(b.dataset.i) === current) b.setAttribute('aria-current', 'page'); else b.removeAttribute('aria-current');
+    });
     try { localStorage.setItem('font-flip-page', String(current)); } catch (e) {}
   }
 
@@ -173,6 +198,7 @@
     frames[k].addEventListener('load', function () {
       var w = win(k);
       if (!w) return;
+      if (followNavigation(k, w)) return;
       w.addEventListener('scroll', function () { if (k === shown) syncFrom(k); }, { passive: true });
       w.document.addEventListener('keydown', onKey);
       styleButtons(k);
