@@ -55,9 +55,9 @@
       </select></label>
     </div>
     <label>Buttons <select id="buttons">
-      <option value="arial">Arial Bold (now)</option>
+      <option value="code">Google Sans Code (house button font)</option>
+      <option value="arial">Arial Bold</option>
       <option value="mono">DM Mono</option>
-      <option value="code">Google Sans Code</option>
     </select></label>
     <div class="hint"><kbd>←</kbd> <kbd>→</kbd> pages · <kbd>space</kbd> or <kbd>1</kbd>–<kbd>4</kbd> fonts · <kbd>B</kbd> buttons</div>
   </div>
@@ -98,8 +98,8 @@
     mono: "font-family: 'DM Mono', Menlo, monospace !important; font-weight: 500 !important; letter-spacing: -0.01em !important;",
     code: "font-family: 'Google Sans Code', Menlo, monospace !important; font-weight: 500 !important; letter-spacing: 0 !important;"
   };
-  var BUTTON_ORDER = ['arial', 'mono', 'code'];
-  var buttonFont = 'arial';
+  var BUTTON_ORDER = ['code', 'arial', 'mono'];
+  var buttonFont = 'code';
 
   function styleButtons(k) {
     var w = win(k);
@@ -242,7 +242,7 @@
   fontSelect.addEventListener('change', function () { show(fontSelect.value); fontSelect.blur(); });
   buttonSelect.addEventListener('change', function () { setButtons(buttonSelect.value); buttonSelect.blur(); });
 
-  // Every visit opens in the house fonts: Google Sans Flex, with Arial Bold buttons.
+  // Every visit opens in the house fonts: Google Sans Flex, with Google Sans Code buttons.
   var startPage = 0;
   try {
     startPage = Math.min(PAGES.length - 1, Math.max(0, parseInt(localStorage.getItem('font-flip-page') || '0', 10) || 0));
@@ -250,7 +250,7 @@
   if (pageFromUrl() >= 0) startPage = pageFromUrl();
   load(startPage);
   show('google');
-  setButtons('arial');
+  setButtons('code');
 </script>
 </body>
 </html>
