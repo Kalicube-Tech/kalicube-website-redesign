@@ -4,8 +4,7 @@ Draft redesigns of three homepages, one per audience: entrepreneurs (jasonbarnar
 
 - Kalicube: `index.html`, viewable at https://kalicube-tech.github.io/kalicube-website-redesign/
 - Jason Barnard: `jasonbarnard/index.html`, viewable at https://kalicube-tech.github.io/kalicube-website-redesign/jasonbarnard/
-- Kalicube Pro: `kalicubepro/index.html`, viewable at https://kalicube-tech.github.io/kalicube-website-redesign/kalicubepro/
-- How Kalicube Pro works (detailed explainer): `kalicubepro/how-it-works/index.html`, viewable at https://kalicube-tech.github.io/kalicube-website-redesign/kalicubepro/how-it-works/
+- Kalicube Pro, which explains how Kalicube Pro works in full: `kalicubepro/index.html`, viewable at https://kalicube-tech.github.io/kalicube-website-redesign/kalicubepro/ (the old `kalicubepro/how-it-works/` address redirects here)
 - Strategy Plus (the short pitch for companies, on kalicube.com): `strategy-plus/index.html`, viewable at https://kalicube-tech.github.io/kalicube-website-redesign/strategy-plus/
 - Application page (kalicube.com): `apply/index.html`, viewable at https://kalicube-tech.github.io/kalicube-website-redesign/apply/ (the form is a mockup and sends nothing)
 - Mind, Machine, Practice (the team reference on how Jason, Kalicube Pro and Kalicube fit together): `mind-machine-practice/index.html`, viewable at https://kalicube-tech.github.io/kalicube-website-redesign/mind-machine-practice/
