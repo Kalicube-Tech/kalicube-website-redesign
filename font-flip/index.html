@@ -19,68 +19,68 @@
   * { box-sizing: border-box; }
   html, body { margin: 0; height: 100%; }
   body { background: var(--ground); color: var(--ink); font: 15px/1.4 Arial, Helvetica, sans-serif; display: flex; flex-direction: column; }
-  header { background: var(--bar); border-bottom: 1px solid var(--rule); padding: 12px 20px; display: flex; flex-wrap: wrap; align-items: center; gap: 10px 28px; }
-  .name { font-weight: 700; font-size: 17px; }
-  .group { display: flex; flex-wrap: wrap; align-items: center; gap: 6px; }
-  .label { font-size: 12px; letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted); margin-right: 4px; }
-  select { font: inherit; font-size: 15px; font-weight: 700; color: var(--ink); background: var(--bar) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath d='M2.5 4.5L6 8l3.5-3.5' fill='none' stroke='%231B2A4A' stroke-width='1.6' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") no-repeat right 14px center; border: 1px solid var(--rule); border-radius: 999px; padding: 8px 38px 8px 16px; appearance: none; -webkit-appearance: none; cursor: pointer; min-width: 260px; }
+  header { background: var(--bar); border-bottom: 1px solid var(--rule); padding: 12px 20px; display: grid; grid-template-columns: auto minmax(0, 1fr) auto; align-items: start; gap: 12px 24px; }
+  .name { font-weight: 700; font-size: 17px; padding-top: 7px; white-space: nowrap; }
+  .pages { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 18px; }
+  .site { display: flex; flex-wrap: wrap; align-items: center; gap: 6px; }
+  .site-name { font-size: 12px; letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted); margin-right: 2px; }
+  .pages button { font: inherit; font-size: 14px; font-weight: 700; color: var(--ink); background: var(--bar); border: 1px solid var(--rule); border-radius: 999px; padding: 7px 14px; cursor: pointer; white-space: nowrap; }
+  .pages button:hover { border-color: var(--ink); }
+  .pages button[aria-current="page"] { background: var(--on); border-color: var(--on); color: var(--on-ink); }
+  button:focus-visible, select:focus-visible { outline: 2px solid var(--gold); outline-offset: 2px; }
+  .font { display: flex; flex-direction: column; align-items: flex-end; gap: 4px; }
+  .font label { display: flex; align-items: center; gap: 8px; font-size: 12px; letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted); }
+  select { font: inherit; font-size: 15px; font-weight: 700; color: var(--ink); background: var(--bar) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath d='M2.5 4.5L6 8l3.5-3.5' fill='none' stroke='%231B2A4A' stroke-width='1.6' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") no-repeat right 14px center; border: 1px solid var(--rule); border-radius: 999px; padding: 8px 38px 8px 16px; appearance: none; -webkit-appearance: none; cursor: pointer; min-width: 220px; text-transform: none; letter-spacing: 0; }
   select:hover { border-color: var(--ink); }
-  select:focus-visible { outline: 2px solid var(--gold); outline-offset: 2px; }
-  button { font: inherit; font-size: 15px; font-weight: 700; color: var(--ink); background: var(--bar); border: 1px solid var(--rule); border-radius: 999px; padding: 8px 16px; cursor: pointer; }
-  button:hover { border-color: var(--ink); }
-  button:focus-visible { outline: 2px solid var(--gold); outline-offset: 2px; }
-  button[aria-pressed="true"] { background: var(--on); border-color: var(--on); color: var(--on-ink); }
-  button[data-font="dm"] { font-family: 'DM Sans', Arial, sans-serif; }
-  button[data-font="ubuntu"] { font-family: 'Ubuntu', Arial, sans-serif; font-weight: 500; }
-  button[data-font="google"] { font-family: 'Google Sans Flex', Arial, sans-serif; }
-  button .key { font-weight: 400; opacity: 0.6; margin-right: 6px; }
-  .hint { color: var(--muted); font-size: 13px; margin-left: auto; }
-  kbd { font: inherit; font-weight: 700; border: 1px solid var(--rule); border-bottom-width: 2px; border-radius: 4px; padding: 0 5px; background: var(--bar); }
+  .hint { color: var(--muted); font-size: 12px; white-space: nowrap; }
+  kbd { font: inherit; font-weight: 700; border: 1px solid var(--rule); border-bottom-width: 2px; border-radius: 4px; padding: 0 4px; background: var(--bar); }
   .stage { position: relative; flex: 1; min-height: 0; }
   iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; background: #FFFFFF; }
   iframe.off { visibility: hidden; }
-  @media (max-width: 1100px) { .hint { display: none; } }
+  @media (max-width: 900px) { header { grid-template-columns: minmax(0, 1fr); } .font { align-items: flex-start; } .hint { display: none; } }
 </style>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,700&family=Ubuntu:wght@500&family=Google+Sans+Flex:wght@700&display=swap">
 </head>
 <body>
 <header>
   <div class="name">Font Flip</div>
-  <label class="group"><span class="label">Page</span><select id="page" aria-label="Page"></select></label>
-  <div class="group" role="group" aria-label="Font">
-    <span class="label">Font</span>
-    <button type="button" data-font="dm" aria-pressed="true"><span class="key">1</span>DM Sans</button>
-    <button type="button" data-font="arial" aria-pressed="false"><span class="key">2</span>Arial</button>
-    <button type="button" data-font="ubuntu" aria-pressed="false"><span class="key">3</span>Ubuntu and Arial</button>
-    <button type="button" data-font="google" aria-pressed="false"><span class="key">4</span>Google Sans Flex</button>
+  <nav class="pages" id="pages" aria-label="Pages"></nav>
+  <div class="font">
+    <label>Font <select id="font">
+      <option value="google">1 · Google Sans Flex (house font)</option>
+      <option value="dm">2 · DM Sans</option>
+      <option value="arial">3 · Arial</option>
+      <option value="ubuntu">4 · Ubuntu and Arial</option>
+    </select></label>
+    <div class="hint"><kbd>←</kbd> <kbd>→</kbd> pages · <kbd>space</kbd> or <kbd>1</kbd>–<kbd>4</kbd> fonts</div>
   </div>
-  <div class="hint">Press <kbd>space</kbd> to flip at the same spot, or <kbd>1</kbd> to <kbd>4</kbd></div>
 </header>
 <main class="stage">
-  <iframe id="dm" title="Page in DM Sans"></iframe>
+  <iframe id="google" title="Page in Google Sans Flex"></iframe>
+  <iframe id="dm" class="off" title="Page in DM Sans"></iframe>
   <iframe id="arial" class="off" title="Page in Arial"></iframe>
   <iframe id="ubuntu" class="off" title="Page in Ubuntu and Arial"></iframe>
-  <iframe id="google" class="off" title="Page in Google Sans Flex"></iframe>
 </main>
 <script>
   var PAGES = [
     ['kalicube.com', 'Homepage', ''],
     ['kalicube.com', 'Strategy Plus', 'strategy-plus/'],
-    ['kalicube.com', 'Application page', 'apply/'],
-    ['kalicube.com', 'Compare: for companies', 'compare/companies/'],
-    ['kalicube.com', 'Compare: for entrepreneurs', 'compare/entrepreneurs/'],
-    ['kalicube.com', 'Landing page: I’ve changed my name', 'landing/changed-my-name/'],
-    ['kalicube.com', 'Landing page: the one bad story', 'landing/reputation/'],
+    ['kalicube.com', 'Application', 'apply/'],
+    ['kalicube.com', 'Compare: companies', 'compare/companies/'],
+    ['kalicube.com', 'Compare: entrepreneurs', 'compare/entrepreneurs/'],
+    ['kalicube.com', 'Landing: name change', 'landing/changed-my-name/'],
+    ['kalicube.com', 'Landing: the one bad story', 'landing/reputation/'],
     ['jasonbarnard.com', 'Homepage', 'jasonbarnard/'],
-    ['kalicube.pro', 'Homepage, with how Kalicube Pro works', 'kalicubepro/'],
-    ['For the team', 'Mind, Machine, Practice', 'mind-machine-practice/']
+    ['kalicube.pro', 'Homepage', 'kalicubepro/'],
+    ['Team', 'Mind, Machine, Practice', 'mind-machine-practice/']
   ];
-  var ORDER = ['dm', 'arial', 'ubuntu', 'google'];
-  var FILES = { dm: 'index.html', arial: 'index-arial.html', ubuntu: 'index-ubuntu.html', google: 'index-google.html' };
+  var ORDER = ['google', 'dm', 'arial', 'ubuntu'];
+  var FILES = { google: 'index.html', dm: 'index-dmsans.html', arial: 'index-arial.html', ubuntu: 'index-ubuntu.html' };
   var frames = {};
   ORDER.forEach(function (k) { frames[k] = document.getElementById(k); });
-  var shown = 'dm';
-  var select = document.getElementById('page');
+  var shown = 'google';
+  var current = 0;
+  var fontSelect = document.getElementById('font');
+  var pageBar = document.getElementById('pages');
 
   function win(k) { try { return frames[k].contentWindow; } catch (e) { return null; } }
 
@@ -99,11 +99,20 @@
   }
 
   function show(k) {
+    fontSelect.value = k;
+    try { localStorage.setItem('font-flip-house-font', k); } catch (e) {}
     if (k === shown) return;
     syncFrom(shown);
     ORDER.forEach(function (o) { frames[o].classList.toggle('off', o !== k); });
     shown = k;
-    document.querySelectorAll('[data-font]').forEach(function (b) { b.setAttribute('aria-pressed', String(b.dataset.font === k)); });
+  }
+
+  function load(i) {
+    current = (i + PAGES.length) % PAGES.length;
+    var path = '../' + PAGES[current][2];
+    ORDER.forEach(function (k) { frames[k].src = path + FILES[k]; });
+    pageBar.querySelectorAll('button').forEach(function (b) { b.toggleAttribute('aria-current', Number(b.dataset.i) === current); if (Number(b.dataset.i) === current) b.setAttribute('aria-current', 'page'); });
+    try { localStorage.setItem('font-flip-page', String(current)); } catch (e) {}
   }
 
   function onKey(e) {
@@ -114,6 +123,9 @@
       show(ORDER[(ORDER.indexOf(shown) + 1) % ORDER.length]);
     } else if (/^[1-4]$/.test(e.key)) {
       show(ORDER[Number(e.key) - 1]);
+    } else if (e.key === 'ArrowRight' || e.key === 'ArrowLeft') {
+      e.preventDefault();
+      load(current + (e.key === 'ArrowRight' ? 1 : -1));
     }
   }
 
@@ -127,31 +139,37 @@
   });
   document.addEventListener('keydown', onKey);
 
-  function load(i) {
-    var path = '../' + PAGES[i][2];
-    ORDER.forEach(function (k) { frames[k].src = path + FILES[k]; });
-    select.value = String(i);
-    try { localStorage.setItem('font-flip-page', String(i)); } catch (e) {}
-  }
-
-  var groups = {};
+  var sites = {};
   PAGES.forEach(function (p, i) {
-    if (!groups[p[0]]) {
-      groups[p[0]] = document.createElement('optgroup');
-      groups[p[0]].label = p[0];
-      select.appendChild(groups[p[0]]);
+    if (!sites[p[0]]) {
+      var group = document.createElement('div');
+      group.className = 'site';
+      group.setAttribute('role', 'group');
+      group.setAttribute('aria-label', p[0]);
+      var name = document.createElement('span');
+      name.className = 'site-name';
+      name.textContent = p[0];
+      group.appendChild(name);
+      pageBar.appendChild(group);
+      sites[p[0]] = group;
     }
-    var o = document.createElement('option');
-    o.value = String(i);
-    o.textContent = p[1];
-    groups[p[0]].appendChild(o);
+    var b = document.createElement('button');
+    b.type = 'button';
+    b.textContent = p[1];
+    b.dataset.i = String(i);
+    b.addEventListener('click', function () { load(i); });
+    sites[p[0]].appendChild(b);
   });
-  select.addEventListener('change', function () { load(Number(select.value)); select.blur(); });
-  document.querySelectorAll('[data-font]').forEach(function (b) { b.addEventListener('click', function () { show(b.dataset.font); }); });
+  fontSelect.addEventListener('change', function () { show(fontSelect.value); fontSelect.blur(); });
 
-  var start = 0;
-  try { start = Math.min(PAGES.length - 1, Math.max(0, parseInt(localStorage.getItem('font-flip-page') || '0', 10) || 0)); } catch (e) {}
-  load(start);
+  var startPage = 0, startFont = 'google';
+  try {
+    startPage = Math.min(PAGES.length - 1, Math.max(0, parseInt(localStorage.getItem('font-flip-page') || '0', 10) || 0));
+    var f = localStorage.getItem('font-flip-house-font');
+    if (ORDER.indexOf(f) >= 0) startFont = f;
+  } catch (e) {}
+  load(startPage);
+  show(startFont);
 </script>
 </body>
 </html>
