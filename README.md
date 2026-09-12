@@ -8,6 +8,7 @@ Draft redesigns of three homepages, one per audience: entrepreneurs (jasonbarnar
 - How Kalicube Pro works (detailed explainer): `kalicubepro/how-it-works/index.html`, viewable at https://kalicube-tech.github.io/kalicube-website-redesign/kalicubepro/how-it-works/
 - Strategy Plus (the short pitch for companies, on kalicube.com): `strategy-plus/index.html`, viewable at https://kalicube-tech.github.io/kalicube-website-redesign/strategy-plus/
 - Application page (kalicube.com): `apply/index.html`, viewable at https://kalicube-tech.github.io/kalicube-website-redesign/apply/ (the form is a mockup and sends nothing)
+- Mind, Machine, Practice (the team reference on how Jason, Kalicube Pro and Kalicube fit together): `mind-machine-practice/index.html`, viewable at https://kalicube-tech.github.io/kalicube-website-redesign/mind-machine-practice/
 
 Both are desktop mockups authored at 1440px wide; on narrower windows they scale down to fit. Photographs and logos come from kalicube.com and jasonbarnard.com, and the reel plays from YouTube when clicked.
 
