@@ -48,10 +48,10 @@
     <div class="font-top">
       <div class="name">Font Flip</div>
       <label>Font <select id="font">
-        <option value="google">1 · Google Sans Flex (house font)</option>
-        <option value="dm">2 · DM Sans</option>
-        <option value="arial">3 · Arial</option>
-        <option value="ubuntu">4 · Ubuntu and Arial</option>
+        <option value="ubuntu">1 · Ubuntu (house font)</option>
+        <option value="google">2 · Google Sans Flex</option>
+        <option value="dm">3 · DM Sans</option>
+        <option value="arial">4 · Arial</option>
       </select></label>
     </div>
     <label>Buttons <select id="buttons">
@@ -63,10 +63,10 @@
   </div>
 </header>
 <main class="stage">
-  <iframe id="google" title="Page in Google Sans Flex"></iframe>
+  <iframe id="google" class="off" title="Page in Google Sans Flex"></iframe>
   <iframe id="dm" class="off" title="Page in DM Sans"></iframe>
   <iframe id="arial" class="off" title="Page in Arial"></iframe>
-  <iframe id="ubuntu" class="off" title="Page in Ubuntu and Arial"></iframe>
+  <iframe id="ubuntu" title="Page in Ubuntu"></iframe>
 </main>
 <script>
   var PAGES = [
@@ -84,11 +84,11 @@
     ['kalicube.pro', 'Homepage', 'kalicubepro/'],
     ['Team', 'Mind, Machine, Practice', 'mind-machine-practice/']
   ];
-  var ORDER = ['google', 'dm', 'arial', 'ubuntu'];
+  var ORDER = ['ubuntu', 'google', 'dm', 'arial'];
   var FILES = { google: 'index.html', dm: 'index-dmsans.html', arial: 'index-arial.html', ubuntu: 'index-ubuntu.html' };
   var frames = {};
   ORDER.forEach(function (k) { frames[k] = document.getElementById(k); });
-  var shown = 'google';
+  var shown = 'ubuntu';
   var current = 0;
   var fontSelect = document.getElementById('font');
   var pageBar = document.getElementById('pages');
@@ -243,14 +243,14 @@
   fontSelect.addEventListener('change', function () { show(fontSelect.value); fontSelect.blur(); });
   buttonSelect.addEventListener('change', function () { setButtons(buttonSelect.value); buttonSelect.blur(); });
 
-  // Every visit opens in the house fonts: Google Sans Flex, with Google Sans Code buttons.
+  // Every visit opens in the house fonts: Ubuntu, with Google Sans Code buttons.
   var startPage = 0;
   try {
     startPage = Math.min(PAGES.length - 1, Math.max(0, parseInt(localStorage.getItem('font-flip-page') || '0', 10) || 0));
   } catch (e) {}
   if (pageFromUrl() >= 0) startPage = pageFromUrl();
   load(startPage);
-  show('google');
+  show('ubuntu');
   setButtons('code');
 </script>
 </body>

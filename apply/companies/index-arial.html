@@ -1,21 +1,21 @@
 <!doctype html>
 <html lang="en-GB">
 <head>
-<script id="flip-redirect">(function(){try{if(window.top!==window.self||/[?&]raw\b/.test(location.search))return;var m=location.pathname.match(/^(.*\/kalicube-website-redesign\/)(.*?)(index(?:-[a-z]+)?\.html)?$/);if(!m)return;var slug=m[2].replace(/\/+$/,"")||"home";location.replace(m[1]+"font-flip/?page="+slug);}catch(e){}})();</script>
+<script id="flip-redirect">(function(){try{if(window.top!==window.self||/[?&]raw\b/.test(location.search))return;var m=location.pathname.match(/^(.*\/kalicube-website-redesign\/)(.*?)(index(?:-[a-z]+)?\.html)?$/);if(!m)return;var slug=m[2].replace(/\/+$/,"")||"home";if(window.innerWidth<760){if(!/index-ubuntu\.html$/.test(location.pathname))location.replace(m[1]+m[2]+"index-ubuntu.html?raw");return;}location.replace(m[1]+"font-flip/?page="+slug);}catch(e){}})();</script>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Apply for Strategy Plus, for companies (draft) · Arial</title>
 <meta name="robots" content="noindex, nofollow">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Google+Sans+Flex:wght@400;500;700&amp;family=Source+Serif+4:ital,opsz,wght@1,8..60,400&amp;family=Google+Sans+Code:wght@500&amp;display=swap">
   <style>
-    html, body { margin: 0; background: #0F1830; }
+    html, body { margin: 0; background: #1A274E; }
     body { font-family: Arial, Helvetica, sans-serif; -webkit-font-smoothing: antialiased;}
-    a { color: #1B2A4A; text-decoration: none; } a:hover { color: #BA7517; }
+    a { color: #1A274E; text-decoration: none; } a:hover { color: #B98B4E; }
     h1, h2, h3, p { margin: 0; }
     h1, h2 { text-wrap: balance; }
     p { text-wrap: pretty; }
     input, textarea { font-family: inherit; }
-    input:focus, textarea:focus { outline: 2px solid #E8AA2E; outline-offset: 1px; }
+    input:focus, textarea:focus { outline: 2px solid #E3A949; outline-offset: 1px; }
     .scribble { background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='120'%3E%3Cg stroke='%233399CC' stroke-opacity='0.16' stroke-width='2.5' stroke-linecap='round' fill='none'%3E%3Cpath d='M10 40 L34 22'/%3E%3Cpath d='M52 18 L70 6'/%3E%3Cpath d='M96 52 L126 30'/%3E%3Cpath d='M20 96 L40 82'/%3E%3Cpath d='M70 110 L102 88'/%3E%3Cpath d='M128 96 L150 80'/%3E%3Cpath d='M58 66 L74 55'/%3E%3Cpath d='M138 20 L154 9'/%3E%3C/g%3E%3C/svg%3E"); }
     .hero { position: relative; overflow: hidden; }
     .hero > * { position: relative; z-index: 1; }
@@ -24,6 +24,60 @@
     .hero > img.hero-bg { left: var(--split, 50%); width: calc(100% - var(--split, 50%)); }
     .hero > *:nth-child(3) { background-color: inherit; }
   </style>
+<style id="mobile-layout">
+@media (max-width: 759px) {
+  html, body { overflow-x: hidden; }
+  .m-page { width: 100% !important; }
+  .m-px { padding-left: 20px !important; padding-right: 20px !important; }
+  .m-pt { padding-top: 48px !important; }
+  .m-pb { padding-bottom: 48px !important; }
+  .m-g1 { grid-template-columns: minmax(0, 1fr) !important; }
+  .m-g2 { grid-template-columns: repeat(2, minmax(0, 1fr)) !important; }
+  .m-gap { gap: 24px !important; }
+  .m-stack { flex-direction: column !important; align-items: stretch !important; }
+  .m-w { width: auto !important; max-width: 100% !important; }
+  img.m-w { width: 100% !important; }
+  .m-f60 { font-size: 38px !important; } .m-f48 { font-size: 33px !important; } .m-f40 { font-size: 29px !important; }
+  .m-f32 { font-size: 25px !important; } .m-f26 { font-size: 21px !important; } .m-f21 { font-size: 18px !important; } .m-f20 { font-size: 17px !important; }
+  .m-nw { white-space: normal !important; }
+  .m-logos { flex-wrap: wrap !important; justify-content: center !important; gap: 12px 22px !important; }
+  table.matrix, .matrix { display: block; overflow-x: auto; max-width: 100%; }
+  /* The menu: logo and the one button */
+  .m-nav { height: 64px !important; padding-left: 16px !important; padding-right: 16px !important; }
+  .m-nav a:not(.act):not(:has(img)), .m-nav .menu, .m-nav a.act[href*="contact"] { display: none !important; }
+  .m-nav img { height: 30px !important; }
+  .m-nav .act { padding: 9px 14px !important; font-size: 14px !important; }
+  /* Split heroes: text first, then the photo as a band */
+  .hero { display: flex !important; flex-direction: column; }
+  .hero > * { order: 2; }
+  .hero > .m-nav { order: 1; }
+  .hero > div.hero-bg { display: none !important; }
+  .hero > img.hero-bg { position: relative !important; left: 0 !important; top: 0 !important; width: 100% !important; height: 240px !important; order: 3; }
+  /* The homepage hero: text, then the caption, then Jason; no floating icons */
+  .m-hero { height: auto !important; min-height: 0 !important; display: flex !important; flex-direction: column; }
+  .m-hero > div[aria-hidden] { display: none !important; }
+  .m-hero > div[style*="linear-gradient"] { background: rgba(6,14,38,0.62) !important; }
+  .m-hero > div[style*="position: relative"] { order: 1; height: auto !important; padding: 36px 20px 20px !important; max-width: none !important; }
+  .m-hero > p { position: relative !important; right: auto !important; bottom: auto !important; width: auto !important; text-align: left !important; order: 2; padding: 0 20px 16px; font-size: 15px !important; }
+  .m-hero > img[src*="cutout"] { position: relative !important; right: auto !important; order: 3; height: 250px !important; align-self: center; }
+  .m-hero br { display: none; }
+  /* The numbers band: two by two */
+  .m-nums { display: grid !important; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px 12px !important; padding: 18px 20px !important; }
+  .m-nums > div > div:first-child { width: 44px !important; height: 44px !important; }
+  .m-nums svg { width: 24px; height: 24px; }
+  .m-nums > div > div + div > span:first-child { font-size: 22px !important; }
+  /* The pinned press strip: slim, two rows of four, no label */
+  .m-press { padding: 8px 12px !important; gap: 0 !important; }
+  .m-press > div:first-child { display: none !important; }
+  .m-press > div:last-child { display: grid !important; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 8px 14px !important; justify-items: center; align-items: center; }
+  .m-press img { height: auto !important; max-height: 17px; max-width: 100%; }
+  /* The ecosystem diagram: three by two, then the brand and where it goes */
+  .m-eco { grid-template-columns: repeat(3, minmax(0, 1fr)) !important; row-gap: 22px; }
+  .m-eco > div:first-child { display: none !important; }
+  .m-eco > div:nth-child(8), .m-eco > div:nth-child(9) { grid-column: 1 / -1; padding-top: 0 !important; }
+  .m-eco [style*="height: 78px"] { height: auto !important; margin-bottom: 8px; }
+}
+</style>
 <style>
   /* Desktop mockup authored at 1440px: scale it down to fit narrower windows. */
   html { background: #0F1830; scroll-behavior: smooth; }
@@ -31,9 +85,12 @@
 <script>
   function fitPage() {
     var root = document.documentElement, body = document.body;
-    body.style.zoom = Math.min(1, root.clientWidth / 1440);
-    // A vertical scrollbar can appear after the first pass and narrow the page; fit again if so.
-    if (root.scrollWidth > root.clientWidth) body.style.zoom = Math.min(1, root.clientWidth / 1440);
+    // Phones get the phone layout at full size; wider windows get the desktop mockup scaled to fit.
+    if (root.clientWidth < 760) { body.style.zoom = 1; } else {
+      body.style.zoom = Math.min(1, root.clientWidth / 1440);
+      // A vertical scrollbar can appear after the first pass and narrow the page; fit again if so.
+      if (root.scrollWidth > root.clientWidth) body.style.zoom = Math.min(1, root.clientWidth / 1440);
+    }
     // The window height in page units, so a hero can fill the first screen exactly (var(--fold)).
     root.style.setProperty('--fold', (window.innerHeight / (parseFloat(body.style.zoom) || 1)) + 'px');
   }
@@ -65,27 +122,27 @@
 </head>
 <body>
 <div style="max-width: 1440px; margin: 0 auto;">
-<div style="width: 1440px; background: #FFFFFF; color: #1B2A4A;">
+<div class="m-page" style="width: 1440px; background: #FFFFFF; color: #1A274E;">
 
   <!-- Hero with the application -->
-  <section class="hero scribble" style="--split: 47%; background-color: #1B2A4A; color: #FFFFFF;">
+  <section class="hero scribble" style="--split: 47%; background-color: #1A274E; color: #FFFFFF;">
     <img class="hero-bg" src="images/hero-compare-companies.jpg" alt="" style="object-fit: cover; object-position: center; display: block;">
     <div class="hero-bg" style="background: linear-gradient(90deg, rgb(27,42,74) 0%, rgb(27,42,74) var(--split, 50%), rgba(27,42,74,0.55) calc(var(--split, 50%) + 4%), rgba(27,42,74,0) calc(var(--split, 50%) + 10%));"></div>
-    <div style="height: 88px; padding: 0 120px; display: flex; align-items: center; justify-content: space-between; border-bottom: 1px solid rgba(255,255,255,0.1);">
+    <div class="m-px" style="height: 88px; padding: 0 120px; display: flex; align-items: center; justify-content: space-between; border-bottom: 1px solid rgba(255,255,255,0.1);">
       <a href="../../" style="display: block;"><img src="images/logo.png" alt="Kalicube, Digital Brand Engineers" style="height: 42px; width: auto; display: block; filter: brightness(0) invert(1);"></a>
       <a href="../../" style="color: #FFFFFF; font-size: 16px; font-weight: 500; display: flex; align-items: center; gap: 8px;"><svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M13 8H3M7 4L3 8l4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg><span>Back to kalicube.com</span></a>
     </div>
 
-    <div style="padding: 96px 120px 112px; display: flex; gap: 88px; align-items: flex-start;">
+    <div class="m-px m-pt m-pb m-gap m-stack" style="padding: 96px 120px 112px; display: flex; gap: 88px; align-items: flex-start;">
       <div style="flex: 1; display: flex; flex-direction: column; gap: 28px; padding-top: 24px;">
         <div style="display: flex; align-items: center; gap: 4px; align-self: flex-start; border: 1px solid rgba(255,255,255,0.28); border-radius: 999px; padding: 4px; font-size: 15px; font-weight: 700;">
-          <span style="background: #FFFFFF; color: #0F1830; border-radius: 999px; padding: 8px 18px;">For companies</span>
+          <span style="background: #FFFFFF; color: #1A274E; border-radius: 999px; padding: 8px 18px;">For companies</span>
           <a href="../" style="color: #FFFFFF; border-radius: 999px; padding: 8px 18px;">For entrepreneurs</a>
         </div>
-        <div style="font-size: 17px; font-weight: 500; color: #E8AA2E;">For groups with several brands and one marketing team</div>
-        <p style="font-weight: 700; font-size: 64px; line-height: 1.04; letter-spacing: -0.015em;"><span style="color: #E8AA2E;">Dominate your market.</span> We teach your team to fish.</p>
-        <h1 style="font-size: 22px; line-height: 1.4; font-weight: 500; letter-spacing: 0; color: rgba(255,255,255,0.92); max-width: 780px;">Apply for Strategy Plus: corporate strategy for AI search and your brand, plus the training and Kalicube Pro to deliver it</h1>
-        <p style="font-size: 20px; line-height: 1.6; color: rgba(255,255,255,0.84); max-width: 560px;">Strategy Plus is for groups that want to dominate their markets in AI search, with one marketing team looking after several brands. We build the strategy in the first month, teach your team to fish and give them Kalicube Pro, the platform that lets them fish effectively, efficiently and realistically. Its AI knows your strategy, your brand, your market and your audience, so your team never goes off track. Your team does the work, and that’s how you win.</p>
+        <div style="font-size: 17px; font-weight: 500; color: #E3A949;">For groups with several brands and one marketing team</div>
+        <p class="m-f60" style="font-weight: 700; font-size: 64px; line-height: 1.04; letter-spacing: -0.015em;"><span style="color: #E3A949;">Dominate your market.</span> We teach your team to fish.</p>
+        <h1 class="m-f21" style="font-size: 22px; line-height: 1.4; font-weight: 500; letter-spacing: 0; color: rgba(255,255,255,0.92); max-width: 780px;">Apply for Strategy Plus: corporate strategy for AI search and your brand, plus the training and Kalicube Pro to deliver it</h1>
+        <p class="m-f20" style="font-size: 20px; line-height: 1.6; color: rgba(255,255,255,0.84); max-width: 560px;">Strategy Plus is for groups that want to dominate their markets in AI search, with one marketing team looking after several brands. We build the strategy in the first month, teach your team to fish and give them Kalicube Pro, the platform that lets them fish effectively, efficiently and realistically. Its AI knows your strategy, your brand, your market and your audience, so your team never goes off track. Your team does the work, and that’s how you win.</p>
         <p style="font-size: 18px; line-height: 1.5; font-weight: 700; color: #FFFFFF; max-width: 700px;">Newfold Digital, the group behind Bluehost and Yoast, runs its brands on Kalicube.</p>
         <div style="display: flex; align-items: center; gap: 18px; padding-top: 12px; border-top: 1px solid rgba(255,255,255,0.14); margin-top: 8px;">
           <img src="images/jason.jpg" alt="Jason Barnard" style="width: 64px; height: 64px; border-radius: 50%; object-fit: cover; object-position: 50% 30%; display: block; flex-shrink: 0; margin-top: 12px;">
@@ -94,48 +151,48 @@
       </div>
 
       <!-- Application form -->
-      <div id="apply" style="width: 540px; flex-shrink: 0; background: #FFFFFF; color: #1B2A4A; border-radius: 10px; padding: 40px; display: flex; flex-direction: column; gap: 22px; box-shadow: 0 40px 90px -40px rgba(0,0,0,0.6);">
+      <div class="m-w m-px" id="apply" style="width: 540px; flex-shrink: 0; background: #FFFFFF; color: #1A274E; border-radius: 10px; padding: 40px; display: flex; flex-direction: column; gap: 22px; box-shadow: 0 40px 90px -40px rgba(0,0,0,0.6);">
         <div style="display: flex; flex-direction: column; gap: 6px;">
-          <div style="display: flex; flex-direction: column; gap: 14px;"><div style="font-weight: 700; font-size: 28px; line-height: 1.15; letter-spacing: -0.015em;"><span style="color: #BA7517;">Apply</span> for Strategy Plus</div><h2 style="font-size: 18px; line-height: 1.45; font-weight: 500; letter-spacing: 0; color: #5A6680; max-width: 760px;">Fill in the application for your company</h2></div>
+          <div style="display: flex; flex-direction: column; gap: 14px;"><div class="m-f26" style="font-weight: 700; font-size: 28px; line-height: 1.15; letter-spacing: -0.015em;"><span style="color: #B98B4E;">Apply</span> for Strategy Plus</div><h2 style="font-size: 18px; line-height: 1.45; font-weight: 500; letter-spacing: 0; color: #4A5470; max-width: 760px;">Fill in the application for your company</h2></div>
           <p style="font-size: 16px; line-height: 1.5; color: #5B6475;">It takes two minutes, and we read every application.</p>
         </div>
-        <div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px;">
+        <div class="m-g1" style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px;">
           <label style="display: flex; flex-direction: column; gap: 6px; font-size: 14px; font-weight: 700;">
             <span>Your name</span>
-            <input type="text" autocomplete="name" style="height: 48px; border: 1px solid #C9D3E0; border-radius: 6px; padding: 0 14px; font-size: 16px; color: #1B2A4A; background: #FFFFFF;">
+            <input type="text" autocomplete="name" style="height: 48px; border: 1px solid #C9D3E0; border-radius: 6px; padding: 0 14px; font-size: 16px; color: #1A274E; background: #FFFFFF;">
           </label>
           <label style="display: flex; flex-direction: column; gap: 6px; font-size: 14px; font-weight: 700;">
             <span>Work email</span>
-            <input type="email" autocomplete="email" style="height: 48px; border: 1px solid #C9D3E0; border-radius: 6px; padding: 0 14px; font-size: 16px; color: #1B2A4A; background: #FFFFFF;">
+            <input type="email" autocomplete="email" style="height: 48px; border: 1px solid #C9D3E0; border-radius: 6px; padding: 0 14px; font-size: 16px; color: #1A274E; background: #FFFFFF;">
           </label>
         </div>
-        <div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px;">
+        <div class="m-g1" style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px;">
           <label style="display: flex; flex-direction: column; gap: 6px; font-size: 14px; font-weight: 700;">
             <span>Company</span>
-            <input type="text" autocomplete="organization" style="height: 48px; border: 1px solid #C9D3E0; border-radius: 6px; padding: 0 14px; font-size: 16px; color: #1B2A4A; background: #FFFFFF;">
+            <input type="text" autocomplete="organization" style="height: 48px; border: 1px solid #C9D3E0; border-radius: 6px; padding: 0 14px; font-size: 16px; color: #1A274E; background: #FFFFFF;">
           </label>
           <label style="display: flex; flex-direction: column; gap: 6px; font-size: 14px; font-weight: 700;">
             <span>Your role</span>
-            <input type="text" autocomplete="organization-title" style="height: 48px; border: 1px solid #C9D3E0; border-radius: 6px; padding: 0 14px; font-size: 16px; color: #1B2A4A; background: #FFFFFF;">
+            <input type="text" autocomplete="organization-title" style="height: 48px; border: 1px solid #C9D3E0; border-radius: 6px; padding: 0 14px; font-size: 16px; color: #1A274E; background: #FFFFFF;">
           </label>
         </div>
         <label style="display: flex; flex-direction: column; gap: 6px; font-size: 14px; font-weight: 700;">
           <span>Company website</span>
-          <input type="url" autocomplete="url" style="height: 48px; border: 1px solid #C9D3E0; border-radius: 6px; padding: 0 14px; font-size: 16px; color: #1B2A4A; background: #FFFFFF;">
+          <input type="url" autocomplete="url" style="height: 48px; border: 1px solid #C9D3E0; border-radius: 6px; padding: 0 14px; font-size: 16px; color: #1A274E; background: #FFFFFF;">
         </label>
         <label style="display: flex; flex-direction: column; gap: 6px; font-size: 14px; font-weight: 700;">
           <span>How many brands does your team look after?</span>
-          <input type="text" placeholder="For example: 12 franchise locations, or 4 product brands" style="height: 48px; border: 1px solid #C9D3E0; border-radius: 6px; padding: 0 14px; font-size: 16px; color: #1B2A4A; background: #FFFFFF;">
+          <input type="text" placeholder="For example: 12 franchise locations, or 4 product brands" style="height: 48px; border: 1px solid #C9D3E0; border-radius: 6px; padding: 0 14px; font-size: 16px; color: #1A274E; background: #FFFFFF;">
         </label>
         <label style="display: flex; flex-direction: column; gap: 6px; font-size: 14px; font-weight: 700;">
           <span>Who on your team will do the work?</span>
-          <input type="text" placeholder="For example: marketing lead, content writer, web developer" style="height: 48px; border: 1px solid #C9D3E0; border-radius: 6px; padding: 0 14px; font-size: 16px; color: #1B2A4A; background: #FFFFFF;">
+          <input type="text" placeholder="For example: marketing lead, content writer, web developer" style="height: 48px; border: 1px solid #C9D3E0; border-radius: 6px; padding: 0 14px; font-size: 16px; color: #1A274E; background: #FFFFFF;">
         </label>
         <label style="display: flex; flex-direction: column; gap: 6px; font-size: 14px; font-weight: 700;">
           <span>What do you want Google and AI to say about your company?</span>
-          <textarea rows="3" placeholder="A sentence or two is plenty" style="border: 1px solid #C9D3E0; border-radius: 6px; padding: 12px 14px; font-size: 16px; line-height: 1.5; color: #1B2A4A; background: #FFFFFF; resize: vertical;"></textarea>
+          <textarea rows="3" placeholder="A sentence or two is plenty" style="border: 1px solid #C9D3E0; border-radius: 6px; padding: 12px 14px; font-size: 16px; line-height: 1.5; color: #1A274E; background: #FFFFFF; resize: vertical;"></textarea>
         </label>
-        <button type="button" class="act" style="height: 56px; border: 0; border-radius: 999px; background: #E8AA2E; color: #0F1830; font-family: 'Google Sans Code', Menlo, monospace; font-size: 16px; font-weight: 500; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 10px; letter-spacing: 0;">
+        <button type="button" class="act" style="height: 56px; border: 0; border-radius: 999px; background: #E3A949; color: #1A274E; font-family: 'Google Sans Code', Menlo, monospace; font-size: 16px; font-weight: 500; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 10px; letter-spacing: 0;">
           <span>Send our application</span>
           <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg>
         </button>
@@ -145,59 +202,59 @@
   </section>
 
   <!-- Is this for your company? -->
-  <section style="padding: 120px 120px; display: flex; flex-direction: column; gap: 48px;">
-    <div style="display: flex; flex-direction: column; gap: 14px;"><div style="font-weight: 700; font-size: 48px; line-height: 1.08; letter-spacing: -0.01em;">Is this <span style="color: #BA7517;">for your company?</span></div><h2 style="font-size: 18px; line-height: 1.45; font-weight: 500; letter-spacing: 0; color: #5A6680; max-width: 760px;">Which companies Strategy Plus is for</h2></div>
-    <div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 32px;">
-      <div style="background: #EDF2F7; border-radius: 8px; padding: 44px; display: flex; flex-direction: column; gap: 20px;">
-        <h3 style="font-weight: 700; font-size: 24px;">It is, if</h3>
-        <div style="display: flex; gap: 14px; align-items: baseline; font-size: 18px; line-height: 1.5;"><div style="width: 7px; height: 7px; border-radius: 50%; background: #BA7517; flex-shrink: 0; transform: translateY(-3px);"></div><span>one marketing team looks after several brands in your group: companies, products, services, local branches or franchises</span></div>
-        <div style="display: flex; gap: 14px; align-items: baseline; font-size: 18px; line-height: 1.5;"><div style="width: 7px; height: 7px; border-radius: 50%; background: #BA7517; flex-shrink: 0; transform: translateY(-3px);"></div><span>you have a team that can implement: marketing, content and web</span></div>
-        <div style="display: flex; gap: 14px; align-items: baseline; font-size: 18px; line-height: 1.5;"><div style="width: 7px; height: 7px; border-radius: 50%; background: #BA7517; flex-shrink: 0; transform: translateY(-3px);"></div><span>you’re building for the next few years, not the next quarter</span></div>
+  <section class="m-px m-pt m-pb m-gap" style="padding: 120px 120px; display: flex; flex-direction: column; gap: 48px;">
+    <div style="display: flex; flex-direction: column; gap: 14px;"><div class="m-f48" style="font-weight: 700; font-size: 48px; line-height: 1.08; letter-spacing: -0.01em;">Is this <span style="color: #B98B4E;">for your company?</span></div><h2 style="font-size: 18px; line-height: 1.45; font-weight: 500; letter-spacing: 0; color: #4A5470; max-width: 760px;">Which companies Strategy Plus is for</h2></div>
+    <div class="m-g1" style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 32px;">
+      <div class="m-px" style="background: #EDF5FB; border-radius: 8px; padding: 44px; display: flex; flex-direction: column; gap: 20px;">
+        <h3 class="m-f21" style="font-weight: 700; font-size: 24px;">It is, if</h3>
+        <div style="display: flex; gap: 14px; align-items: baseline; font-size: 18px; line-height: 1.5;"><div style="width: 7px; height: 7px; border-radius: 50%; background: #B98B4E; flex-shrink: 0; transform: translateY(-3px);"></div><span>one marketing team looks after several brands in your group: companies, products, services, local branches or franchises</span></div>
+        <div style="display: flex; gap: 14px; align-items: baseline; font-size: 18px; line-height: 1.5;"><div style="width: 7px; height: 7px; border-radius: 50%; background: #B98B4E; flex-shrink: 0; transform: translateY(-3px);"></div><span>you have a team that can implement: marketing, content and web</span></div>
+        <div style="display: flex; gap: 14px; align-items: baseline; font-size: 18px; line-height: 1.5;"><div style="width: 7px; height: 7px; border-radius: 50%; background: #B98B4E; flex-shrink: 0; transform: translateY(-3px);"></div><span>you’re building for the next few years, not the next quarter</span></div>
       </div>
-      <div style="border: 1px solid #E3E8EF; border-radius: 8px; padding: 44px; display: flex; flex-direction: column; gap: 20px;">
-        <h3 style="font-weight: 700; font-size: 24px;">It isn’t, if</h3>
-        <div style="display: flex; gap: 14px; align-items: baseline; font-size: 18px; line-height: 1.5; color: #384256;"><div style="width: 7px; height: 7px; border-radius: 50%; background: #9AA4B5; flex-shrink: 0; transform: translateY(-3px);"></div><span>you have a single brand to look after: Strategy Plus is built for groups</span></div>
-        <div style="display: flex; gap: 14px; align-items: baseline; font-size: 18px; line-height: 1.5; color: #384256;"><div style="width: 7px; height: 7px; border-radius: 50%; background: #9AA4B5; flex-shrink: 0; transform: translateY(-3px);"></div><span>you want more traffic or rankings, fast: an SEO agency is the better fit</span></div>
-        <div style="display: flex; gap: 14px; align-items: baseline; font-size: 18px; line-height: 1.5; color: #384256;"><div style="width: 7px; height: 7px; border-radius: 50%; background: #9AA4B5; flex-shrink: 0; transform: translateY(-3px);"></div><span>nobody on your team has time to do the work: we’ll tell you honestly on the call</span></div>
-        <div style="display: flex; gap: 14px; align-items: baseline; font-size: 18px; line-height: 1.5; color: #384256;"><div style="width: 7px; height: 7px; border-radius: 50%; background: #9AA4B5; flex-shrink: 0; transform: translateY(-3px);"></div><span>your founder’s name, not the company, is the priority: <a href="../" style="font-weight: 700; border-bottom: 2px solid #BA7517;">apply as an entrepreneur</a></span></div>
+      <div class="m-px" style="border: 1px solid #E3E8EF; border-radius: 8px; padding: 44px; display: flex; flex-direction: column; gap: 20px;">
+        <h3 class="m-f21" style="font-weight: 700; font-size: 24px;">It isn’t, if</h3>
+        <div style="display: flex; gap: 14px; align-items: baseline; font-size: 18px; line-height: 1.5; color: #3D4660;"><div style="width: 7px; height: 7px; border-radius: 50%; background: #9AA4B5; flex-shrink: 0; transform: translateY(-3px);"></div><span>you have a single brand to look after: Strategy Plus is built for groups</span></div>
+        <div style="display: flex; gap: 14px; align-items: baseline; font-size: 18px; line-height: 1.5; color: #3D4660;"><div style="width: 7px; height: 7px; border-radius: 50%; background: #9AA4B5; flex-shrink: 0; transform: translateY(-3px);"></div><span>you want more traffic or rankings, fast: an SEO agency is the better fit</span></div>
+        <div style="display: flex; gap: 14px; align-items: baseline; font-size: 18px; line-height: 1.5; color: #3D4660;"><div style="width: 7px; height: 7px; border-radius: 50%; background: #9AA4B5; flex-shrink: 0; transform: translateY(-3px);"></div><span>nobody on your team has time to do the work: we’ll tell you honestly on the call</span></div>
+        <div style="display: flex; gap: 14px; align-items: baseline; font-size: 18px; line-height: 1.5; color: #3D4660;"><div style="width: 7px; height: 7px; border-radius: 50%; background: #9AA4B5; flex-shrink: 0; transform: translateY(-3px);"></div><span>your founder’s name, not the company, is the priority: <a href="../" style="font-weight: 700; border-bottom: 2px solid #B98B4E;">apply as an entrepreneur</a></span></div>
       </div>
     </div>
   </section>
 
   <!-- What happens next -->
-  <section style="background: #EDF2F7; padding: 120px 120px 128px; display: flex; flex-direction: column; gap: 64px;">
-    <div style="display: flex; flex-direction: column; gap: 14px;"><div style="font-weight: 700; font-size: 48px; line-height: 1.08; letter-spacing: -0.01em;">What happens <span style="color: #BA7517;">after you apply</span></div><h2 style="font-size: 18px; line-height: 1.45; font-weight: 500; letter-spacing: 0; color: #5A6680; max-width: 760px;">How the application for companies works, in four steps</h2></div>
-    <div style="position: relative; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 40px;">
+  <section class="m-px m-pt m-pb m-gap" style="background: #EDF5FB; padding: 120px 120px 128px; display: flex; flex-direction: column; gap: 64px;">
+    <div style="display: flex; flex-direction: column; gap: 14px;"><div class="m-f48" style="font-weight: 700; font-size: 48px; line-height: 1.08; letter-spacing: -0.01em;">What happens <span style="color: #B98B4E;">after you apply</span></div><h2 style="font-size: 18px; line-height: 1.45; font-weight: 500; letter-spacing: 0; color: #4A5470; max-width: 760px;">How the application for companies works, in four steps</h2></div>
+    <div class="m-g2 m-gap" style="position: relative; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 40px;">
       <div style="position: absolute; left: 0; right: 0; top: 19px; height: 2px; background: #C9D3E0;"></div>
       <div style="display: flex; flex-direction: column; gap: 16px; position: relative;">
-        <div style="font-weight: 500; width: 40px; height: 40px; border-radius: 50%; background: #FFFFFF; border: 2px solid #1B2A4A; box-sizing: border-box; display: flex; align-items: center; justify-content: center; font-size: 20px;">1</div>
-        <h3 style="font-weight: 700; font-size: 22px; line-height: 1.2;">We read your application</h3>
-        <p style="font-size: 17px; line-height: 1.6; color: #384256;">Every one of them. We only take on companies we’re confident we can help.</p>
+        <div class="m-f20" style="font-weight: 500; width: 40px; height: 40px; border-radius: 50%; background: #FFFFFF; border: 2px solid #1A274E; box-sizing: border-box; display: flex; align-items: center; justify-content: center; font-size: 20px;">1</div>
+        <h3 class="m-f21" style="font-weight: 700; font-size: 22px; line-height: 1.2;">We read your application</h3>
+        <p style="font-size: 17px; line-height: 1.6; color: #3D4660;">Every one of them. We only take on companies we’re confident we can help.</p>
       </div>
       <div style="display: flex; flex-direction: column; gap: 16px; position: relative;">
-        <div style="font-weight: 500; width: 40px; height: 40px; border-radius: 50%; background: #FFFFFF; border: 2px solid #1B2A4A; box-sizing: border-box; display: flex; align-items: center; justify-content: center; font-size: 20px;">2</div>
-        <h3 style="font-weight: 700; font-size: 22px; line-height: 1.2;">You talk to Sam</h3>
-        <p style="font-size: 17px; line-height: 1.6; color: #384256;">An honest conversation about your brand, your team and your goals, and whether we’re the right fit.</p>
+        <div class="m-f20" style="font-weight: 500; width: 40px; height: 40px; border-radius: 50%; background: #FFFFFF; border: 2px solid #1A274E; box-sizing: border-box; display: flex; align-items: center; justify-content: center; font-size: 20px;">2</div>
+        <h3 class="m-f21" style="font-weight: 700; font-size: 22px; line-height: 1.2;">You talk to Sam</h3>
+        <p style="font-size: 17px; line-height: 1.6; color: #3D4660;">An honest conversation about your brand, your team and your goals, and whether we’re the right fit.</p>
       </div>
       <div style="display: flex; flex-direction: column; gap: 16px; position: relative;">
-        <div style="font-weight: 500; width: 40px; height: 40px; border-radius: 50%; background: #FFFFFF; border: 2px solid #1B2A4A; box-sizing: border-box; display: flex; align-items: center; justify-content: center; font-size: 20px;">3</div>
-        <h3 style="font-weight: 700; font-size: 22px; line-height: 1.2;">We show you how AI sees your company</h3>
-        <p style="font-size: 17px; line-height: 1.6; color: #384256;">How Google and AI understand your brand today, and how they present you against your competitors.</p>
+        <div class="m-f20" style="font-weight: 500; width: 40px; height: 40px; border-radius: 50%; background: #FFFFFF; border: 2px solid #1A274E; box-sizing: border-box; display: flex; align-items: center; justify-content: center; font-size: 20px;">3</div>
+        <h3 class="m-f21" style="font-weight: 700; font-size: 22px; line-height: 1.2;">We show you how AI sees your company</h3>
+        <p style="font-size: 17px; line-height: 1.6; color: #3D4660;">How Google and AI understand your brand today, and how they present you against your competitors.</p>
       </div>
       <div style="display: flex; flex-direction: column; gap: 16px; position: relative;">
-        <div style="font-weight: 700; width: 40px; height: 40px; border-radius: 50%; background: #BA7517; color: #FFFFFF; display: flex; align-items: center; justify-content: center; font-size: 20px;">4</div>
-        <h3 style="font-weight: 700; font-size: 22px; line-height: 1.2;">We run the strategy kickoff</h3>
-        <p style="font-size: 17px; line-height: 1.6; color: #384256;">We build the strategy in the first month, teach your team to fish and give them Kalicube Pro. From then on your team runs it across every brand in your group, and we step in only in exceptional, specific circumstances.</p>
+        <div class="m-f20" style="font-weight: 700; width: 40px; height: 40px; border-radius: 50%; background: #B98B4E; color: #FFFFFF; display: flex; align-items: center; justify-content: center; font-size: 20px;">4</div>
+        <h3 class="m-f21" style="font-weight: 700; font-size: 22px; line-height: 1.2;">We run the strategy kickoff</h3>
+        <p style="font-size: 17px; line-height: 1.6; color: #3D4660;">We build the strategy in the first month, teach your team to fish and give them Kalicube Pro. From then on your team runs it across every brand in your group, and we step in only in exceptional, specific circumstances.</p>
       </div>
     </div>
   </section>
 
   <!-- A client in their own words -->
-  <section style="padding: 120px 120px; display: flex; gap: 64px; align-items: center;">
-    <div style="position: relative; width: 120px; height: 120px; flex-shrink: 0;" role="img" aria-label="Placeholder: client photo still needed"><svg viewBox="0 0 60 60" width="120" height="120" aria-hidden="true" style="display: block; border-radius: 50%;"><rect width="60" height="60" fill="#E97F5E"></rect><circle cx="30" cy="23" r="10" fill="#FFF3EE"></circle><path d="M10 60c1.5-12 10-19 20-19s18.5 7 20 19z" fill="#FFF3EE"></path></svg><span style="position: absolute; left: 50%; bottom: -8px; transform: translateX(-50%); background: #FFFFFF; color: #B7482A; border: 1px solid #E97F5E; font-size: 11px; font-weight: 700; letter-spacing: 0.08em; padding: 2px 9px; border-radius: 999px; white-space: nowrap;">PHOTO</span></div>
+  <section class="m-px m-pt m-pb m-gap m-stack" style="padding: 120px 120px; display: flex; gap: 64px; align-items: center;">
+    <div style="position: relative; width: 120px; height: 120px; flex-shrink: 0;" role="img" aria-label="Placeholder: client photo still needed"><svg viewBox="0 0 60 60" width="120" height="120" aria-hidden="true" style="display: block; border-radius: 50%;"><rect width="60" height="60" fill="#E97F5E"></rect><circle cx="30" cy="23" r="10" fill="#FFF3EE"></circle><path d="M10 60c1.5-12 10-19 20-19s18.5 7 20 19z" fill="#FFF3EE"></path></svg><span class="m-nw" style="position: absolute; left: 50%; bottom: -8px; transform: translateX(-50%); background: #FFFFFF; color: #B7482A; border: 1px solid #E97F5E; font-size: 11px; font-weight: 700; letter-spacing: 0.08em; padding: 2px 9px; border-radius: 999px; white-space: nowrap;">PHOTO</span></div>
     <div style="flex: 1; display: flex; flex-direction: column; gap: 22px;">
-      <h2 style="font-size: 18px; line-height: 1.45; font-weight: 500; letter-spacing: 0; color: #5A6680; max-width: 760px;">What a CEO says about working with Kalicube</h2>
-      <p style="font-weight: 400; font-family: 'Source Serif 4', Georgia, serif; font-size: 34px; line-height: 1.26; font-style: italic;">“Since working with you Jason, I see that Google understands better who we are and what we do… and it manifests itself in all the presentations that Google gives us in the search results.”</p>
+      <h2 style="font-size: 18px; line-height: 1.45; font-weight: 500; letter-spacing: 0; color: #4A5470; max-width: 760px;">What a CEO says about working with Kalicube</h2>
+      <p class="m-f32" style="font-weight: 400; font-family: 'Source Serif 4', Georgia, serif; font-size: 34px; line-height: 1.26; font-style: italic;">“Since working with you Jason, I see that Google understands better who we are and what we do… and it manifests itself in all the presentations that Google gives us in the search results.”</p>
       <div style="display: flex; flex-direction: column; gap: 3px;">
         <div style="font-size: 18px; font-weight: 700;">Robin Bourdet</div>
         <div style="font-size: 16px; color: #5B6475;">CEO, Merci Facteur</div>
@@ -206,11 +263,11 @@
   </section>
 
   <!-- Closing -->
-  <section style="padding: 0 120px 120px;">
-    <div class="scribble" style="background-color: #1B2A4A; color: #FFFFFF; border-radius: 10px; padding: 80px 96px; display: flex; justify-content: space-between; align-items: center; gap: 64px;">
-      <div style="display: flex; flex-direction: column; gap: 14px;"><div style="font-weight: 700; font-size: 44px; line-height: 1.1; letter-spacing: -0.01em; max-width: 640px;"><span style="color: #E8AA2E;">Dominate your market</span> in AI search.</div><h2 style="font-size: 18px; line-height: 1.45; font-weight: 500; letter-spacing: 0; color: rgba(255,255,255,0.78); max-width: 760px;">Apply for Strategy Plus</h2></div>
+  <section class="m-px m-pb" style="padding: 0 120px 120px;">
+    <div class="scribble m-px m-pt m-pb m-gap m-stack" style="background-color: #1A274E; color: #FFFFFF; border-radius: 10px; padding: 80px 96px; display: flex; justify-content: space-between; align-items: center; gap: 64px;">
+      <div style="display: flex; flex-direction: column; gap: 14px;"><div class="m-f40" style="font-weight: 700; font-size: 44px; line-height: 1.1; letter-spacing: -0.01em; max-width: 640px;"><span style="color: #E3A949;">Dominate your market</span> in AI search.</div><h2 style="font-size: 18px; line-height: 1.45; font-weight: 500; letter-spacing: 0; color: rgba(255,255,255,0.78); max-width: 760px;">Apply for Strategy Plus</h2></div>
       <div style="display: flex; flex-direction: column; align-items: flex-start; gap: 16px; flex-shrink: 0;">
-        <a href="#apply" class="act" style="font-family: 'Google Sans Code', Menlo, monospace; display: flex; align-items: center; gap: 10px; background: #E8AA2E; color: #0F1830; padding: 20px 32px; border-radius: 999px; font-size: 17px; font-weight: 500; white-space: nowrap; letter-spacing: 0;">
+        <a href="#apply" class="act m-nw" style="font-family: 'Google Sans Code', Menlo, monospace; display: flex; align-items: center; gap: 10px; background: #E3A949; color: #1A274E; padding: 20px 32px; border-radius: 999px; font-size: 17px; font-weight: 500; white-space: nowrap; letter-spacing: 0;">
           <span>Send your application</span>
           <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg>
         </a>
@@ -220,7 +277,7 @@
   </section>
 
   <!-- Footer -->
-  <footer style="background: #0F1830; color: rgba(255,255,255,0.7); padding: 48px 120px; display: flex; justify-content: space-between; align-items: center; font-size: 14px;">
+  <footer class="m-px m-stack" style="background: #1A274E; color: rgba(255,255,255,0.7); padding: 48px 120px; display: flex; justify-content: space-between; align-items: center; font-size: 14px;">
     <img src="images/logo.png" alt="Kalicube, Digital Brand Engineers" style="height: 36px; width: auto; display: block; filter: brightness(0) invert(1);">
     <span>© 2026 Kalicube · Privacy · Terms</span>
   </footer>

@@ -1,17 +1,17 @@
 <!doctype html>
 <html lang="en-GB">
 <head>
-<script id="flip-redirect">(function(){try{if(window.top!==window.self||/[?&]raw\b/.test(location.search))return;var m=location.pathname.match(/^(.*\/kalicube-website-redesign\/)(.*?)(index(?:-[a-z]+)?\.html)?$/);if(!m)return;var slug=m[2].replace(/\/+$/,"")||"home";location.replace(m[1]+"font-flip/?page="+slug);}catch(e){}})();</script>
+<script id="flip-redirect">(function(){try{if(window.top!==window.self||/[?&]raw\b/.test(location.search))return;var m=location.pathname.match(/^(.*\/kalicube-website-redesign\/)(.*?)(index(?:-[a-z]+)?\.html)?$/);if(!m)return;var slug=m[2].replace(/\/+$/,"")||"home";if(window.innerWidth<760){if(!/index-ubuntu\.html$/.test(location.pathname))location.replace(m[1]+m[2]+"index-ubuntu.html?raw");return;}location.replace(m[1]+"font-flip/?page="+slug);}catch(e){}})();</script>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>I’m the best at what I do, but AI recommends someone else (draft) · Ubuntu and Arial</title>
+<title>I’m the best at what I do, but AI recommends someone else (draft) · Ubuntu</title>
 <meta name="robots" content="noindex, nofollow">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Google+Sans+Flex:wght@400;500;700&amp;family=Source+Serif+4:ital,opsz,wght@1,8..60,400&amp;family=Caveat:wght@600&amp;family=Google+Sans+Code:wght@500&amp;display=swap">
   <style>
-    html, body { margin: 0; background: #0F1830; }
-    body { font-family: Arial, Helvetica, sans-serif; -webkit-font-smoothing: antialiased; }
-    a { color: #1B2A4A; text-decoration: none; } a:hover { color: #BA7517; }
-    a:focus-visible { outline: 2px solid #E8AA2E; outline-offset: 4px; border-radius: 4px; }
+    html, body { margin: 0; background: #1A274E; }
+    body { font-family: 'Ubuntu', 'Helvetica Neue', Arial, sans-serif; -webkit-font-smoothing: antialiased; }
+    a { color: #1A274E; text-decoration: none; } a:hover { color: #B98B4E; }
+    a:focus-visible { outline: 2px solid #E3A949; outline-offset: 4px; border-radius: 4px; }
     h1, h2, h3, p { margin: 0; }
     h1, h2 { text-wrap: balance; }
     p { text-wrap: pretty; }
@@ -22,6 +22,60 @@
     .hero > img.hero-bg { left: var(--split, 50%); width: calc(100% - var(--split, 50%)); }
     .hero > *:nth-child(3) { background-color: inherit; }
   </style>
+<style id="mobile-layout">
+@media (max-width: 759px) {
+  html, body { overflow-x: hidden; }
+  .m-page { width: 100% !important; }
+  .m-px { padding-left: 20px !important; padding-right: 20px !important; }
+  .m-pt { padding-top: 48px !important; }
+  .m-pb { padding-bottom: 48px !important; }
+  .m-g1 { grid-template-columns: minmax(0, 1fr) !important; }
+  .m-g2 { grid-template-columns: repeat(2, minmax(0, 1fr)) !important; }
+  .m-gap { gap: 24px !important; }
+  .m-stack { flex-direction: column !important; align-items: stretch !important; }
+  .m-w { width: auto !important; max-width: 100% !important; }
+  img.m-w { width: 100% !important; }
+  .m-f60 { font-size: 38px !important; } .m-f48 { font-size: 33px !important; } .m-f40 { font-size: 29px !important; }
+  .m-f32 { font-size: 25px !important; } .m-f26 { font-size: 21px !important; } .m-f21 { font-size: 18px !important; } .m-f20 { font-size: 17px !important; }
+  .m-nw { white-space: normal !important; }
+  .m-logos { flex-wrap: wrap !important; justify-content: center !important; gap: 12px 22px !important; }
+  table.matrix, .matrix { display: block; overflow-x: auto; max-width: 100%; }
+  /* The menu: logo and the one button */
+  .m-nav { height: 64px !important; padding-left: 16px !important; padding-right: 16px !important; }
+  .m-nav a:not(.act):not(:has(img)), .m-nav .menu, .m-nav a.act[href*="contact"] { display: none !important; }
+  .m-nav img { height: 30px !important; }
+  .m-nav .act { padding: 9px 14px !important; font-size: 14px !important; }
+  /* Split heroes: text first, then the photo as a band */
+  .hero { display: flex !important; flex-direction: column; }
+  .hero > * { order: 2; }
+  .hero > .m-nav { order: 1; }
+  .hero > div.hero-bg { display: none !important; }
+  .hero > img.hero-bg { position: relative !important; left: 0 !important; top: 0 !important; width: 100% !important; height: 240px !important; order: 3; }
+  /* The homepage hero: text, then the caption, then Jason; no floating icons */
+  .m-hero { height: auto !important; min-height: 0 !important; display: flex !important; flex-direction: column; }
+  .m-hero > div[aria-hidden] { display: none !important; }
+  .m-hero > div[style*="linear-gradient"] { background: rgba(6,14,38,0.62) !important; }
+  .m-hero > div[style*="position: relative"] { order: 1; height: auto !important; padding: 36px 20px 20px !important; max-width: none !important; }
+  .m-hero > p { position: relative !important; right: auto !important; bottom: auto !important; width: auto !important; text-align: left !important; order: 2; padding: 0 20px 16px; font-size: 15px !important; }
+  .m-hero > img[src*="cutout"] { position: relative !important; right: auto !important; order: 3; height: 250px !important; align-self: center; }
+  .m-hero br { display: none; }
+  /* The numbers band: two by two */
+  .m-nums { display: grid !important; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px 12px !important; padding: 18px 20px !important; }
+  .m-nums > div > div:first-child { width: 44px !important; height: 44px !important; }
+  .m-nums svg { width: 24px; height: 24px; }
+  .m-nums > div > div + div > span:first-child { font-size: 22px !important; }
+  /* The pinned press strip: slim, two rows of four, no label */
+  .m-press { padding: 8px 12px !important; gap: 0 !important; }
+  .m-press > div:first-child { display: none !important; }
+  .m-press > div:last-child { display: grid !important; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 8px 14px !important; justify-items: center; align-items: center; }
+  .m-press img { height: auto !important; max-height: 17px; max-width: 100%; }
+  /* The ecosystem diagram: three by two, then the brand and where it goes */
+  .m-eco { grid-template-columns: repeat(3, minmax(0, 1fr)) !important; row-gap: 22px; }
+  .m-eco > div:first-child { display: none !important; }
+  .m-eco > div:nth-child(8), .m-eco > div:nth-child(9) { grid-column: 1 / -1; padding-top: 0 !important; }
+  .m-eco [style*="height: 78px"] { height: auto !important; margin-bottom: 8px; }
+}
+</style>
 <style>
   /* Desktop mockup authored at 1440px: scale it down to fit narrower windows. */
   html { background: #0F1830; scroll-behavior: smooth; }
@@ -29,9 +83,12 @@
 <script>
   function fitPage() {
     var root = document.documentElement, body = document.body;
-    body.style.zoom = Math.min(1, root.clientWidth / 1440);
-    // A vertical scrollbar can appear after the first pass and narrow the page; fit again if so.
-    if (root.scrollWidth > root.clientWidth) body.style.zoom = Math.min(1, root.clientWidth / 1440);
+    // Phones get the phone layout at full size; wider windows get the desktop mockup scaled to fit.
+    if (root.clientWidth < 760) { body.style.zoom = 1; } else {
+      body.style.zoom = Math.min(1, root.clientWidth / 1440);
+      // A vertical scrollbar can appear after the first pass and narrow the page; fit again if so.
+      if (root.scrollWidth > root.clientWidth) body.style.zoom = Math.min(1, root.clientWidth / 1440);
+    }
     // The window height in page units, so a hero can fill the first screen exactly (var(--fold)).
     root.style.setProperty('--fold', (window.innerHeight / (parseFloat(body.style.zoom) || 1)) + 'px');
   }
@@ -60,76 +117,76 @@
     poster.appendChild(frame);
   });
 </script>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;500&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;500;700&display=swap">
 </head>
 <body>
 <div style="max-width: 1440px; margin: 0 auto;">
-<div style="width: 1440px; background: #FFFFFF; color: #1B2A4A;">
+<div class="m-page" style="width: 1440px; background: #FFFFFF; color: #1A274E;">
 
   <!-- Navigation + hero -->
-  <section class="hero" style="--split: 50%; background: #0F1830; color: #FFFFFF;">
+  <section class="hero" style="--split: 50%; background: #1A274E; color: #FFFFFF;">
     <img class="hero-bg" src="images/hero-entrepreneurs.jpg" alt="" style="object-fit: cover; object-position: center 25%; display: block;">
-    <div class="hero-bg" style="background: linear-gradient(90deg, rgb(15,24,48) 0%, rgb(15,24,48) var(--split, 50%), rgba(15,24,48,0.55) calc(var(--split, 50%) + 4%), rgba(15,24,48,0) calc(var(--split, 50%) + 10%));"></div>
-    <div style="height: 96px; padding: 0 120px; display: flex; align-items: center; justify-content: space-between;">
+    <div class="hero-bg" style="background: linear-gradient(90deg, rgb(26,39,78) 0%, rgb(26,39,78) var(--split, 50%), rgba(26,39,78,0.55) calc(var(--split, 50%) + 4%), rgba(26,39,78,0) calc(var(--split, 50%) + 10%));"></div>
+    <div class="m-px m-nav" style="height: 96px; padding: 0 120px; display: flex; align-items: center; justify-content: space-between;">
       <a href="../../" style="display: block;"><img src="images/logo.png" alt="Kalicube, Digital Brand Engineers" style="height: 42px; width: auto; display: block; filter: brightness(0) invert(1);"></a>
-      <a href="../../apply/" class="act" style="font-family: 'Google Sans Code', Menlo, monospace; background: #E8AA2E; color: #0F1830; border-radius: 999px; padding: 12px 24px; font-size: 15px; font-weight: 500; white-space: nowrap; letter-spacing: 0;">Book a call</a>
+      <a href="../../apply/" class="act m-nw" style="font-family: 'Google Sans Code', Menlo, monospace; background: #E3A949; color: #1A274E; border-radius: 999px; padding: 12px 24px; font-size: 15px; font-weight: 500; white-space: nowrap; letter-spacing: 0;">Book a call</a>
     </div>
 
-    <div style="padding: 56px 120px 120px; display: grid; grid-template-columns: minmax(0, 1fr) 560px; gap: 88px; align-items: center;">
+    <div class="m-px m-pb m-g1 m-gap" style="padding: 56px 120px 120px; display: grid; grid-template-columns: minmax(0, 1fr) 560px; gap: 88px; align-items: center;">
       <div style="display: flex; flex-direction: column; gap: 30px;">
         <div style="display: flex; align-items: center; gap: 4px; align-self: flex-start; border: 1px solid rgba(255,255,255,0.28); border-radius: 999px; padding: 4px; font-size: 15px; font-weight: 700;">
           <a href="../../strategy-plus/" style="color: #FFFFFF; border-radius: 999px; padding: 8px 18px;">For companies</a>
-          <span style="background: #FFFFFF; color: #0F1830; border-radius: 999px; padding: 8px 18px;">For entrepreneurs</span>
+          <span style="background: #FFFFFF; color: #1A274E; border-radius: 999px; padding: 8px 18px;">For entrepreneurs</span>
         </div>
-        <p style="font-family: 'Ubuntu', Arial, sans-serif; font-weight: 500; font-size: 64px; line-height: 1.04; letter-spacing: -0.01em;">I’m the best at what I do, <span style="color: #E8AA2E;">but AI recommends someone else.</span></p>
-        <h1 style="font-size: 22px; line-height: 1.4; font-weight: 500; letter-spacing: 0; color: rgba(255,255,255,0.92); max-width: 780px;">Thought leadership for entrepreneurs and experts in Google, ChatGPT and AI search</h1>
-        <p style="font-size: 21px; line-height: 1.62; color: rgba(255,255,255,0.82); max-width: 600px;">You’ve built the expertise, the results and the reputation in your field. But when a prospect asks ChatGPT, Gemini or Google AI Overviews who the leading expert is, another name comes up. Your personal brand is strong in the room, and the machines don’t know it yet, because nobody has made your record easy for them to trust.</p>
+        <p class="m-f60" style="font-family: 'Ubuntu', 'Helvetica Neue', Arial, sans-serif; font-weight: 700; font-size: 64px; line-height: 1.04; letter-spacing: -0.01em;">I’m the best at what I do, <span style="color: #E3A949;">but AI recommends someone else.</span></p>
+        <h1 class="m-f21" style="font-size: 22px; line-height: 1.4; font-weight: 500; letter-spacing: 0; color: rgba(255,255,255,0.92); max-width: 780px;">Thought leadership for entrepreneurs and experts in Google, ChatGPT and AI search</h1>
+        <p class="m-f21" style="font-size: 21px; line-height: 1.62; color: rgba(255,255,255,0.82); max-width: 600px;">You’ve built the expertise, the results and the reputation in your field. But when a prospect asks ChatGPT, Gemini or Google AI Overviews who the leading expert is, another name comes up. Your personal brand is strong in the room, and the machines don’t know it yet, because nobody has made your record easy for them to trust.</p>
       </div>
 
       <!-- The record, completed -->
       <div style="display: flex; flex-direction: column; gap: 18px;">
-        <div style="background: #FFFFFF; color: #1B2A4A; border-radius: 6px; padding: 34px 40px 36px; box-shadow: 0 32px 64px rgba(0, 0, 0, 0.38); display: flex; flex-direction: column; gap: 22px;">
+        <div class="m-px" style="background: #FFFFFF; color: #1A274E; border-radius: 6px; padding: 34px 40px 36px; box-shadow: 0 32px 64px rgba(0, 0, 0, 0.38); display: flex; flex-direction: column; gap: 22px;">
           <div style="display: flex; flex-direction: column; gap: 8px;">
-            <div style="font-size: 12px; letter-spacing: 0.08em; color: #5A6680; font-weight: 500;">THE QUESTION</div>
-            <div style="font-family: 'Ubuntu', Arial, sans-serif; font-size: 23px; font-weight: 500; line-height: 1.3;">Who are the leading experts on family-business succession?</div>
+            <div style="font-size: 12px; letter-spacing: 0.08em; color: #4A5470; font-weight: 500;">THE QUESTION</div>
+            <div class="m-f21" style="font-size: 23px; font-weight: 700; line-height: 1.3;">Who are the leading experts on family-business succession?</div>
           </div>
           <div style="height: 1px; background: #E3E7EE;"></div>
           <div style="display: flex; flex-direction: column; gap: 10px;">
-            <div style="font-size: 12px; letter-spacing: 0.08em; color: #5A6680; font-weight: 500;">WHAT AI ANSWERS</div>
+            <div style="font-size: 12px; letter-spacing: 0.08em; color: #4A5470; font-weight: 500;">WHAT AI ANSWERS</div>
             <div style="display: flex; flex-direction: column; gap: 12px; padding-top: 4px;">
-              <p style="font-size: 20px; line-height: 1.5; color: #1B2A4A;">1. Pierre Laurent, author of <em>Handing On</em></p>
-              <p style="font-size: 20px; line-height: 1.5; color: #1B2A4A;">2. Claire Dumas, founder of Dumas Conseil</p>
-              <p style="display: flex; align-items: baseline; gap: 10px; font-size: 20px; line-height: 1.5; color: #1B2A4A;"><span>3.</span><span style="font-family: 'Caveat', 'Bradley Hand', cursive; font-size: 30px; font-weight: 600; line-height: 1.1; color: #BA7517; display: inline-block; transform: rotate(-2deg); transform-origin: left center;">‸ Morgan Ellis, 200 successions since 2011</span></p>
+              <p class="m-f20" style="font-size: 20px; line-height: 1.5; color: #1A274E;">1. Pierre Laurent, author of <em>Handing On</em></p>
+              <p class="m-f20" style="font-size: 20px; line-height: 1.5; color: #1A274E;">2. Claire Dumas, founder of Dumas Conseil</p>
+              <p class="m-f20" style="display: flex; align-items: baseline; gap: 10px; font-size: 20px; line-height: 1.5; color: #1A274E;"><span>3.</span><span class="m-f26" style="font-family: 'Caveat', 'Bradley Hand', cursive; font-size: 30px; font-weight: 600; line-height: 1.1; color: #B98B4E; display: inline-block; transform: rotate(-2deg); transform-origin: left center;">‸ Morgan Ellis, 200 successions since 2011</span></p>
             </div>
           </div>
-          <div style="font-family: 'Caveat', 'Bradley Hand', cursive; font-size: 29px; font-weight: 600; line-height: 1.1; color: #BA7517; transform: rotate(-2deg); transform-origin: left center;">Not missing from the field. Missing from the record.</div>
+          <div class="m-f26" style="font-family: 'Caveat', 'Bradley Hand', cursive; font-size: 29px; font-weight: 600; line-height: 1.1; color: #B98B4E; transform: rotate(-2deg); transform-origin: left center;">Not missing from the field. Missing from the record.</div>
         </div>
-        <p style="font-size: 14px; line-height: 1.5; color: rgba(255,255,255,0.85); background: rgba(15,24,48,0.88); padding: 6px 12px; border-radius: 6px; align-self: flex-start;">Example: the answer before the record is complete, marked up the way we fix it.</p>
+        <p style="font-size: 14px; line-height: 1.5; color: rgba(255,255,255,0.85); background: rgba(26,39,78,0.88); padding: 6px 12px; border-radius: 6px; align-self: flex-start;">Example: the answer before the record is complete, marked up the way we fix it.</p>
       </div>
     </div>
   </section>
 
   <!-- What's going on, and what we do -->
-  <section style="padding: 64px 120px 80px; display: flex; flex-direction: column;">
-    <div style="display: grid; grid-template-columns: 440px minmax(0, 1fr); gap: 96px; padding: 56px 0; border-bottom: 1px solid #E3E7EE;">
-      <div style="display: flex; flex-direction: column; gap: 14px;"><div style="font-family: 'Ubuntu', Arial, sans-serif; font-weight: 500; font-size: 42px; line-height: 1.12;">AI recommends the expert it’s <span style="color: #BA7517;">most sure about</span></div><h2 style="font-size: 18px; line-height: 1.45; font-weight: 500; letter-spacing: 0; color: #5A6680; max-width: 760px;">Why AI recommends other experts instead of you</h2></div>
-      <p style="font-size: 20px; line-height: 1.7; color: #3A4660; max-width: 640px;">AI doesn’t pick the best person in a field. It picks the one it can explain with the most confidence: a clear story, repeated in enough places, backed by evidence it can check. The person it recommends may just be easier to understand than you are. Being the best isn’t enough when the machine can’t see it. Top of algorithmic mind goes to whoever makes the case easiest to believe.</p>
+  <section class="m-px m-pb" style="padding: 64px 120px 80px; display: flex; flex-direction: column;">
+    <div class="m-g1 m-gap" style="display: grid; grid-template-columns: 440px minmax(0, 1fr); gap: 96px; padding: 56px 0; border-bottom: 1px solid #E3E7EE;">
+      <div style="display: flex; flex-direction: column; gap: 14px;"><div class="m-f40" style="font-family: 'Ubuntu', 'Helvetica Neue', Arial, sans-serif; font-weight: 700; font-size: 42px; line-height: 1.12;">AI recommends the expert it’s <span style="color: #B98B4E;">most sure about</span></div><h2 style="font-size: 18px; line-height: 1.45; font-weight: 500; letter-spacing: 0; color: #4A5470; max-width: 760px;">Why AI recommends other experts instead of you</h2></div>
+      <p class="m-f20" style="font-size: 20px; line-height: 1.7; color: #3D4660; max-width: 640px;">AI doesn’t pick the best person in a field. It picks the one it can explain with the most confidence: a clear story, repeated in enough places, backed by evidence it can check. The person it recommends may just be easier to understand than you are. Being the best isn’t enough when the machine can’t see it. Top of algorithmic mind goes to whoever makes the case easiest to believe.</p>
     </div>
-    <div style="display: grid; grid-template-columns: 440px minmax(0, 1fr); gap: 96px; padding: 56px 0;">
-      <div style="display: flex; flex-direction: column; gap: 14px;"><div style="font-family: 'Ubuntu', Arial, sans-serif; font-weight: 500; font-size: 42px; line-height: 1.12;">What we do <span style="color: #BA7517;">about it</span></div><h2 style="font-size: 18px; line-height: 1.45; font-weight: 500; letter-spacing: 0; color: #5A6680; max-width: 760px;">How Kalicube makes your expertise easy for AI to find and trust</h2></div>
-      <p style="font-size: 20px; line-height: 1.7; color: #3A4660; max-width: 640px;">We engineer what earns the recommendation. We start with the story you want to be known for, in your field, for your audience. We build it on your own website, with the structured data that tells machines it’s the source, and connect every profile to it. Then we make your record easy to find and easy to check, so the evidence behind your expertise is where the machines look. We do the work. You tell us the story and approve it. We show you the change in Google and AI, measured against what you asked for.</p>
+    <div class="m-g1 m-gap" style="display: grid; grid-template-columns: 440px minmax(0, 1fr); gap: 96px; padding: 56px 0;">
+      <div style="display: flex; flex-direction: column; gap: 14px;"><div class="m-f40" style="font-family: 'Ubuntu', 'Helvetica Neue', Arial, sans-serif; font-weight: 700; font-size: 42px; line-height: 1.12;">What we do <span style="color: #B98B4E;">about it</span></div><h2 style="font-size: 18px; line-height: 1.45; font-weight: 500; letter-spacing: 0; color: #4A5470; max-width: 760px;">How Kalicube makes your expertise easy for AI to find and trust</h2></div>
+      <p class="m-f20" style="font-size: 20px; line-height: 1.7; color: #3D4660; max-width: 640px;">We engineer what earns the recommendation. We start with the story you want to be known for, in your field, for your audience. We build it on your own website, with the structured data that tells machines it’s the source, and connect every profile to it. Then we make your record easy to find and easy to check, so the evidence behind your expertise is where the machines look. We do the work. You tell us the story and approve it. We show you the change in Google and AI, measured against what you asked for.</p>
     </div>
   </section>
 
   <!-- Call to action and proof -->
-  <section id="call" style="background: #1B2A4A; color: #FFFFFF; padding: 88px 120px 80px; display: flex; flex-direction: column; gap: 48px;">
+  <section class="m-px m-pt m-pb m-gap" id="call" style="background: #1A274E; color: #FFFFFF; padding: 88px 120px 80px; display: flex; flex-direction: column; gap: 48px;">
     <h2 style="font-size: 18px; line-height: 1.45; font-weight: 500; letter-spacing: 0; color: rgba(255,255,255,0.78); max-width: 760px; grid-column: 1 / -1;">Book a call about thought leadership in AI search</h2>
     <div style="display: flex; flex-direction: column; align-items: flex-start; gap: 22px;">
-      <a href="../../apply/" class="act" style="font-family: 'Google Sans Code', Menlo, monospace; display: flex; align-items: center; gap: 10px; background: #E8AA2E; color: #0F1830; padding: 20px 34px; border-radius: 999px; font-size: 18px; font-weight: 500; white-space: nowrap; letter-spacing: 0;">
+      <a href="../../apply/" class="act m-nw" style="font-family: 'Google Sans Code', Menlo, monospace; display: flex; align-items: center; gap: 10px; background: #E3A949; color: #1A274E; padding: 20px 34px; border-radius: 999px; font-size: 18px; font-weight: 500; white-space: nowrap; letter-spacing: 0;">
         <span>Book a call</span>
         <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg>
       </a>
-      <p style="font-weight: 500; font-size: 28px; line-height: 1.3; color: rgba(255,255,255,0.9); max-width: 760px;">To close the deal today, you need Google, ChatGPT and AI search on your side.</p>
+      <p class="m-f26" style="font-weight: 500; font-size: 28px; line-height: 1.3; color: rgba(255,255,255,0.9); max-width: 760px;">To close the deal today, you need Google, ChatGPT and AI search on your side.</p>
     </div>
     <div style="border-top: 1px solid rgba(255,255,255,0.16); padding-top: 32px; display: flex; flex-direction: column; gap: 8px; max-width: 900px;">
       <p style="font-size: 17px; line-height: 1.6; color: rgba(255,255,255,0.82);">The Kalicube team works on your brand using Kalicube Pro: 25 billion data points, and proprietary algorithms and technical infrastructure protected by 17 patent applications.</p>
@@ -138,22 +195,22 @@
   </section>
 
   <!-- Testimonials -->
-  <section style="padding: 104px 120px 112px; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 80px;">
-    <h2 style="font-size: 18px; line-height: 1.45; font-weight: 500; letter-spacing: 0; color: #5A6680; max-width: 760px; grid-column: 1 / -1;">What entrepreneurs say about working with Kalicube</h2>
+  <section class="m-px m-pt m-pb m-g1 m-gap" style="padding: 104px 120px 112px; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 80px;">
+    <h2 style="font-size: 18px; line-height: 1.45; font-weight: 500; letter-spacing: 0; color: #4A5470; max-width: 760px; grid-column: 1 / -1;">What entrepreneurs say about working with Kalicube</h2>
     <div style="display: flex; flex-direction: column; justify-content: space-between; gap: 24px;">
-      <p style="font-weight: 400; font-family: 'Source Serif 4', Georgia, serif; font-size: 29px; line-height: 1.3; color: #1B2A4A; font-style: italic;">“What I believe that Google Knowledge Panel is, is the most effective salesperson you will ever have in your career.”</p>
-      <div style="display: flex; align-items: center; gap: 16px; border-top: 2px solid #BA7517; padding-top: 20px;"><div style="position: relative; width: 56px; height: 56px; flex-shrink: 0;" role="img" aria-label="Placeholder: client photo still needed"><svg viewBox="0 0 60 60" width="56" height="56" aria-hidden="true" style="display: block; border-radius: 50%;"><rect width="60" height="60" fill="#E97F5E"></rect><circle cx="30" cy="23" r="10" fill="#FFF3EE"></circle><path d="M10 60c1.5-12 10-19 20-19s18.5 7 20 19z" fill="#FFF3EE"></path></svg><span style="position: absolute; left: 50%; bottom: -8px; transform: translateX(-50%); background: #FFFFFF; color: #B7482A; border: 1px solid #E97F5E; font-size: 9.5px; font-weight: 700; letter-spacing: 0.08em; padding: 1px 7px; border-radius: 999px; white-space: nowrap;">PHOTO</span></div><div style="display: flex; flex-direction: column; gap: 3px;"><div style="font-size: 18px; font-weight: 700;">Scott Duffy</div>
-        <div style="font-size: 16px; color: #5A6680;">CEO and Founder, AI Mavericks</div></div></div>
+      <p class="m-f26" style="font-weight: 400; font-family: 'Source Serif 4', Georgia, serif; font-size: 29px; line-height: 1.3; color: #1A274E; font-style: italic;">“What I believe that Google Knowledge Panel is, is the most effective salesperson you will ever have in your career.”</p>
+      <div style="display: flex; align-items: center; gap: 16px; border-top: 2px solid #B98B4E; padding-top: 20px;"><div style="position: relative; width: 56px; height: 56px; flex-shrink: 0;" role="img" aria-label="Placeholder: client photo still needed"><svg viewBox="0 0 60 60" width="56" height="56" aria-hidden="true" style="display: block; border-radius: 50%;"><rect width="60" height="60" fill="#E97F5E"></rect><circle cx="30" cy="23" r="10" fill="#FFF3EE"></circle><path d="M10 60c1.5-12 10-19 20-19s18.5 7 20 19z" fill="#FFF3EE"></path></svg><span class="m-nw" style="position: absolute; left: 50%; bottom: -8px; transform: translateX(-50%); background: #FFFFFF; color: #B7482A; border: 1px solid #E97F5E; font-size: 9.5px; font-weight: 700; letter-spacing: 0.08em; padding: 1px 7px; border-radius: 999px; white-space: nowrap;">PHOTO</span></div><div style="display: flex; flex-direction: column; gap: 3px;"><div style="font-size: 18px; font-weight: 700;">Scott Duffy</div>
+        <div style="font-size: 16px; color: #4A5470;">CEO and Founder, AI Mavericks</div></div></div>
     </div>
     <div style="display: flex; flex-direction: column; justify-content: space-between; gap: 24px;">
-      <p style="font-weight: 400; font-family: 'Source Serif 4', Georgia, serif; font-size: 29px; line-height: 1.3; color: #1B2A4A; font-style: italic;">“I got results. Most of us feel the same way; talking to Google is like talking to an alien. Thankfully, the Kalicube team is the perfect translator!”</p>
-      <div style="display: flex; align-items: center; gap: 16px; border-top: 2px solid #BA7517; padding-top: 20px;"><div style="position: relative; width: 56px; height: 56px; flex-shrink: 0;" role="img" aria-label="Placeholder: client photo still needed"><svg viewBox="0 0 60 60" width="56" height="56" aria-hidden="true" style="display: block; border-radius: 50%;"><rect width="60" height="60" fill="#E97F5E"></rect><circle cx="30" cy="23" r="10" fill="#FFF3EE"></circle><path d="M10 60c1.5-12 10-19 20-19s18.5 7 20 19z" fill="#FFF3EE"></path></svg><span style="position: absolute; left: 50%; bottom: -8px; transform: translateX(-50%); background: #FFFFFF; color: #B7482A; border: 1px solid #E97F5E; font-size: 9.5px; font-weight: 700; letter-spacing: 0.08em; padding: 1px 7px; border-radius: 999px; white-space: nowrap;">PHOTO</span></div><div style="display: flex; flex-direction: column; gap: 3px;"><div style="font-size: 18px; font-weight: 700;">Alex Sanfilippo</div>
-        <div style="font-size: 16px; color: #5A6680;">CEO and Founder, PodMatch</div></div></div>
+      <p class="m-f26" style="font-weight: 400; font-family: 'Source Serif 4', Georgia, serif; font-size: 29px; line-height: 1.3; color: #1A274E; font-style: italic;">“I got results. Most of us feel the same way; talking to Google is like talking to an alien. Thankfully, the Kalicube team is the perfect translator!”</p>
+      <div style="display: flex; align-items: center; gap: 16px; border-top: 2px solid #B98B4E; padding-top: 20px;"><div style="position: relative; width: 56px; height: 56px; flex-shrink: 0;" role="img" aria-label="Placeholder: client photo still needed"><svg viewBox="0 0 60 60" width="56" height="56" aria-hidden="true" style="display: block; border-radius: 50%;"><rect width="60" height="60" fill="#E97F5E"></rect><circle cx="30" cy="23" r="10" fill="#FFF3EE"></circle><path d="M10 60c1.5-12 10-19 20-19s18.5 7 20 19z" fill="#FFF3EE"></path></svg><span class="m-nw" style="position: absolute; left: 50%; bottom: -8px; transform: translateX(-50%); background: #FFFFFF; color: #B7482A; border: 1px solid #E97F5E; font-size: 9.5px; font-weight: 700; letter-spacing: 0.08em; padding: 1px 7px; border-radius: 999px; white-space: nowrap;">PHOTO</span></div><div style="display: flex; flex-direction: column; gap: 3px;"><div style="font-size: 18px; font-weight: 700;">Alex Sanfilippo</div>
+        <div style="font-size: 16px; color: #4A5470;">CEO and Founder, PodMatch</div></div></div>
     </div>
   </section>
 
   <!-- Footer -->
-  <footer style="background: #0F1830; color: rgba(255,255,255,0.7); padding: 40px 120px 44px; display: flex; justify-content: space-between; align-items: center; font-size: 15px;">
+  <footer class="m-px m-stack" style="background: #1A274E; color: rgba(255,255,255,0.7); padding: 40px 120px 44px; display: flex; justify-content: space-between; align-items: center; font-size: 15px;">
     <a href="../../" style="display: block;"><img src="images/logo.png" alt="Kalicube" style="height: 34px; width: auto; display: block; filter: brightness(0) invert(1);"></a>
     <span style="color: rgba(255,255,255,0.6);">© 2026 Kalicube · Privacy · Terms</span>
   </footer>

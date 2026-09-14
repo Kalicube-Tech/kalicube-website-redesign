@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="en-GB">
 <head>
-<script id="flip-redirect">(function(){try{if(window.top!==window.self||/[?&]raw\b/.test(location.search))return;var m=location.pathname.match(/^(.*\/kalicube-website-redesign\/)(.*?)(index(?:-[a-z]+)?\.html)?$/);if(!m)return;var slug=m[2].replace(/\/+$/,"")||"home";location.replace(m[1]+"font-flip/?page="+slug);}catch(e){}})();</script>
+<script id="flip-redirect">(function(){try{if(window.top!==window.self||/[?&]raw\b/.test(location.search))return;var m=location.pathname.match(/^(.*\/kalicube-website-redesign\/)(.*?)(index(?:-[a-z]+)?\.html)?$/);if(!m)return;var slug=m[2].replace(/\/+$/,"")||"home";if(window.innerWidth<760){if(!/index-ubuntu\.html$/.test(location.pathname))location.replace(m[1]+m[2]+"index-ubuntu.html?raw");return;}location.replace(m[1]+"font-flip/?page="+slug);}catch(e){}})();</script>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="noindex, nofollow">
@@ -11,7 +11,7 @@
   img { max-width: 100%; }
   [hidden] { display: none !important; }
 </style>
-<title>Mind, Machine, Practice · Ubuntu and Arial</title>
+<title>Mind, Machine, Practice · Ubuntu</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Google+Sans+Flex:wght@400;500;700&display=swap">
 <style>
@@ -71,7 +71,7 @@
     margin: 0;
     background: var(--ground);
     color: var(--ink);
-    font: 17px/1.6 Arial, Helvetica, sans-serif;
+    font: 17px/1.6 'Ubuntu', 'Helvetica Neue', Arial, sans-serif;
     -webkit-font-smoothing: antialiased;
   }
   h1, h2, h3, p { margin: 0; }
@@ -81,19 +81,19 @@
   a:focus-visible { outline: 2px solid var(--pro); outline-offset: 3px; border-radius: 2px; }
 
   .wrap { max-width: 1120px; margin: 0 auto; padding: 64px 32px 96px; display: flex; flex-direction: column; gap: 72px; }
-  .mono { font-family: Arial, Helvetica, sans-serif; font-weight: 500;}
-  .kicker { font-family: Arial, Helvetica, sans-serif; font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); font-weight: 500;}
+  .mono { font-family: 'Ubuntu', 'Helvetica Neue', Arial, sans-serif; font-weight: 500;}
+  .kicker { font-family: 'Ubuntu', 'Helvetica Neue', Arial, sans-serif; font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); font-weight: 500;}
   .jason { color: var(--jason); }
   .pro { color: var(--pro); }
   .practice { color: var(--practice); }
 
   header { display: flex; flex-direction: column; gap: 20px; }
-  h1 { font-family: 'Ubuntu', Arial, sans-serif; font-weight: 500; font-size: clamp(44px, 7vw, 76px); line-height: 1; letter-spacing: -0.01em;}
+  h1 { font-family: 'Ubuntu', 'Helvetica Neue', Arial, sans-serif; font-weight: 700; font-size: clamp(44px, 7vw, 76px); line-height: 1; letter-spacing: -0.01em;}
   .lede { font-size: 21px; line-height: 1.55; max-width: 62ch; color: var(--ink); }
   .lede strong { font-weight: 700; }
 
   section { display: flex; flex-direction: column; gap: 24px; }
-  h2 { font-family: 'Ubuntu', Arial, sans-serif; font-weight: 500; font-size: 34px; line-height: 1.15;}
+  h2 { font-family: 'Ubuntu', 'Helvetica Neue', Arial, sans-serif; font-weight: 700; font-size: 34px; line-height: 1.15;}
   .intro { color: var(--muted); max-width: 64ch; }
 
   figure { margin: 0; background: var(--surface); border: 1px solid var(--rule); border-radius: 12px; padding: 28px 28px 20px; display: flex; flex-direction: column; gap: 16px; }
@@ -104,18 +104,18 @@
   table { width: 100%; min-width: 900px; border-collapse: collapse; background: var(--surface); border: 1px solid var(--rule); border-radius: 12px; overflow: hidden; }
   th, td { text-align: left; vertical-align: top; padding: 16px 20px; border-top: 1px solid var(--rule); font-size: 15.5px; line-height: 1.55; }
   thead th { border-top: 4px solid var(--c); padding-top: 18px; }
-  thead th .role { display: block; font-family: Arial, Helvetica, sans-serif; font-size: 11.5px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--c); font-weight: 500;}
-  thead th .name { font-family: 'Ubuntu', Arial, sans-serif; display: block; font-size: 20px; font-weight: 500; color: var(--ink); margin-top: 2px;}
+  thead th .role { display: block; font-family: 'Ubuntu', 'Helvetica Neue', Arial, sans-serif; font-size: 11.5px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--c); font-weight: 500;}
+  thead th .name { font-family: 'Ubuntu', 'Helvetica Neue', Arial, sans-serif; display: block; font-size: 20px; font-weight: 700; color: var(--ink); margin-top: 2px;}
   thead th.corner { border-top: 4px solid var(--rule); }
-  tbody th { width: 150px; font-family: Arial, Helvetica, sans-serif; font-weight: 500; font-size: 11.5px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); padding-top: 19px;}
-  td .figures { font-family: Arial, Helvetica, sans-serif; font-size: 13.5px; font-variant-numeric: tabular-nums; font-weight: 500;}
+  tbody th { width: 150px; font-family: 'Ubuntu', 'Helvetica Neue', Arial, sans-serif; font-weight: 500; font-size: 11.5px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); padding-top: 19px;}
+  td .figures { font-family: 'Ubuntu', 'Helvetica Neue', Arial, sans-serif; font-size: 13.5px; font-variant-numeric: tabular-nums; font-weight: 500;}
   td .never { color: var(--muted); }
   td q { quotes: "“" "”"; }
 
   .lines { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px; }
   .line { background: var(--surface); border: 1px solid var(--rule); border-radius: 12px; padding: 24px; display: flex; flex-direction: column; gap: 12px; }
   .line .kicker { color: var(--c); }
-  .line p { font-weight: 400; font-family: 'Ubuntu', Arial, sans-serif; font-size: 22px; line-height: 1.3;}
+  .line p { font-weight: 500; font-family: 'Ubuntu', 'Helvetica Neue', Arial, sans-serif; font-size: 22px; line-height: 1.3;}
 
   .issues { background: var(--surface); border: 1px solid var(--rule); border-radius: 12px; }
   .issue { display: grid; grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr) minmax(0, 1fr); gap: 28px; padding: 22px 24px; border-top: 1px solid var(--rule); }
@@ -128,10 +128,10 @@
 
   .routes { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px; }
   .route { background: var(--surface); border: 1px solid var(--rule); border-radius: 12px; padding: 24px; display: flex; flex-direction: column; gap: 14px; font-size: 16.5px; line-height: 1.6; }
-  .chip { align-self: flex-start; font-family: Arial, Helvetica, sans-serif; font-size: 11.5px; letter-spacing: 0.08em; text-transform: uppercase; padding: 4px 10px; border-radius: 999px; font-weight: 500;}
+  .chip { align-self: flex-start; font-family: 'Ubuntu', 'Helvetica Neue', Arial, sans-serif; font-size: 11.5px; letter-spacing: 0.08em; text-transform: uppercase; padding: 4px 10px; border-radius: 999px; font-weight: 500;}
   .chip.easy { background: var(--good-tint); color: var(--good); }
   .chip.hard { background: var(--neutral-tint); color: var(--muted); }
-  table.sites tbody th.site { width: 190px; font-family: 'Ubuntu', Arial, sans-serif; font-size: 16px; font-weight: 500; letter-spacing: 0; text-transform: none;}
+  table.sites tbody th.site { width: 190px; font-family: 'Ubuntu', 'Helvetica Neue', Arial, sans-serif; font-size: 16px; font-weight: 700; letter-spacing: 0; text-transform: none;}
   table.sites tbody th.site a { color: inherit; }
   table.sites tbody th.jason { color: var(--jason); }
   table.sites tbody th.pro { color: var(--pro); }
@@ -147,7 +147,7 @@
     .issues-head { display: none; }
   }
 </style>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;500&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;500;700&display=swap">
 </head>
 <body>
 <div class="wrap">
@@ -170,14 +170,14 @@
             <marker id="a-practice" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" style="fill: var(--practice)"></path></marker>
           </defs>
 
-          <g font-family="Arial, Helvetica, sans-serif">
+          <g font-family="Ubuntu, Helvetica Neue, Arial, sans-serif">
             <!-- The face: Jason's personal brand brings the clients -->
             <path d="M110 190 V34 H700 V58" fill="none" stroke-width="1.5" stroke-dasharray="5 5" marker-end="url(#a-jason)" style="stroke: var(--jason)"></path>
             <text x="405" y="24" text-anchor="middle" font-size="12.5" style="fill: var(--jason)">the face: 80% of Kalicube’s client acquisition comes through Jason</text>
 
             <!-- Jason -->
             <rect x="20" y="190" width="180" height="96" rx="10" stroke-width="1.5" style="fill: var(--jason-tint); stroke: var(--jason)"></rect>
-            <text x="36" y="214" font-family="Arial, Helvetica, sans-serif" font-size="11" letter-spacing="0.8" style="fill: var(--jason)">THE MIND</text>
+            <text x="36" y="214" font-family="Ubuntu, Helvetica Neue, Arial, sans-serif" font-size="11" letter-spacing="0.8" style="fill: var(--jason)">THE MIND</text>
             <text x="36" y="238" font-size="16" font-weight="700" style="fill: var(--ink)">Jason Barnard</text>
             <text x="36" y="258" font-size="12.5" style="fill: var(--muted)">writes the algorithms</text>
             <text x="36" y="275" font-size="12.5" style="fill: var(--muted)">hired by Google</text>
@@ -188,11 +188,11 @@
 
             <!-- Kalicube Pro -->
             <rect x="280" y="180" width="200" height="116" rx="10" stroke-width="1.5" style="fill: var(--pro-tint); stroke: var(--pro)"></rect>
-            <text x="296" y="204" font-family="Arial, Helvetica, sans-serif" font-size="11" letter-spacing="0.8" style="fill: var(--pro)">THE MACHINE</text>
+            <text x="296" y="204" font-family="Ubuntu, Helvetica Neue, Arial, sans-serif" font-size="11" letter-spacing="0.8" style="fill: var(--pro)">THE MACHINE</text>
             <text x="296" y="228" font-size="16" font-weight="700" style="fill: var(--ink)">Kalicube Pro</text>
             <text x="296" y="248" font-size="12.5" style="fill: var(--muted)">Jason’s brain, encoded</text>
-            <text x="296" y="267" font-family="Arial, Helvetica, sans-serif" font-size="11.5" style="fill: var(--muted)">25bn data points</text>
-            <text x="296" y="284" font-family="Arial, Helvetica, sans-serif" font-size="11.5" style="fill: var(--muted)">73m entities</text>
+            <text x="296" y="267" font-family="Ubuntu, Helvetica Neue, Arial, sans-serif" font-size="11.5" style="fill: var(--muted)">25bn data points</text>
+            <text x="296" y="284" font-family="Ubuntu, Helvetica Neue, Arial, sans-serif" font-size="11.5" style="fill: var(--muted)">73m entities</text>
 
             <!-- Fork: Pro powers Kalicube, and teaches the client's team -->
             <path d="M480 238 H505 V110 H596" fill="none" stroke-width="1.75" marker-end="url(#a-pro)" style="stroke: var(--pro)"></path>
@@ -202,14 +202,14 @@
 
             <!-- Kalicube, the practice -->
             <rect x="600" y="62" width="200" height="96" rx="10" stroke-width="1.5" style="fill: var(--practice-tint); stroke: var(--practice)"></rect>
-            <text x="616" y="86" font-family="Arial, Helvetica, sans-serif" font-size="11" letter-spacing="0.8" style="fill: var(--practice)">THE PRACTICE</text>
+            <text x="616" y="86" font-family="Ubuntu, Helvetica Neue, Arial, sans-serif" font-size="11" letter-spacing="0.8" style="fill: var(--practice)">THE PRACTICE</text>
             <text x="616" y="110" font-size="16" font-weight="700" style="fill: var(--ink)">Kalicube</text>
             <text x="616" y="130" font-size="12.5" style="fill: var(--muted)">Digital Brand Engineers</text>
             <text x="616" y="147" font-size="12.5" style="fill: var(--muted)">done for you</text>
 
             <!-- Client's CMO and team -->
             <rect x="600" y="302" width="200" height="96" rx="10" stroke-width="1.5" style="fill: var(--neutral-tint); stroke: var(--muted)"></rect>
-            <text x="616" y="326" font-family="Arial, Helvetica, sans-serif" font-size="11" letter-spacing="0.8" style="fill: var(--muted)">THE CLIENT’S TEAM</text>
+            <text x="616" y="326" font-family="Ubuntu, Helvetica Neue, Arial, sans-serif" font-size="11" letter-spacing="0.8" style="fill: var(--muted)">THE CLIENT’S TEAM</text>
             <text x="616" y="350" font-size="16" font-weight="700" style="fill: var(--ink)">CMO and marketing</text>
             <text x="616" y="370" font-size="12.5" style="fill: var(--muted)">their team executes</text>
             <text x="616" y="387" font-size="12.5" style="fill: var(--muted)">done with you</text>
@@ -230,14 +230,14 @@
 
             <!-- Entrepreneur -->
             <rect x="890" y="62" width="170" height="96" rx="10" stroke-width="1.5" style="fill: var(--surface); stroke: var(--practice)"></rect>
-            <text x="906" y="86" font-family="Arial, Helvetica, sans-serif" font-size="11" letter-spacing="0.8" style="fill: var(--practice)">VELVET ROPE</text>
+            <text x="906" y="86" font-family="Ubuntu, Helvetica Neue, Arial, sans-serif" font-size="11" letter-spacing="0.8" style="fill: var(--practice)">VELVET ROPE</text>
             <text x="906" y="110" font-size="16" font-weight="700" style="fill: var(--ink)">Entrepreneur</text>
             <text x="906" y="130" font-size="12.5" style="fill: var(--muted)">with a serious</text>
             <text x="906" y="147" font-size="12.5" style="fill: var(--muted)">personal brand</text>
 
             <!-- Company brand -->
             <rect x="890" y="302" width="170" height="96" rx="10" stroke-width="1.5" style="fill: var(--surface); stroke: var(--muted)"></rect>
-            <text x="906" y="326" font-family="Arial, Helvetica, sans-serif" font-size="11" letter-spacing="0.8" style="fill: var(--muted)">COMPANY</text>
+            <text x="906" y="326" font-family="Ubuntu, Helvetica Neue, Arial, sans-serif" font-size="11" letter-spacing="0.8" style="fill: var(--muted)">COMPANY</text>
             <text x="906" y="350" font-size="16" font-weight="700" style="fill: var(--ink)">Company brand</text>
             <text x="906" y="370" font-size="12.5" style="fill: var(--muted)">bespoke to its CMO</text>
             <text x="906" y="387" font-size="12.5" style="fill: var(--muted)">and resources</text>
@@ -250,7 +250,7 @@
             <path d="M1060 110 H1085 V214 H1106" fill="none" stroke-width="1.5" marker-end="url(#a-muted)" style="stroke: var(--muted)"></path>
             <path d="M1060 350 H1085 V262 H1106" fill="none" stroke-width="1.5" marker-end="url(#a-muted)" style="stroke: var(--muted)"></path>
             <rect x="1110" y="190" width="130" height="96" rx="10" stroke-width="1.5" style="fill: var(--neutral-tint); stroke: var(--muted)"></rect>
-            <text x="1126" y="214" font-family="Arial, Helvetica, sans-serif" font-size="11" letter-spacing="0.8" style="fill: var(--muted)">GOOGLE AND AI</text>
+            <text x="1126" y="214" font-family="Ubuntu, Helvetica Neue, Arial, sans-serif" font-size="11" letter-spacing="0.8" style="fill: var(--muted)">GOOGLE AND AI</text>
             <text x="1126" y="238" font-size="14" font-weight="700" style="fill: var(--ink)">understand,</text>
             <text x="1126" y="256" font-size="14" font-weight="700" style="fill: var(--ink)">trust and</text>
             <text x="1126" y="274" font-size="14" font-weight="700" style="fill: var(--ink)">recommend</text>
@@ -273,15 +273,15 @@
             <marker id="j-pro" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" style="fill: var(--pro)"></path></marker>
             <marker id="j-jason" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" style="fill: var(--jason)"></path></marker>
           </defs>
-          <g font-family="Arial, Helvetica, sans-serif">
+          <g font-family="Ubuntu, Helvetica Neue, Arial, sans-serif">
             <rect x="20" y="100" width="170" height="90" rx="10" stroke-width="1.5" style="fill: var(--jason-tint); stroke: var(--jason)"></rect>
-            <text x="34" y="123" font-family="Arial, Helvetica, sans-serif" font-size="11" letter-spacing="0.8" style="fill: var(--jason)">PATH 1 · JASON</text>
+            <text x="34" y="123" font-family="Ubuntu, Helvetica Neue, Arial, sans-serif" font-size="11" letter-spacing="0.8" style="fill: var(--jason)">PATH 1 · JASON</text>
             <text x="34" y="146" font-size="15" font-weight="700" style="fill: var(--ink)">Meets or sees Jason</text>
             <text x="34" y="165" font-size="12" style="fill: var(--muted)">a keynote, an event,</text>
             <text x="34" y="181" font-size="12" style="fill: var(--muted)">a podcast, his network</text>
 
             <rect x="20" y="360" width="170" height="90" rx="10" stroke-width="1.5" style="fill: var(--practice-tint); stroke: var(--practice)"></rect>
-            <text x="34" y="383" font-family="Arial, Helvetica, sans-serif" font-size="11" letter-spacing="0.8" style="fill: var(--practice)">PATH 2 · MARKETING</text>
+            <text x="34" y="383" font-family="Ubuntu, Helvetica Neue, Arial, sans-serif" font-size="11" letter-spacing="0.8" style="fill: var(--practice)">PATH 2 · MARKETING</text>
             <text x="34" y="406" font-size="15" font-weight="700" style="fill: var(--ink)">Joan’s campaigns</text>
             <text x="34" y="425" font-size="12" style="fill: var(--muted)">social media, the</text>
             <text x="34" y="441" font-size="12" style="fill: var(--muted)">newsletter, advertising</text>
@@ -290,13 +290,13 @@
             <line x1="190" y1="405" x2="246" y2="405" stroke-width="1.75" marker-end="url(#j-practice)" style="stroke: var(--practice)"></line>
 
             <rect x="250" y="100" width="200" height="90" rx="10" stroke-width="1.5" style="fill: var(--practice-tint); stroke: var(--practice)"></rect>
-            <text x="264" y="123" font-family="Arial, Helvetica, sans-serif" font-size="11" letter-spacing="0.8" style="fill: var(--practice)">ENTREPRENEUR</text>
+            <text x="264" y="123" font-family="Ubuntu, Helvetica Neue, Arial, sans-serif" font-size="11" letter-spacing="0.8" style="fill: var(--practice)">ENTREPRENEUR</text>
             <text x="264" y="146" font-size="15" font-weight="700" style="fill: var(--ink)">Takes a quick look</text>
             <text x="264" y="165" font-size="12" style="fill: var(--muted)">jasonbarnard.com or the</text>
             <text x="264" y="181" font-size="12" style="fill: var(--muted)">kalicube.com homepage</text>
 
             <rect x="250" y="360" width="200" height="90" rx="10" stroke-width="1.5" style="fill: var(--practice-tint); stroke: var(--practice)"></rect>
-            <text x="264" y="383" font-family="Arial, Helvetica, sans-serif" font-size="11" letter-spacing="0.8" style="fill: var(--practice)">ON KALICUBE.COM</text>
+            <text x="264" y="383" font-family="Ubuntu, Helvetica Neue, Arial, sans-serif" font-size="11" letter-spacing="0.8" style="fill: var(--practice)">ON KALICUBE.COM</text>
             <text x="264" y="406" font-size="15" font-weight="700" style="fill: var(--ink)">A problem page</text>
             <text x="264" y="425" font-size="12" style="fill: var(--muted)">one page per problem,</text>
             <text x="264" y="441" font-size="12" style="fill: var(--muted)">no search or AI needed</text>
@@ -307,19 +307,19 @@
             <text x="482" y="262" text-anchor="end" font-size="12" font-weight="700" style="fill: var(--muted)">tells their team</text>
 
             <rect x="530" y="10" width="210" height="90" rx="10" stroke-width="1.5" style="fill: var(--practice-tint); stroke: var(--practice)"></rect>
-            <text x="544" y="33" font-family="Arial, Helvetica, sans-serif" font-size="11" letter-spacing="0.8" style="fill: var(--practice)">BY APPLICATION</text>
+            <text x="544" y="33" font-family="Ubuntu, Helvetica Neue, Arial, sans-serif" font-size="11" letter-spacing="0.8" style="fill: var(--practice)">BY APPLICATION</text>
             <text x="544" y="56" font-size="15" font-weight="700" style="fill: var(--ink)">Applies for their name</text>
             <text x="544" y="75" font-size="12" style="fill: var(--muted)">done for you, on</text>
             <text x="544" y="91" font-size="12" style="fill: var(--muted)">kalicube.com/apply</text>
 
             <rect x="530" y="150" width="210" height="90" rx="10" stroke-width="1.5" style="fill: var(--neutral-tint); stroke: var(--muted)"></rect>
-            <text x="544" y="173" font-family="Arial, Helvetica, sans-serif" font-size="11" letter-spacing="0.8" style="fill: var(--muted)">CMO</text>
+            <text x="544" y="173" font-family="Ubuntu, Helvetica Neue, Arial, sans-serif" font-size="11" letter-spacing="0.8" style="fill: var(--muted)">CMO</text>
             <text x="544" y="196" font-size="15" font-weight="700" style="fill: var(--ink)">Researches kalicube.com</text>
             <text x="544" y="215" font-size="12" style="fill: var(--muted)">the homepage and</text>
             <text x="544" y="231" font-size="12" style="fill: var(--muted)">Strategy Plus</text>
 
             <rect x="530" y="270" width="210" height="90" rx="10" stroke-width="1.5" style="fill: var(--pro-tint); stroke: var(--pro)"></rect>
-            <text x="544" y="293" font-family="Arial, Helvetica, sans-serif" font-size="11" letter-spacing="0.8" style="fill: var(--pro)">SEO</text>
+            <text x="544" y="293" font-family="Ubuntu, Helvetica Neue, Arial, sans-serif" font-size="11" letter-spacing="0.8" style="fill: var(--pro)">SEO</text>
             <text x="544" y="316" font-size="15" font-weight="700" style="fill: var(--ink)">Explores kalicube.pro</text>
             <text x="544" y="335" font-size="12" style="fill: var(--muted)">the free tools and</text>
             <text x="544" y="351" font-size="12" style="fill: var(--muted)">how Kalicube Pro works</text>
@@ -334,7 +334,7 @@
             <text x="690" y="428" text-anchor="middle" font-size="12" font-weight="700" style="fill: var(--practice)">books a call, or runs the audit</text>
 
             <rect x="830" y="150" width="170" height="90" rx="10" stroke-width="1.5" style="fill: var(--neutral-tint); stroke: var(--muted)"></rect>
-            <text x="844" y="173" font-family="Arial, Helvetica, sans-serif" font-size="11" letter-spacing="0.8" style="fill: var(--muted)">WITH SAM</text>
+            <text x="844" y="173" font-family="Ubuntu, Helvetica Neue, Arial, sans-serif" font-size="11" letter-spacing="0.8" style="fill: var(--muted)">WITH SAM</text>
             <text x="844" y="196" font-size="15" font-weight="700" style="fill: var(--ink)">A call</text>
             <text x="844" y="215" font-size="12" style="fill: var(--muted)">the fit is checked</text>
             <text x="844" y="231" font-size="12" style="fill: var(--muted)">before anything else</text>
@@ -343,13 +343,13 @@
             <path d="M1000 210 H1018 V315 H1036" fill="none" stroke-width="1.75" marker-end="url(#j-pro)" style="stroke: var(--pro)"></path>
 
             <rect x="1040" y="30" width="150" height="90" rx="10" stroke-width="1.5" style="fill: var(--practice-tint); stroke: var(--practice)"></rect>
-            <text x="1054" y="53" font-family="Arial, Helvetica, sans-serif" font-size="11" letter-spacing="0.8" style="fill: var(--practice)">DONE FOR YOU</text>
+            <text x="1054" y="53" font-family="Ubuntu, Helvetica Neue, Arial, sans-serif" font-size="11" letter-spacing="0.8" style="fill: var(--practice)">DONE FOR YOU</text>
             <text x="1054" y="76" font-size="15" font-weight="700" style="fill: var(--ink)">Their name</text>
             <text x="1054" y="95" font-size="12" style="fill: var(--muted)">our team does</text>
             <text x="1054" y="111" font-size="12" style="fill: var(--muted)">the work</text>
 
             <rect x="1040" y="270" width="150" height="90" rx="10" stroke-width="1.5" style="fill: var(--pro-tint); stroke: var(--pro)"></rect>
-            <text x="1054" y="293" font-family="Arial, Helvetica, sans-serif" font-size="11" letter-spacing="0.8" style="fill: var(--pro)">THE COMPANY</text>
+            <text x="1054" y="293" font-family="Ubuntu, Helvetica Neue, Arial, sans-serif" font-size="11" letter-spacing="0.8" style="fill: var(--pro)">THE COMPANY</text>
             <text x="1054" y="316" font-size="15" font-weight="700" style="fill: var(--ink)">Strategy Plus</text>
             <text x="1054" y="335" font-size="12" style="fill: var(--muted)">the strategy and</text>
             <text x="1054" y="351" font-size="12" style="fill: var(--muted)">Kalicube Pro</text>
@@ -499,7 +499,7 @@
       </div>
       <div class="line" style="--c: var(--practice)">
         <div class="kicker">Kalicube</div>
-        <p>We engineer how AI understands, trusts and recommends your brand, and we demonstrate it moved.</p><p style="font-family: Arial, Helvetica, sans-serif; font-size: 15px; line-height: 1.5; color: var(--muted);">For executives: “We engineer your executive digital brand so you can focus on building your company.”</p>
+        <p>We engineer how AI understands, trusts and recommends your brand, and we demonstrate it moved.</p><p style="font-family: 'Ubuntu', 'Helvetica Neue', Arial, sans-serif; font-size: 15px; line-height: 1.5; color: var(--muted);">For executives: “We engineer your executive digital brand so you can focus on building your company.”</p>
       </div>
     </div>
   </section>
