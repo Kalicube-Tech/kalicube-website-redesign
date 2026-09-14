@@ -39,6 +39,8 @@
     body.style.zoom = Math.min(1, root.clientWidth / 1440);
     // A vertical scrollbar can appear after the first pass and narrow the page; fit again if so.
     if (root.scrollWidth > root.clientWidth) body.style.zoom = Math.min(1, root.clientWidth / 1440);
+    // The window height in page units, so a hero can fill the first screen exactly (var(--fold)).
+    root.style.setProperty('--fold', (window.innerHeight / (parseFloat(body.style.zoom) || 1)) + 'px');
   }
   window.addEventListener('resize', fitPage);
   document.addEventListener('DOMContentLoaded', fitPage);
