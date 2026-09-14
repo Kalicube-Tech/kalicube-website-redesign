@@ -15,12 +15,6 @@
     h1, h2 { text-wrap: balance; }
     p { text-wrap: pretty; }
     .grid-bg { background-image: linear-gradient(rgba(120,180,230,0.07) 1px, transparent 1px), linear-gradient(90deg, rgba(120,180,230,0.07) 1px, transparent 1px); background-size: 48px 48px; }
-    .hero { position: relative; overflow: hidden; }
-    .hero > * { position: relative; z-index: 1; }
-    .hero > *:nth-child(3) { z-index: 2; }
-    .hero > .hero-bg { position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 0; }
-    .hero > img.hero-bg { left: var(--split, 50%); width: calc(100% - var(--split, 50%)); }
-    .hero > *:nth-child(3) { background-color: inherit; }
   </style>
 <style id="mobile-layout">
 @media (max-width: 759px) {
@@ -47,7 +41,7 @@
   table.matrix, .matrix { display: block; overflow-x: auto; max-width: 100%; }
   /* The menu: logo and the one button */
   .m-nav { height: 64px !important; padding-left: 16px !important; padding-right: 16px !important; }
-  .m-nav a:not(.act):not(:has(img)), .m-nav .menu, .m-nav a.act[href*="contact"] { display: none !important; }
+  .m-nav a:not(.act):not(:has(img)), .m-nav .menu, .m-nav a.act[href*="contact"], .m-nav a.act[href*="apply"] { display: none !important; }
   .m-nav { gap: 10px; }
   .m-nav > :first-child { min-width: 0; flex-shrink: 1; }
   .m-nav img { height: auto !important; max-height: 30px; max-width: 100%; min-width: 0; }
@@ -132,43 +126,86 @@
 <div style="max-width: 1440px; margin: 0 auto;">
 <div class="m-page" style="width: 1440px; background: #FFFFFF; color: #22325F;">
 
-  <!-- Hero -->
-  <section class="hero grid-bg" style="--split: 58%; background-color: #1A274E; color: #FFFFFF;">
-    <img class="hero-bg" src="images/hero-strategy-plus.jpg" alt="" style="object-fit: cover; object-position: center; display: block;">
-    <div class="hero-bg" style="background: linear-gradient(90deg, rgb(11,23,38) 0%, rgb(11,23,38) var(--split, 50%), rgba(26,39,78,0.55) calc(var(--split, 50%) + 4%), rgba(26,39,78,0) calc(var(--split, 50%) + 10%));"></div>
-    <div class="m-px m-nav" style="height: 88px; padding: 0 120px; display: flex; align-items: center; justify-content: space-between; border-bottom: 1px solid rgba(255,255,255,0.08);">
-      <a href="../" style="display: flex; align-items: center; gap: 12px;">
-        <img src="images/logo.png" alt="Kalicube" style="height: 40px; width: auto; display: block; filter: brightness(0) invert(1);">
-        <div style="font-family: 'DM Sans', 'Helvetica Neue', Arial, sans-serif; font-size: 13px; font-weight: 500; letter-spacing: 0.08em; color: #1A274E; background: #5AA5D3; padding: 4px 10px; border-radius: 6px;">PRO</div>
-      </a>
-      <a href="https://audit.kalicube.pro" target="_blank" rel="noopener" class="act m-nw" style="font-family: 'Google Sans Code', Menlo, monospace; background: #E3A949; color: #1A274E; border-radius: 999px; padding: 12px 24px; font-size: 15px; font-weight: 500; white-space: nowrap; letter-spacing: 0;">Free AI audit</a>
+  <!-- Navigation -->
+  <header style="background-color: #1A274E; color: #FFFFFF;">
+    <nav class="m-px m-nav" style="height: 84px; padding: 0 120px; display: flex; align-items: center; justify-content: space-between;">
+      <a href="../" style="display: block;"><img src="images/logo.png" alt="Kalicube, Digital Brand Engineers" style="height: 44px; width: auto; display: block; filter: brightness(0) invert(1);"></a>
+      <div class="m-nw" style="display: flex; align-items: center; gap: 34px; font-size: 16px; font-weight: 500; white-space: nowrap;">
+        <a href="../entrepreneurs/" style="color: #FFFFFF;">Entrepreneurs</a>
+        <a href="../strategy-plus/" style="color: #FFFFFF;">Companies</a>
+        <a href="../kalicubepro/" style="color: #FFFFFF;">Kalicube Pro</a>
+        <a href="#" style="color: #FFFFFF;">Client results</a>
+        <a href="#" style="color: #FFFFFF;">About</a>
+        <div style="display: flex; align-items: center; gap: 14px; margin-left: 6px;">
+          <a href="https://audit.kalicube.pro" target="_blank" rel="noopener" class="act" style="font-family: 'Google Sans Code', Menlo, monospace; background: #E3A949; color: #1A274E; border: 2px solid #E3A949; border-radius: 8px; padding: 10px 22px; font-weight: 500; font-size: 0.94em; letter-spacing: 0;">Free audit and strategy</a>
+          <a href="https://kalicube.com/about/contact/" target="_blank" rel="noopener" class="act" style="font-family: 'Google Sans Code', Menlo, monospace; color: #E3A949; border: 2px solid #E3A949; border-radius: 8px; padding: 10px 22px; font-weight: 500; font-size: 0.94em; letter-spacing: 0;">Contact us</a>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Hero: the homepage's composition. It fills the first screen, so the numbers and the press strip sit below it on any screen -->
+  <section class="m-hero" style="position: relative; overflow: hidden; background: #0B1633; color: #FFFFFF; height: calc(var(--fold, 900px) - 279px); min-height: 800px;">
+    <img src="images/hero-network.jpg" alt="" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 60% 50%; display: block;">
+    <div style="position: absolute; inset: 0; background: linear-gradient(90deg, rgba(6,14,38,0.78) 0%, rgba(6,14,38,0.5) 48%, rgba(6,14,38,0) 72%);"></div>
+    <div aria-hidden="true" style="position: absolute; inset: 0;">
+      <div style="position: absolute; left: 846px; top: 9%; width: 52px; height: 52px; border-radius: 50%; background: rgba(236,241,250,0.86); box-shadow: 0 0 0 5px rgba(140,195,230,0.18); display: flex; align-items: center; justify-content: center;"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#5AA5D3" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5h16v11H9l-5 4z"></path><path d="M8 9h8M8 12.5h5"></path></svg></div>
+      <div style="position: absolute; left: 894px; top: 30%; width: 52px; height: 52px; border-radius: 50%; background: rgba(236,241,250,0.86); box-shadow: 0 0 0 5px rgba(140,195,230,0.18); display: flex; align-items: center; justify-content: center;"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#5AA5D3" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l2.8 5.7 6.2.9-4.5 4.4 1 6.2L12 17.3 6.5 20.2l1-6.2L3 9.6l6.2-.9z"></path></svg></div>
+      <div style="position: absolute; left: 952px; top: 8%; width: 52px; height: 52px; border-radius: 50%; background: rgba(236,241,250,0.86); box-shadow: 0 0 0 5px rgba(140,195,230,0.18); display: flex; align-items: center; justify-content: center;"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#5AA5D3" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l1.8 5.2L19 10l-5.2 1.8L12 17l-1.8-5.2L5 10l5.2-1.8z"></path><path d="M19 15l.8 2.2L22 18l-2.2.8L19 21l-.8-2.2L16 18l2.2-.8z"></path></svg></div>
+      <div style="position: absolute; left: 1060px; top: 5%; width: 52px; height: 52px; border-radius: 50%; background: rgba(236,241,250,0.86); box-shadow: 0 0 0 5px rgba(140,195,230,0.18); display: flex; align-items: center; justify-content: center;"><span class="m-f26" style="font-family: 'DM Sans', 'Helvetica Neue', Arial, sans-serif; font-weight: 700; font-size: 30px; line-height: 1; color: #5AA5D3;">G</span></div>
+      <div style="position: absolute; left: 998px; top: 24%; width: 68px; height: 68px; border-radius: 50%; background: rgba(236,241,250,0.86); box-shadow: 0 0 0 5px rgba(140,195,230,0.18); display: flex; align-items: center; justify-content: center;"><img src="images/falcon.png" alt="" style="height: 40px; width: auto; display: block;"></div>
+      <div style="position: absolute; left: 940px; top: 47%; width: 52px; height: 52px; border-radius: 50%; background: rgba(236,241,250,0.86); box-shadow: 0 0 0 5px rgba(140,195,230,0.18); display: flex; align-items: center; justify-content: center;"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#5AA5D3" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="10.5" cy="10.5" r="6.5"></circle><path d="M15.5 15.5 21 21"></path></svg></div>
+      <div style="position: absolute; left: 1319px; top: 10%; width: 52px; height: 52px; border-radius: 50%; background: rgba(236,241,250,0.86); box-shadow: 0 0 0 5px rgba(140,195,230,0.18); display: flex; align-items: center; justify-content: center;"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#5AA5D3" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6z"></path><path d="M8.5 12l2.5 2.5 4.5-5"></path></svg></div>
     </div>
-    <div class="m-px m-pt m-pb" style="padding: 128px 120px 136px; display: flex; flex-direction: column; gap: 32px; max-width: 700px;">
-      <div style="display: flex; align-items: center; gap: 4px; align-self: flex-start; border: 1px solid rgba(255,255,255,0.28); border-radius: 999px; padding: 4px; font-size: 15px; font-weight: 700;">
+    <img src="images/jason-cutout.png" alt="Jason Barnard, founder of Kalicube" style="position: absolute; right: 24px; bottom: 0; height: min(66%, 460px); width: auto; display: block;">
+    <p style="position: absolute; right: 420px; bottom: 34px; width: 236px; text-align: right; font-size: 15px; line-height: 1.45; font-weight: 700; color: #FFFFFF; text-shadow: 0 2px 10px rgba(0,0,0,0.55);">Led by Jason Barnard. Hired by Google to speak on the future of AI Search and how brands win at organic optimization. <a href="../jasonbarnard/#reel" style="color: #FFFFFF; text-decoration: underline; text-underline-offset: 3px;">Watch Jason in action.</a></p>
+    <div class="m-px" style="position: relative; height: 100%; box-sizing: border-box; padding: 40px 120px; display: flex; flex-direction: column; justify-content: center; gap: 18px; max-width: 900px;">
+      <div style="display: flex; align-items: center; gap: 4px; align-self: flex-start; border: 1px solid rgba(255,255,255,0.32); border-radius: 999px; padding: 4px; font-size: 15px; font-weight: 700; background: rgba(6,14,38,0.35);">
         <span style="background: #FFFFFF; color: #1A274E; border-radius: 999px; padding: 8px 18px;">For companies</span>
         <a href="../entrepreneurs/" style="color: #FFFFFF; border-radius: 999px; padding: 8px 18px;">For entrepreneurs</a>
       </div>
       <div style="font-family: 'DM Sans', 'Helvetica Neue', Arial, sans-serif; font-size: 13px; letter-spacing: 0.06em; color: #5AA5D3; font-weight: 500;">STRATEGY PLUS · FOR CORPORATE GROUPS</div>
-      <p class="m-f60" style="font-family: 'DM Sans', 'Helvetica Neue', Arial, sans-serif; font-weight: 700; font-size: 60px; line-height: 1.02; letter-spacing: -0.015em;">AI search is selling for someone, twenty four seven. <span style="color: #5AA5D3;"><span style="color: #5AA5D3;">Make sure it’s you.</span></span></p>
-      <h1 class="m-f21" style="font-size: 22px; line-height: 1.4; font-weight: 500; letter-spacing: 0; color: rgba(255,255,255,0.92); max-width: 780px;">Strategy Plus: corporate strategy for AI search and your brands, plus the platform that tells your team what to do every week</h1>
-      <p class="m-f21" style="font-size: 22px; line-height: 1.6; color: rgba(255,255,255,0.84); max-width: 820px;">Your buyers used to search, click and compare. Now they ask ChatGPT or Google and get one answer, already researched. Strategy Plus makes sure that answer is right about every brand in your group. We build the strategy. Kalicube Pro collects the data, evolves the strategy and, every week, tells your team exactly what to do.</p>
-      <p style="font-size: 18px; line-height: 1.5; font-weight: 700; color: #FFFFFF; max-width: 700px;">Newfold Digital, the group behind Bluehost and Yoast, runs its brands on Kalicube.</p>
-      <div style="display: flex; align-items: center; gap: 16px; padding-top: 8px;">
-        <a href="https://audit.kalicube.pro" target="_blank" rel="noopener" class="act m-nw" style="font-family: 'Google Sans Code', Menlo, monospace; display: flex; align-items: center; gap: 10px; background: #E3A949; color: #1A274E; padding: 20px 30px; border-radius: 999px; font-size: 17px; font-weight: 500; white-space: nowrap; letter-spacing: 0;">
-          <span>Get your free AI audit</span>
-          <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg>
-        </a>
-        </div>
+      <p class="m-f48" style="font-family: 'DM Sans', 'Helvetica Neue', Arial, sans-serif; font-weight: 700; font-size: 52px; line-height: 1.06; letter-spacing: -0.0125em;">AI search is selling for someone, twenty four seven. <span style="color: #E3A949;">Make sure it’s you.</span></p>
+      <h1 style="font-size: 19px; line-height: 1.4; font-weight: 500; letter-spacing: 0; color: #FFFFFF; max-width: 640px;">Strategy Plus: corporate strategy for AI search and your brands, plus the platform that tells your team what to do every week</h1>
+      <p style="font-size: 18px; line-height: 1.55; color: rgba(255,255,255,0.9); max-width: 640px;">Your buyers used to search, click and compare. Now they ask ChatGPT or Google and get one answer, already researched. Strategy Plus makes sure that answer is right about every brand in your group. We build the strategy. Kalicube Pro collects the data, evolves the strategy and, every week, tells your team exactly what to do.</p>
+      <p style="font-size: 18px; line-height: 1.5; font-weight: 700; color: #FFFFFF; max-width: 640px;">Newfold Digital, the group behind Bluehost and Yoast, runs its brands on Kalicube.</p>
+      <div style="display: flex; flex-direction: column; align-items: flex-start; gap: 10px; padding-top: 6px;">
+        <a href="https://audit.kalicube.pro" target="_blank" rel="noopener" class="act m-f20 m-nw" style="font-family: 'Google Sans Code', Menlo, monospace; display: flex; align-items: center; gap: 12px; background: #E3A949; color: #1A274E; padding: 17px 34px; border-radius: 999px; font-size: 20px; font-weight: 500; white-space: nowrap; letter-spacing: 0; box-shadow: 0 8px 22px rgba(0,0,0,0.32);"><span>Get your free audit and strategy</span><svg width="18" height="18" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg></a>
+        <div style="font-size: 14px; line-height: 1.5; color: rgba(255,255,255,0.82); max-width: 440px;">Free · Less than 5 minutes · A detailed audit and strategy based on The Kalicube Process</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- The numbers, straight under the hero -->
+  <section class="m-nums m-px" style="background: #1A274E; color: #FFFFFF; border-top: 4px solid #FFFFFF; padding: 18px 120px; display: flex; justify-content: space-between; align-items: center;">
+    <div style="display: flex; align-items: center; gap: 14px;"><div style="width: 64px; height: 64px; border-radius: 50%; background: #FFFFFF; display: flex; align-items: center; justify-content: center; flex-shrink: 0;"><svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="#5AA5D3" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><ellipse cx="12" cy="5.5" rx="8" ry="3"></ellipse><path d="M4 5.5v6c0 1.7 3.6 3 8 3s8-1.3 8-3v-6M4 11.5v6c0 1.7 3.6 3 8 3s8-1.3 8-3v-6"></path></svg></div><div style="display: flex; flex-direction: column; gap: 5px;"><span class="m-f32 m-nw" style="font-size: 32px; line-height: 1; font-weight: 700; white-space: nowrap;">25 billion</span><span class="m-nw" style="font-size: 15px; line-height: 1.2; color: rgba(255,255,255,0.85); white-space: nowrap;">data points</span></div></div>
+    <div style="display: flex; align-items: center; gap: 14px;"><div style="width: 64px; height: 64px; border-radius: 50%; background: #FFFFFF; display: flex; align-items: center; justify-content: center; flex-shrink: 0;"><svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="#5AA5D3" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="9" cy="8" r="3.2"></circle><circle cx="17" cy="9" r="2.6"></circle><path d="M3 20c0-3.6 2.7-6 6-6s6 2.4 6 6M14.5 14.3c.8-.2 1.6-.3 2.5-.3 2.8 0 4.5 2 4.5 5"></path></svg></div><div style="display: flex; flex-direction: column; gap: 5px;"><span class="m-f32 m-nw" style="font-size: 32px; line-height: 1; font-weight: 700; white-space: nowrap;">73 million</span><span class="m-nw" style="font-size: 15px; line-height: 1.2; color: rgba(255,255,255,0.85); white-space: nowrap;">entities</span></div></div>
+    <div style="display: flex; align-items: center; gap: 14px;"><div style="width: 64px; height: 64px; border-radius: 50%; background: #FFFFFF; display: flex; align-items: center; justify-content: center; flex-shrink: 0;"><svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="#5AA5D3" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="2"></rect><path d="M3 10h18M8 3v4M16 3v4M7.5 14h2M11 14h2M14.5 14h2M7.5 17.5h2M11 17.5h2"></path></svg></div><div style="display: flex; flex-direction: column; gap: 5px;"><span class="m-f32 m-nw" style="font-size: 32px; line-height: 1; font-weight: 700; white-space: nowrap;">2015</span><span class="m-nw" style="font-size: 15px; line-height: 1.2; color: rgba(255,255,255,0.85); white-space: nowrap;">weekly data collection began</span></div></div>
+    <div style="display: flex; align-items: center; gap: 14px;"><div style="width: 64px; height: 64px; border-radius: 50%; background: #FFFFFF; display: flex; align-items: center; justify-content: center; flex-shrink: 0;"><svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="#5AA5D3" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 3H6v18h7"></path><path d="M15 3l4 4v7M15 3v4h4M9 9h6M9 12.5h6"></path><circle cx="17.5" cy="17.5" r="3"></circle><path d="M16 20.2 15.5 23l2-1 2 1-.5-2.8"></path></svg></div><div style="display: flex; flex-direction: column; gap: 5px;"><span class="m-f32 m-nw" style="font-size: 32px; line-height: 1; font-weight: 700; white-space: nowrap;">17</span><span class="m-nw" style="font-size: 15px; line-height: 1.2; color: rgba(255,255,255,0.85); white-space: nowrap;">patent applications</span></div></div>
+  </section>
+
+  <!-- Press: pinned to the bottom of the first screen, then scrolls into place -->
+  <section class="m-press m-px m-gap m-stack" style="position: sticky; bottom: 0; z-index: 30; background: #FFFFFF; padding: 28px 120px; display: flex; align-items: center; gap: 56px; border-top: 1.5px solid #5AA5D3; border-bottom: 1.5px solid #5AA5D3; box-shadow: 0 -6px 18px rgba(26,39,78,0.12);">
+    <div class="m-nw" style="font-size: 14px; font-weight: 700; color: #1A274E; white-space: nowrap;">As featured in</div>
+    <div class="m-logos" style="flex: 1; display: flex; justify-content: space-between; align-items: center;">
+      <img src="images/p-forbes.png" alt="Forbes" style="height: 24px; width: auto; display: block; filter: grayscale(1); mix-blend-mode: multiply; opacity: 0.7;">
+      <img src="images/p-entrepreneur.png" alt="Entrepreneur" style="height: 22px; width: auto; display: block; filter: grayscale(1); mix-blend-mode: multiply; opacity: 0.7;">
+      <img src="images/p-lemonde.png" alt="Le Monde" style="height: 24px; width: auto; display: block; filter: grayscale(1); mix-blend-mode: multiply; opacity: 0.7;">
+      <img src="images/p-skynews.png" alt="Sky News" style="height: 26px; width: auto; display: block; filter: grayscale(1); mix-blend-mode: multiply; opacity: 0.7;">
+      <img src="images/p-usatoday.png" alt="USA Today" style="height: 32px; width: auto; display: block; filter: grayscale(1); mix-blend-mode: multiply; opacity: 0.7;">
+      <img src="images/p-rollingstone.png" alt="Rolling Stone" style="height: 24px; width: auto; display: block; filter: grayscale(1); mix-blend-mode: multiply; opacity: 0.7;">
+      <img src="images/p-yahoo.png" alt="Yahoo! News" style="height: 30px; width: auto; display: block; filter: grayscale(1); mix-blend-mode: multiply; opacity: 0.7;">
+      <img src="images/p-msn.png" alt="MSN" style="height: 28px; width: auto; display: block; filter: grayscale(1); mix-blend-mode: multiply; opacity: 0.7;">
     </div>
   </section>
 
   <!-- What changed -->
-  <section class="m-px m-pt m-pb m-gap" style="padding: 128px 120px 120px; display: flex; flex-direction: column; gap: 56px;">
+  <section class="m-px m-pt m-pb m-gap" style="padding: 120px 120px 120px; display: flex; flex-direction: column; gap: 56px;">
     <div style="display: flex; flex-direction: column; gap: 16px; max-width: 860px;">
       <div style="display: flex; flex-direction: column; gap: 14px;"><div class="m-f48" style="font-family: 'DM Sans', 'Helvetica Neue', Arial, sans-serif; font-weight: 700; font-size: 52px; line-height: 1.06; letter-spacing: -0.0125em;">It’s still brand and reputation. <span style="color: #2F7DB0;">What’s changed is who tells the story.</span></div><h2 style="font-size: 18px; line-height: 1.45; font-weight: 500; letter-spacing: 0; color: #4A5470; max-width: 760px;">How AI search changed brand and reputation management</h2></div>
       <p class="m-f20" style="font-size: 20px; line-height: 1.6; color: #3D4660;">As Jeff Bezos would say today, your brand is what Google and AI say about you when you’re not in the room.</p>
     </div>
-    <div class="m-g1" style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); border: 1px solid #E1E8F0; border-radius: 14px; overflow: hidden;">
+    <div class="m-g1" style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); border-radius: 14px; overflow: hidden; box-shadow: 0 4px 14px rgba(26,39,78,0.08), 0 1px 3px rgba(26,39,78,0.06);">
       <div class="m-px" style="padding: 44px 48px; display: flex; flex-direction: column; gap: 28px; background: #F6F6F6;">
         <div style="font-family: 'DM Sans', 'Helvetica Neue', Arial, sans-serif; font-size: 13px; letter-spacing: 0.06em; color: #4A5470; font-weight: 500;">HOW IT USED TO WORK</div>
         <div style="display: flex; flex-direction: column; gap: 22px;">
@@ -188,12 +225,19 @@
     </div>
   </section>
 
-  <!-- The gap -->
-  <section class="m-px m-pt m-pb m-gap m-stack" style="background: #F6F6F6; padding: 120px 120px; display: flex; gap: 96px; align-items: center; border-top: 1px solid #E1E8F0; border-bottom: 1px solid #E1E8F0;">
-    <div style="display: flex; flex-direction: column; gap: 14px; flex: 1;"><p class="m-f48" style="font-weight: 500; flex: 1; font-family: 'DM Sans', 'Helvetica Neue', Arial, sans-serif; font-size: 48px; line-height: 1.2; color: #22325F;">AI isn’t being unfair to you. It has assembled a picture from what it can find, <span style="color: #2F7DB0;">and the picture is wrong.</span></p><h2 style="font-size: 18px; line-height: 1.45; font-weight: 500; letter-spacing: 0; color: #4A5470; max-width: 760px;">Why AI gets your company wrong, or hedges</h2></div>
-    <div class="m-w" style="width: 420px; flex-shrink: 0; display: flex; flex-direction: column; gap: 20px;">
-      <p class="m-f20" style="font-size: 20px; line-height: 1.6; color: #3D4660;">Or it’s hedging, which is worse, because nothing looks broken.</p>
-      <p class="m-f20" style="font-family: 'DM Sans', 'Helvetica Neue', Arial, sans-serif; font-size: 20px; line-height: 1.6; color: #22325F; font-weight: 700;">You already know there’s a gap. We measure it.</p>
+  <!-- The gap: the words beside the photo, as two boxes that stack on a phone -->
+  <section class="m-px m-pt m-pb" style="background: #EDF5FB; padding: 104px 120px;">
+    <div class="m-g1 m-gap" style="display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 64px; align-items: stretch;">
+      <div style="display: flex; flex-direction: column; gap: 28px; justify-content: center;">
+        <div style="display: flex; flex-direction: column; gap: 14px;"><p class="m-f40" style="font-weight: 500; font-family: 'DM Sans', 'Helvetica Neue', Arial, sans-serif; font-size: 42px; line-height: 1.18; color: #22325F;">AI isn’t being unfair to you. It has assembled a picture from what it can find, <span style="color: #2F7DB0;">and the picture is wrong.</span></p><h2 style="font-size: 18px; line-height: 1.45; font-weight: 500; letter-spacing: 0; color: #4A5470; max-width: 760px;">Why AI gets your company wrong, or hedges</h2></div>
+        <div style="display: flex; flex-direction: column; gap: 20px;">
+          <p class="m-f20" style="font-size: 20px; line-height: 1.6; color: #3D4660;">Or it’s hedging, which is worse, because nothing looks broken.</p>
+          <p class="m-f20" style="font-family: 'DM Sans', 'Helvetica Neue', Arial, sans-serif; font-size: 20px; line-height: 1.6; color: #22325F; font-weight: 700;">You already know there’s a gap. We measure it.</p>
+        </div>
+      </div>
+      <div style="border-radius: 14px; overflow: hidden; box-shadow: 0 4px 14px rgba(26,39,78,0.08), 0 1px 3px rgba(26,39,78,0.06); min-height: 460px;">
+        <img src="images/hero-strategy-plus.jpg" alt="A leadership team in a meeting around a table" style="width: 100%; height: 100%; min-height: 460px; object-fit: cover; object-position: 55% center; display: block;">
+      </div>
     </div>
   </section>
 
@@ -245,46 +289,58 @@
   </section>
 
   <!-- How you know it works -->
-  <section class="m-px m-pt m-pb m-gap m-stack" style="padding: 128px 120px 120px; display: flex; gap: 96px; align-items: center;">
+  <section class="m-px m-pt m-pb m-gap m-stack" style="padding: 128px 120px 128px; display: flex; gap: 96px; align-items: center;">
     <div style="flex: 1; display: flex; flex-direction: column; gap: 20px;">
       <div style="display: flex; flex-direction: column; gap: 14px;"><div class="m-f48" style="font-family: 'DM Sans', 'Helvetica Neue', Arial, sans-serif; font-weight: 700; font-size: 48px; line-height: 1.08; letter-spacing: -0.01em;">How you’ll know <span style="color: #2F7DB0;">it’s working</span></div><h2 style="font-size: 18px; line-height: 1.45; font-weight: 500; letter-spacing: 0; color: #4A5470; max-width: 760px;">How we measure results and demonstrate what moved</h2></div>
       <p class="m-f20" style="font-size: 20px; line-height: 1.65; color: #3D4660;">Every week you see whether Google and AI named you, how they described you, and whether the answer matched your story. Kalicube Pro tracks how AI understands, trusts and recommends each of your brands, and demonstrates what moved, measured against your own goal.</p>
     </div>
-    <div class="m-w m-px" style="width: 520px; flex-shrink: 0; background: #F6F6F6; border-radius: 14px; padding: 36px 40px; display: flex; flex-direction: column; gap: 18px;">
+    <div class="m-w m-px" style="width: 520px; flex-shrink: 0; background: #F6F6F6; border-radius: 14px; padding: 36px 40px; display: flex; flex-direction: column; gap: 18px; box-shadow: 0 4px 14px rgba(26,39,78,0.08), 0 1px 3px rgba(26,39,78,0.06);">
       <div style="font-family: 'DM Sans', 'Helvetica Neue', Arial, sans-serif; font-size: 13px; letter-spacing: 0.06em; color: #2F7DB0; font-weight: 500;">EVERY SUNDAY</div>
       <p class="m-f26" style="font-family: 'DM Sans', 'Helvetica Neue', Arial, sans-serif; font-size: 26px; line-height: 1.35; font-weight: 700; color: #22325F;">Collect the data. Evolve the strategy. Tell your team what to do. They do the work. See what moved. <span style="color: #2F7DB0;">Next Sunday, again.</span></p>
     </div>
   </section>
 
-  <!-- Evidence -->
-  <section class="m-px m-pt m-pb m-gap" style="background: #F6F6F6; padding: 96px 120px; display: flex; flex-direction: column; gap: 40px; border-top: 1px solid #E1E8F0; border-bottom: 1px solid #E1E8F0;">
-    <div style="display: flex; align-items: center; gap: 24px;">
-      <img src="images/jason.jpg" alt="Jason Barnard" style="width: 72px; height: 72px; border-radius: 50%; object-fit: cover; object-position: 50% 30%; display: block; flex-shrink: 0;">
-      <p class="m-f20" style="font-size: 20px; line-height: 1.55; color: #22325F;"><span style="font-weight: 700;">Kalicube Pro is built by Jason Barnard.</span> Hired by Google to speak on the future of AI Search and how brands win at organic optimization.</p>
-    </div>
-    <div class="m-g2" style="display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 24px;">
-      <div style="display: flex; flex-direction: column; gap: 6px; border-top: 2px solid #22325F; padding-top: 18px;"><div class="m-f40" style="font-family: 'DM Sans', 'Helvetica Neue', Arial, sans-serif; font-size: 40px; color: #2F7DB0; font-weight: 700; font-variant-numeric: tabular-nums;">25 billion</div><div style="font-size: 16px; color: #3D4660;">data points</div></div>
-      <div style="display: flex; flex-direction: column; gap: 6px; border-top: 2px solid #22325F; padding-top: 18px;"><div class="m-f40" style="font-family: 'DM Sans', 'Helvetica Neue', Arial, sans-serif; font-size: 40px; color: #2F7DB0; font-weight: 700; font-variant-numeric: tabular-nums;">73 million</div><div style="font-size: 16px; color: #3D4660;">entities</div></div>
-      <div style="display: flex; flex-direction: column; gap: 6px; border-top: 2px solid #22325F; padding-top: 18px;"><div class="m-f40" style="font-family: 'DM Sans', 'Helvetica Neue', Arial, sans-serif; font-size: 40px; color: #2F7DB0; font-weight: 700; font-variant-numeric: tabular-nums;">17</div><div style="font-size: 16px; color: #3D4660;">patent applications protecting the algorithms</div></div>
-      <div style="display: flex; flex-direction: column; gap: 6px; border-top: 2px solid #22325F; padding-top: 18px;"><div class="m-f40" style="font-family: 'DM Sans', 'Helvetica Neue', Arial, sans-serif; font-size: 40px; color: #2F7DB0; font-weight: 700; font-variant-numeric: tabular-nums;">2015</div><div style="font-size: 16px; color: #3D4660;">collecting brand data since</div></div>
-    </div>
-  </section>
-
   <!-- Call -->
   <section id="call" class="grid-bg m-px m-pt m-pb" style="background-color: #1A274E; color: #FFFFFF; padding: 120px 120px 128px; display: flex; flex-direction: column; align-items: center; gap: 28px; text-align: center;">
-    <div style="display: flex; flex-direction: column; gap: 14px;"><div class="m-f48" style="font-family: 'DM Sans', 'Helvetica Neue', Arial, sans-serif; font-weight: 700; font-size: 56px; line-height: 1.05; letter-spacing: -0.0125em;">See where you stand. <span style="color: #5AA5D3;">Then build the strategy.</span></div><h2 style="font-size: 18px; line-height: 1.45; font-weight: 500; letter-spacing: 0; color: rgba(255,255,255,0.78); max-width: 760px;">Get a free AI audit of your brands</h2></div>
-    <p class="m-f20" style="font-size: 20px; line-height: 1.6; color: rgba(255,255,255,0.8); max-width: 680px;">The first step is a free AI audit of your brands. From there, the strategy is built in the first month.</p>
-    <a href="https://audit.kalicube.pro" target="_blank" rel="noopener" class="act m-nw" style="font-family: 'Google Sans Code', Menlo, monospace; display: flex; align-items: center; gap: 10px; background: #E3A949; color: #1A274E; padding: 20px 32px; border-radius: 999px; font-size: 17px; font-weight: 500; white-space: nowrap; margin-top: 8px; letter-spacing: 0;">
-      <span>Get your free AI audit</span>
-      <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+    <div style="display: flex; flex-direction: column; align-items: center; gap: 14px;"><div class="m-f48" style="font-family: 'DM Sans', 'Helvetica Neue', Arial, sans-serif; font-weight: 700; font-size: 56px; line-height: 1.05; letter-spacing: -0.0125em;">See where you stand. <span style="color: #5AA5D3;">Then build the strategy.</span></div><h2 style="font-size: 18px; line-height: 1.45; font-weight: 500; letter-spacing: 0; color: rgba(255,255,255,0.78); max-width: 760px;">Get a free AI audit and strategy for your brands</h2></div>
+    <p class="m-f20" style="font-size: 20px; line-height: 1.6; color: rgba(255,255,255,0.8); max-width: 680px;">The first step is a free AI audit and The Kalicube Process strategy for your brands. From there, the full strategy is built in the first month.</p>
+    <a href="https://audit.kalicube.pro" target="_blank" rel="noopener" class="act m-nw" style="font-family: 'Google Sans Code', Menlo, monospace; display: flex; align-items: center; gap: 10px; background: #E3A949; color: #1A274E; padding: 20px 32px; border-radius: 999px; font-size: 18px; font-weight: 500; white-space: nowrap; margin-top: 8px; letter-spacing: 0;">
+      <span>Get your free audit and strategy</span>
+      <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg>
     </a>
-    <a href="../kalicubepro/"style="color: #FFFFFF; font-size: 16px; font-weight: 700; padding-bottom: 3px; border-bottom: 2px solid rgba(255,255,255,0.55);">Want every detail first? See how Kalicube Pro works</a>
+    <a href="../kalicubepro/" style="color: #FFFFFF; font-size: 16px; font-weight: 700; padding-bottom: 3px; border-bottom: 2px solid rgba(255,255,255,0.55);">Want every detail first? See how Kalicube Pro works</a>
   </section>
 
   <!-- Footer -->
-  <footer class="m-px m-stack" style="background: #1A274E; color: rgba(255,255,255,0.72); padding: 40px 120px 44px; display: flex; justify-content: space-between; align-items: center; border-top: 1px solid rgba(255,255,255,0.1); font-size: 15px;">
-    <span>Built by <a href="../jasonbarnard/" style="color: #FFFFFF; font-weight: 700;">Jason Barnard</a> · operated by <a href="../" style="color: #FFFFFF; font-weight: 700;">Kalicube</a></span>
-    <span style="color: rgba(255,255,255,0.6);">© 2026 Kalicube · Privacy · Terms</span>
+  <footer class="m-px m-pt m-gap" style="background: #131C3A; color: rgba(255,255,255,0.72); padding: 88px 120px 48px; display: flex; flex-direction: column; gap: 72px;">
+    <div class="m-gap m-stack" style="display: flex; justify-content: space-between; gap: 64px;">
+      <div style="display: flex; flex-direction: column; gap: 20px; max-width: 300px;">
+        <a href="../" style="display: block; align-self: flex-start;"><img src="images/logo.png" alt="Kalicube, Digital Brand Engineers" style="height: 44px; width: auto; display: block; filter: brightness(0) invert(1);"></a>
+        <p style="font-size: 16px; line-height: 1.6;">Digital Brand Engineering for entrepreneurs and companies.</p>
+      </div>
+      <div class="m-g2 m-gap" style="display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 56px; font-size: 15px; line-height: 1.4;">
+        <div style="display: flex; flex-direction: column; gap: 12px;">
+          <div style="font-size: 15px; font-weight: 700; color: #FFFFFF; padding-bottom: 4px;">Services</div>
+          <span>For entrepreneurs</span><span>For companies</span><span>Kalicube Pro</span>
+        </div>
+        <div style="display: flex; flex-direction: column; gap: 12px;">
+          <div style="font-size: 15px; font-weight: 700; color: #FFFFFF; padding-bottom: 4px;">Proof</div>
+          <span>Client results</span><span>Knowledge Panel results</span><span>What clients say</span>
+        </div>
+        <div style="display: flex; flex-direction: column; gap: 12px;">
+          <div style="font-size: 15px; font-weight: 700; color: #FFFFFF; padding-bottom: 4px;">Learn</div>
+          <span>The Kalicube Process</span><span>Books by Jason Barnard</span><span>Free guides</span>
+        </div>
+        <div style="display: flex; flex-direction: column; gap: 12px;">
+          <div style="font-size: 15px; font-weight: 700; color: #FFFFFF; padding-bottom: 4px;">About</div>
+          <span>Jason Barnard</span><span>The team</span><span>Data and methodology</span><span>Contact</span>
+        </div>
+      </div>
+    </div>
+    <div style="display: flex; justify-content: space-between; font-size: 14px; color: rgba(255,255,255,0.6); border-top: 1px solid rgba(255,255,255,0.12); padding-top: 28px;">
+      <span>© 2026 Kalicube</span>
+      <span>Privacy · Terms · Cookies</span>
+    </div>
   </footer>
 
 </div>

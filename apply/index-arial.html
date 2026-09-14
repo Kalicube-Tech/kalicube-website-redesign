@@ -10,19 +10,14 @@
   <style>
     html, body { margin: 0; background: #1A274E; }
     body { font-family: Arial, Helvetica, sans-serif; -webkit-font-smoothing: antialiased;}
-    a { color: #1A274E; text-decoration: none; } a:hover { color: #B98B4E; }
+    a { color: #1A274E; text-decoration: none; } a:hover { color: #8C6230; }
+    a:focus-visible { outline: 2px solid #E3A949; outline-offset: 4px; border-radius: 4px; }
     h1, h2, h3, p { margin: 0; }
-    h1, h2 { text-wrap: balance; }
+    h1, h2, h3 { text-wrap: balance; }
     p { text-wrap: pretty; }
     input, textarea { font-family: inherit; }
     input:focus, textarea:focus { outline: 2px solid #E3A949; outline-offset: 1px; }
     .scribble { background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='120'%3E%3Cg stroke='%233399CC' stroke-opacity='0.16' stroke-width='2.5' stroke-linecap='round' fill='none'%3E%3Cpath d='M10 40 L34 22'/%3E%3Cpath d='M52 18 L70 6'/%3E%3Cpath d='M96 52 L126 30'/%3E%3Cpath d='M20 96 L40 82'/%3E%3Cpath d='M70 110 L102 88'/%3E%3Cpath d='M128 96 L150 80'/%3E%3Cpath d='M58 66 L74 55'/%3E%3Cpath d='M138 20 L154 9'/%3E%3C/g%3E%3C/svg%3E"); }
-    .hero { position: relative; overflow: hidden; }
-    .hero > * { position: relative; z-index: 1; }
-    .hero > *:nth-child(3) { z-index: 2; }
-    .hero > .hero-bg { position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 0; }
-    .hero > img.hero-bg { left: var(--split, 50%); width: calc(100% - var(--split, 50%)); }
-    .hero > *:nth-child(3) { background-color: inherit; }
   </style>
 <style id="mobile-layout">
 @media (max-width: 759px) {
@@ -49,7 +44,7 @@
   table.matrix, .matrix { display: block; overflow-x: auto; max-width: 100%; }
   /* The menu: logo and the one button */
   .m-nav { height: 64px !important; padding-left: 16px !important; padding-right: 16px !important; }
-  .m-nav a:not(.act):not(:has(img)), .m-nav .menu, .m-nav a.act[href*="contact"] { display: none !important; }
+  .m-nav a:not(.act):not(:has(img)), .m-nav .menu, .m-nav a.act[href*="contact"], .m-nav a.act[href*="apply"] { display: none !important; }
   .m-nav { gap: 10px; }
   .m-nav > :first-child { min-width: 0; flex-shrink: 1; }
   .m-nav img { height: auto !important; max-height: 30px; max-width: 100%; min-width: 0; }
@@ -133,36 +128,89 @@
 <div style="max-width: 1440px; margin: 0 auto;">
 <div class="m-page" style="width: 1440px; background: #FFFFFF; color: #1A274E;">
 
-  <!-- Hero with the application -->
-  <section class="hero scribble" style="--split: 47%; background-color: #1A274E; color: #FFFFFF;">
-    <img class="hero-bg" src="images/hero-apply.jpg" alt="" style="object-fit: cover; object-position: center 30%; display: block;">
-    <div class="hero-bg" style="background: linear-gradient(90deg, rgb(27,42,74) 0%, rgb(27,42,74) var(--split, 50%), rgba(27,42,74,0.55) calc(var(--split, 50%) + 4%), rgba(27,42,74,0) calc(var(--split, 50%) + 10%));"></div>
-    <div class="m-px m-nav" style="height: 88px; padding: 0 120px; display: flex; align-items: center; justify-content: space-between; border-bottom: 1px solid rgba(255,255,255,0.1);">
-      <a href="../" style="display: block;"><img src="images/logo.png" alt="Kalicube, Digital Brand Engineers" style="height: 42px; width: auto; display: block; filter: brightness(0) invert(1);"></a>
-      <a href="../" style="color: #FFFFFF; font-size: 16px; font-weight: 500; display: flex; align-items: center; gap: 8px;"><svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M13 8H3M7 4L3 8l4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg><span>Back to kalicube.com</span></a>
-    </div>
+  <!-- Navigation -->
+  <header style="background-color: #1A274E; color: #FFFFFF;">
+    <nav class="m-px m-nav" style="height: 84px; padding: 0 120px; display: flex; align-items: center; justify-content: space-between;">
+      <a href="../" style="display: block;"><img src="images/logo.png" alt="Kalicube, Digital Brand Engineers" style="height: 44px; width: auto; display: block; filter: brightness(0) invert(1);"></a>
+      <div class="m-nw" style="display: flex; align-items: center; gap: 34px; font-size: 16px; font-weight: 500; white-space: nowrap;">
+        <a href="../entrepreneurs/" style="color: #FFFFFF;">Entrepreneurs</a>
+        <a href="../strategy-plus/" style="color: #FFFFFF;">Companies</a>
+        <a href="../kalicubepro/" style="color: #FFFFFF;">Kalicube Pro</a>
+        <a href="#" style="color: #FFFFFF;">Client results</a>
+        <a href="#" style="color: #FFFFFF;">About</a>
+        <div style="display: flex; align-items: center; gap: 14px; margin-left: 6px;">
+          <a href="https://audit.kalicube.pro" target="_blank" rel="noopener" class="act" style="font-family: 'Google Sans Code', Menlo, monospace; background: #E3A949; color: #1A274E; border: 2px solid #E3A949; border-radius: 8px; padding: 10px 22px; font-weight: 500; font-size: 0.94em; letter-spacing: 0;">Free audit and strategy</a>
+          <a href="https://kalicube.com/about/contact/" target="_blank" rel="noopener" class="act" style="font-family: 'Google Sans Code', Menlo, monospace; color: #E3A949; border: 2px solid #E3A949; border-radius: 8px; padding: 10px 22px; font-weight: 500; font-size: 0.94em; letter-spacing: 0;">Contact us</a>
+        </div>
+      </div>
+    </nav>
+  </header>
 
-    <div class="m-px m-pt m-pb m-gap m-stack" style="padding: 96px 120px 112px; display: flex; gap: 88px; align-items: flex-start;">
-      <div style="flex: 1; display: flex; flex-direction: column; gap: 28px; padding-top: 24px;">
-      <div style="display: flex; align-items: center; gap: 4px; align-self: flex-start; border: 1px solid rgba(255,255,255,0.28); border-radius: 999px; padding: 4px; font-size: 15px; font-weight: 700;">
+  <!-- Hero: the homepage's composition. It fills the first screen, so the numbers and the press strip sit below it on any screen -->
+  <section class="m-hero" style="position: relative; overflow: hidden; background: #0B1633; color: #FFFFFF; height: calc(var(--fold, 900px) - 279px); min-height: 680px;">
+    <img src="images/hero-network.jpg" alt="" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 60% 50%; display: block;">
+    <div style="position: absolute; inset: 0; background: linear-gradient(90deg, rgba(6,14,38,0.78) 0%, rgba(6,14,38,0.5) 48%, rgba(6,14,38,0) 72%);"></div>
+    <div aria-hidden="true" style="position: absolute; inset: 0;">
+      <div style="position: absolute; left: 846px; top: 9%; width: 52px; height: 52px; border-radius: 50%; background: rgba(236,241,250,0.86); box-shadow: 0 0 0 5px rgba(140,195,230,0.18); display: flex; align-items: center; justify-content: center;"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#B98B4E" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5h16v11H9l-5 4z"></path><path d="M8 9h8M8 12.5h5"></path></svg></div>
+      <div style="position: absolute; left: 894px; top: 30%; width: 52px; height: 52px; border-radius: 50%; background: rgba(236,241,250,0.86); box-shadow: 0 0 0 5px rgba(140,195,230,0.18); display: flex; align-items: center; justify-content: center;"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#B98B4E" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l2.8 5.7 6.2.9-4.5 4.4 1 6.2L12 17.3 6.5 20.2l1-6.2L3 9.6l6.2-.9z"></path></svg></div>
+      <div style="position: absolute; left: 952px; top: 8%; width: 52px; height: 52px; border-radius: 50%; background: rgba(236,241,250,0.86); box-shadow: 0 0 0 5px rgba(140,195,230,0.18); display: flex; align-items: center; justify-content: center;"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#B98B4E" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l1.8 5.2L19 10l-5.2 1.8L12 17l-1.8-5.2L5 10l5.2-1.8z"></path><path d="M19 15l.8 2.2L22 18l-2.2.8L19 21l-.8-2.2L16 18l2.2-.8z"></path></svg></div>
+      <div style="position: absolute; left: 1060px; top: 5%; width: 52px; height: 52px; border-radius: 50%; background: rgba(236,241,250,0.86); box-shadow: 0 0 0 5px rgba(140,195,230,0.18); display: flex; align-items: center; justify-content: center;"><span class="m-f26" style="font-family: Arial, Helvetica, sans-serif; font-weight: 700; font-size: 30px; line-height: 1; color: #B98B4E;">G</span></div>
+      <div style="position: absolute; left: 998px; top: 24%; width: 68px; height: 68px; border-radius: 50%; background: rgba(236,241,250,0.86); box-shadow: 0 0 0 5px rgba(140,195,230,0.18); display: flex; align-items: center; justify-content: center;"><img src="images/falcon.png" alt="" style="height: 40px; width: auto; display: block;"></div>
+      <div style="position: absolute; left: 940px; top: 47%; width: 52px; height: 52px; border-radius: 50%; background: rgba(236,241,250,0.86); box-shadow: 0 0 0 5px rgba(140,195,230,0.18); display: flex; align-items: center; justify-content: center;"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#B98B4E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="10.5" cy="10.5" r="6.5"></circle><path d="M15.5 15.5 21 21"></path></svg></div>
+      <div style="position: absolute; left: 1319px; top: 10%; width: 52px; height: 52px; border-radius: 50%; background: rgba(236,241,250,0.86); box-shadow: 0 0 0 5px rgba(140,195,230,0.18); display: flex; align-items: center; justify-content: center;"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#B98B4E" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6z"></path><path d="M8.5 12l2.5 2.5 4.5-5"></path></svg></div>
+    </div>
+    <img src="images/jason-cutout.png" alt="Jason Barnard, founder of Kalicube" style="position: absolute; right: 24px; bottom: 0; height: min(66%, 460px); width: auto; display: block;">
+    <p style="position: absolute; right: 420px; bottom: 34px; width: 236px; text-align: right; font-size: 15px; line-height: 1.45; font-weight: 700; color: #FFFFFF; text-shadow: 0 2px 10px rgba(0,0,0,0.55);">Led by Jason Barnard. Hired by Google to speak on the future of AI Search and how brands win at organic optimization. <a href="../jasonbarnard/#reel" style="color: #FFFFFF; text-decoration: underline; text-underline-offset: 3px;">Watch Jason in action.</a></p>
+    <div class="m-px" style="position: relative; height: 100%; box-sizing: border-box; padding: 40px 120px; display: flex; flex-direction: column; justify-content: center; gap: 18px; max-width: 900px;">
+      <div style="display: flex; align-items: center; gap: 4px; align-self: flex-start; border: 1px solid rgba(255,255,255,0.32); border-radius: 999px; padding: 4px; font-size: 15px; font-weight: 700; background: rgba(6,14,38,0.35);">
         <a href="companies/" style="color: #FFFFFF; border-radius: 999px; padding: 8px 18px;">For companies</a>
         <span style="background: #FFFFFF; color: #1A274E; border-radius: 999px; padding: 8px 18px;">For entrepreneurs</span>
       </div>
-        <div style="font-size: 17px; font-weight: 500; color: #E3A949;">By application only</div>
-        <p class="m-f60" style="font-family: Arial, Helvetica, sans-serif; font-weight: 700; font-size: 72px; line-height: 1.02; letter-spacing: -0.015em;"><span style="color: #E3A949;">Define who you are.</span> We’ll do the rest.</p>
-        <h1 class="m-f21" style="font-size: 22px; line-height: 1.4; font-weight: 500; letter-spacing: 0; color: rgba(255,255,255,0.92); max-width: 780px;">Apply for done-for-you Digital Brand Engineering for entrepreneurs, in Google and AI search</h1>
-        <p class="m-f20" style="font-size: 20px; line-height: 1.6; color: rgba(255,255,255,0.84); max-width: 560px;">We engineer your executive digital brand so you can focus on building your company. Kalicube works directly with a small number of entrepreneurs whose name is their brand, and takes the strain off your shoulders while Google and AI learn to describe you the way you’d want them to.</p>
-        <div style="display: flex; align-items: center; gap: 18px; padding-top: 12px; border-top: 1px solid rgba(255,255,255,0.14); margin-top: 8px;">
-          <img src="images/jason.jpg" alt="Jason Barnard" style="width: 64px; height: 64px; border-radius: 50%; object-fit: cover; object-position: 50% 30%; display: block; flex-shrink: 0; margin-top: 12px;">
-          <p style="font-size: 16px; line-height: 1.55; color: rgba(255,255,255,0.82); padding-top: 12px;"><span style="color: #FFFFFF; font-weight: 700;">Led by Jason Barnard.</span> As a client, you get time with Jason himself.</p>
+      <div style="font-size: 17px; font-weight: 500; color: #8CC3E6;">By application only</div>
+      <p class="m-f48" style="font-family: Arial, Helvetica, sans-serif; font-weight: 700; font-size: 52px; line-height: 1.06; letter-spacing: -0.0125em;"><span style="color: #E3A949;">Define who you are.</span> We’ll do the rest.</p>
+      <h1 style="font-size: 19px; line-height: 1.4; font-weight: 500; letter-spacing: 0; color: #FFFFFF; max-width: 640px;">Apply for done-for-you Digital Brand Engineering for entrepreneurs, in Google and AI search</h1>
+      <p style="font-size: 18px; line-height: 1.55; color: rgba(255,255,255,0.9); max-width: 640px;">We engineer your executive digital brand so you can focus on building your company. Kalicube works directly with a small number of entrepreneurs whose name is their brand, and takes the strain off your shoulders while Google and AI learn to describe you the way you’d want them to.</p>
+      <div style="display: flex; flex-direction: column; align-items: flex-start; gap: 10px; padding-top: 6px;">
+        <div style="display: flex; align-items: center; gap: 14px;">
+          <a href="#apply" class="act m-nw" style="font-family: 'Google Sans Code', Menlo, monospace; display: flex; align-items: center; gap: 12px; background: #E3A949; color: #1A274E; padding: 17px 30px; border-radius: 999px; font-size: 18px; font-weight: 500; white-space: nowrap; letter-spacing: 0; box-shadow: 0 8px 22px rgba(0,0,0,0.32);"><span>Apply now</span><svg width="18" height="18" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg></a>
+          <a href="https://audit.kalicube.pro" target="_blank" rel="noopener" class="act m-nw" style="font-family: 'Google Sans Code', Menlo, monospace; display: flex; align-items: center; color: #FFFFFF; border: 2px solid rgba(255,255,255,0.85); padding: 15px 28px; border-radius: 999px; font-size: 18px; font-weight: 500; white-space: nowrap; letter-spacing: 0; background: rgba(6,14,38,0.35);">Get your free audit and strategy</a>
         </div>
+        <div style="font-size: 14px; line-height: 1.5; color: rgba(255,255,255,0.82); max-width: 440px;">It takes two minutes, and we read every application.</div>
       </div>
+    </div>
+  </section>
 
+  <!-- The numbers, straight under the hero -->
+  <section class="m-nums m-px" style="background: #1A274E; color: #FFFFFF; border-top: 4px solid #FFFFFF; padding: 18px 120px; display: flex; justify-content: space-between; align-items: center;">
+    <div style="display: flex; align-items: center; gap: 14px;"><div style="width: 64px; height: 64px; border-radius: 50%; background: #FFFFFF; display: flex; align-items: center; justify-content: center; flex-shrink: 0;"><svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="#B98B4E" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><ellipse cx="12" cy="5.5" rx="8" ry="3"></ellipse><path d="M4 5.5v6c0 1.7 3.6 3 8 3s8-1.3 8-3v-6M4 11.5v6c0 1.7 3.6 3 8 3s8-1.3 8-3v-6"></path></svg></div><div style="display: flex; flex-direction: column; gap: 5px;"><span class="m-f32 m-nw" style="font-size: 32px; line-height: 1; font-weight: 700; white-space: nowrap;">25 billion</span><span class="m-nw" style="font-size: 15px; line-height: 1.2; color: rgba(255,255,255,0.85); white-space: nowrap;">data points</span></div></div>
+    <div style="display: flex; align-items: center; gap: 14px;"><div style="width: 64px; height: 64px; border-radius: 50%; background: #FFFFFF; display: flex; align-items: center; justify-content: center; flex-shrink: 0;"><svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="#B98B4E" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="9" cy="8" r="3.2"></circle><circle cx="17" cy="9" r="2.6"></circle><path d="M3 20c0-3.6 2.7-6 6-6s6 2.4 6 6M14.5 14.3c.8-.2 1.6-.3 2.5-.3 2.8 0 4.5 2 4.5 5"></path></svg></div><div style="display: flex; flex-direction: column; gap: 5px;"><span class="m-f32 m-nw" style="font-size: 32px; line-height: 1; font-weight: 700; white-space: nowrap;">73 million</span><span class="m-nw" style="font-size: 15px; line-height: 1.2; color: rgba(255,255,255,0.85); white-space: nowrap;">entities</span></div></div>
+    <div style="display: flex; align-items: center; gap: 14px;"><div style="width: 64px; height: 64px; border-radius: 50%; background: #FFFFFF; display: flex; align-items: center; justify-content: center; flex-shrink: 0;"><svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="#B98B4E" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="2"></rect><path d="M3 10h18M8 3v4M16 3v4M7.5 14h2M11 14h2M14.5 14h2M7.5 17.5h2M11 17.5h2"></path></svg></div><div style="display: flex; flex-direction: column; gap: 5px;"><span class="m-f32 m-nw" style="font-size: 32px; line-height: 1; font-weight: 700; white-space: nowrap;">2015</span><span class="m-nw" style="font-size: 15px; line-height: 1.2; color: rgba(255,255,255,0.85); white-space: nowrap;">weekly data collection began</span></div></div>
+    <div style="display: flex; align-items: center; gap: 14px;"><div style="width: 64px; height: 64px; border-radius: 50%; background: #FFFFFF; display: flex; align-items: center; justify-content: center; flex-shrink: 0;"><svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="#B98B4E" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 3H6v18h7"></path><path d="M15 3l4 4v7M15 3v4h4M9 9h6M9 12.5h6"></path><circle cx="17.5" cy="17.5" r="3"></circle><path d="M16 20.2 15.5 23l2-1 2 1-.5-2.8"></path></svg></div><div style="display: flex; flex-direction: column; gap: 5px;"><span class="m-f32 m-nw" style="font-size: 32px; line-height: 1; font-weight: 700; white-space: nowrap;">17</span><span class="m-nw" style="font-size: 15px; line-height: 1.2; color: rgba(255,255,255,0.85); white-space: nowrap;">patent applications</span></div></div>
+  </section>
+
+  <!-- Press: pinned to the bottom of the first screen, then scrolls into place -->
+  <section class="m-press m-px m-gap m-stack" style="position: sticky; bottom: 0; z-index: 30; background: #FFFFFF; padding: 28px 120px; display: flex; align-items: center; gap: 56px; border-top: 1.5px solid #B98B4E; border-bottom: 1.5px solid #B98B4E; box-shadow: 0 -6px 18px rgba(26,39,78,0.12);">
+    <div class="m-nw" style="font-size: 14px; font-weight: 700; color: #1A274E; white-space: nowrap;">As featured in</div>
+    <div class="m-logos" style="flex: 1; display: flex; justify-content: space-between; align-items: center;">
+      <img src="images/p-forbes.png" alt="Forbes" style="height: 24px; width: auto; display: block; filter: grayscale(1); mix-blend-mode: multiply; opacity: 0.7;">
+      <img src="images/p-entrepreneur.png" alt="Entrepreneur" style="height: 22px; width: auto; display: block; filter: grayscale(1); mix-blend-mode: multiply; opacity: 0.7;">
+      <img src="images/p-lemonde.png" alt="Le Monde" style="height: 24px; width: auto; display: block; filter: grayscale(1); mix-blend-mode: multiply; opacity: 0.7;">
+      <img src="images/p-skynews.png" alt="Sky News" style="height: 26px; width: auto; display: block; filter: grayscale(1); mix-blend-mode: multiply; opacity: 0.7;">
+      <img src="images/p-usatoday.png" alt="USA Today" style="height: 32px; width: auto; display: block; filter: grayscale(1); mix-blend-mode: multiply; opacity: 0.7;">
+      <img src="images/p-rollingstone.png" alt="Rolling Stone" style="height: 24px; width: auto; display: block; filter: grayscale(1); mix-blend-mode: multiply; opacity: 0.7;">
+      <img src="images/p-yahoo.png" alt="Yahoo! News" style="height: 30px; width: auto; display: block; filter: grayscale(1); mix-blend-mode: multiply; opacity: 0.7;">
+      <img src="images/p-msn.png" alt="MSN" style="height: 28px; width: auto; display: block; filter: grayscale(1); mix-blend-mode: multiply; opacity: 0.7;">
+    </div>
+  </section>
+
+  <!-- The application: the form beside the photo, as two boxes that stack on a phone -->
+  <section class="m-px m-pt m-pb" style="background: #EDF5FB; padding: 88px 120px;">
+    <div class="m-g1 m-gap" style="display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 48px; align-items: stretch;">
       <!-- Application form -->
-      <div class="m-w m-px" id="apply" style="width: 540px; flex-shrink: 0; background: #FFFFFF; color: #1A274E; border-radius: 10px; padding: 40px; display: flex; flex-direction: column; gap: 22px; box-shadow: 0 40px 90px -40px rgba(0,0,0,0.6);">
+      <div class="m-px" id="apply" style="background: #FFFFFF; color: #1A274E; border-radius: 14px; padding: 40px; display: flex; flex-direction: column; gap: 22px; box-shadow: 0 4px 14px rgba(26,39,78,0.08), 0 1px 3px rgba(26,39,78,0.06);">
         <div style="display: flex; flex-direction: column; gap: 6px;">
           <div style="display: flex; flex-direction: column; gap: 14px;"><div class="m-f26" style="font-family: Arial, Helvetica, sans-serif; font-weight: 700; font-size: 28px; line-height: 1.15; letter-spacing: -0.015em;"><span style="color: #B98B4E;">Apply</span> to work with Jason’s team</div><h2 style="font-size: 18px; line-height: 1.45; font-weight: 500; letter-spacing: 0; color: #4A5470; max-width: 760px;">Fill in the application for done-for-you Digital Brand Engineering</h2></div>
-          <p style="font-size: 16px; line-height: 1.5; color: #5B6475;">It takes two minutes, and we read every application.</p>
+          <p style="font-size: 16px; line-height: 1.5; color: #4A5470;">As a client, you get time with Jason himself.</p>
         </div>
         <div class="m-g1" style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px;">
           <label style="display: flex; flex-direction: column; gap: 6px; font-size: 14px; font-weight: 700;">
@@ -190,7 +238,10 @@
           <span>Send my application</span>
           <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg>
         </button>
-        <p style="font-size: 14px; line-height: 1.5; color: #5B6475;">If we’re the right fit, Sam from our team will be in touch to arrange a call.</p>
+        <p style="font-size: 14px; line-height: 1.5; color: #4A5470;">If we’re the right fit, Sam from our team will be in touch to arrange a call.</p>
+      </div>
+      <div style="border-radius: 14px; overflow: hidden; box-shadow: 0 4px 14px rgba(26,39,78,0.08), 0 1px 3px rgba(26,39,78,0.06); min-height: 420px;">
+        <img src="images/hero-apply.jpg" alt="A smiling entrepreneur in a dark shirt, arms folded" style="width: 100%; height: 100%; min-height: 420px; object-fit: cover; object-position: 55% 30%; display: block;">
       </div>
     </div>
   </section>
@@ -199,13 +250,13 @@
   <section class="m-px m-pt m-pb m-gap" style="padding: 120px 120px; display: flex; flex-direction: column; gap: 48px;">
     <div style="display: flex; flex-direction: column; gap: 14px;"><div class="m-f48" style="font-family: Arial, Helvetica, sans-serif; font-weight: 700; font-size: 48px; line-height: 1.08; letter-spacing: -0.01em;">Is this <span style="color: #B98B4E;">for you?</span></div><h2 style="font-size: 18px; line-height: 1.45; font-weight: 500; letter-spacing: 0; color: #4A5470; max-width: 760px;">Who Kalicube’s done-for-you service is for</h2></div>
     <div class="m-g1" style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 32px;">
-      <div class="m-px" style="background: #EDF5FB; border-radius: 8px; padding: 44px; display: flex; flex-direction: column; gap: 20px;">
+      <div class="m-px" style="background: #F6F6F6; border-radius: 14px; padding: 44px; display: flex; flex-direction: column; gap: 20px; box-shadow: 0 4px 14px rgba(26,39,78,0.08), 0 1px 3px rgba(26,39,78,0.06);">
         <h3 class="m-f21" style="font-family: Arial, Helvetica, sans-serif; font-weight: 700; font-size: 24px;">It is, if</h3>
         <div style="display: flex; gap: 14px; align-items: baseline; font-size: 18px; line-height: 1.5;"><div style="width: 7px; height: 7px; border-radius: 50%; background: #B98B4E; flex-shrink: 0; transform: translateY(-3px);"></div><span>you’re the founder or CEO, and your name opens doors</span></div>
         <div style="display: flex; gap: 14px; align-items: baseline; font-size: 18px; line-height: 1.5;"><div style="width: 7px; height: 7px; border-radius: 50%; background: #B98B4E; flex-shrink: 0; transform: translateY(-3px);"></div><span>boards, investors and clients look you up before they decide</span></div>
         <div style="display: flex; gap: 14px; align-items: baseline; font-size: 18px; line-height: 1.5;"><div style="width: 7px; height: 7px; border-radius: 50%; background: #B98B4E; flex-shrink: 0; transform: translateY(-3px);"></div><span>you want it done for you, properly, not another tool to learn</span></div>
       </div>
-      <div class="m-px" style="border: 1px solid #E3E8EF; border-radius: 8px; padding: 44px; display: flex; flex-direction: column; gap: 20px;">
+      <div class="m-px" style="background: #FFFFFF; border-radius: 14px; padding: 44px; display: flex; flex-direction: column; gap: 20px; box-shadow: 0 4px 14px rgba(26,39,78,0.08), 0 1px 3px rgba(26,39,78,0.06);">
         <h3 class="m-f21" style="font-family: Arial, Helvetica, sans-serif; font-weight: 700; font-size: 24px;">It isn’t, if</h3>
         <div style="display: flex; gap: 14px; align-items: baseline; font-size: 18px; line-height: 1.5; color: #3D4660;"><div style="width: 7px; height: 7px; border-radius: 50%; background: #9AA4B5; flex-shrink: 0; transform: translateY(-3px);"></div><span>you’d rather do it yourself: our <a href="#" style="font-weight: 700; border-bottom: 2px solid #B98B4E;">free guides</a> are the place to start</span></div>
         <div style="display: flex; gap: 14px; align-items: baseline; font-size: 18px; line-height: 1.5; color: #3D4660;"><div style="width: 7px; height: 7px; border-radius: 50%; background: #9AA4B5; flex-shrink: 0; transform: translateY(-3px);"></div><span>your company, not your name, is the priority: <a href="companies/" style="font-weight: 700; border-bottom: 2px solid #B98B4E;">apply for your company</a></span></div>
@@ -243,34 +294,57 @@
 
   <!-- A client in their own words -->
   <section class="m-px m-pt m-pb m-gap m-stack" style="padding: 120px 120px; display: flex; gap: 64px; align-items: center;">
-    <img src="images/cronstedt.jpg" alt="Jonathan Cronstedt" style="width: 144px; height: 144px; border-radius: 50%; object-fit: cover; display: block; flex-shrink: 0;">
+    <img src="images/cronstedt.jpg" alt="Jonathan Cronstedt" style="width: 144px; height: 144px; border-radius: 50%; object-fit: cover; display: block; flex-shrink: 0; border: 5px solid #FFFFFF; box-shadow: 0 6px 18px rgba(26,39,78,0.14);">
     <div style="flex: 1; display: flex; flex-direction: column; gap: 24px;">
       <p class="m-f32" style="font-weight: 400; font-family: 'Source Serif 4', Georgia, serif; font-size: 34px; line-height: 1.26; font-style: italic;">“You guys are the only people that have been able to find a way to merge the two of me that exist: the name nobody knows, and the nickname everybody knows by.”</p>
       <div style="display: flex; flex-direction: column; gap: 3px;">
         <div style="font-size: 18px; font-weight: 700;">Jonathan Cronstedt</div>
-        <div style="font-size: 16px; color: #5B6475;">Former President, Kajabi</div>
+        <div style="font-size: 16px; color: #4A5470;">Former President, Kajabi</div>
       </div>
     </div>
   </section>
 
-  <!-- Closing -->
+  <!-- Closing: apply, or start with the free audit and strategy -->
   <section class="m-px m-pb" style="padding: 0 120px 120px;">
-    <div class="scribble m-px m-pt m-pb m-gap m-stack" style="background-color: #1A274E; color: #FFFFFF; border-radius: 10px; padding: 80px 96px; display: flex; justify-content: space-between; align-items: center; gap: 64px;">
-      <div style="display: flex; flex-direction: column; gap: 14px;"><div class="m-f40" style="font-family: Arial, Helvetica, sans-serif; font-weight: 700; font-size: 44px; line-height: 1.1; letter-spacing: -0.01em; max-width: 640px;">Make sure Google and AI <span style="color: #E3A949;">understand, trust and recommend</span> you.</div><h2 style="font-size: 18px; line-height: 1.45; font-weight: 500; letter-spacing: 0; color: rgba(255,255,255,0.78); max-width: 760px;">Apply to work with Jason Barnard’s team</h2></div>
-      <div style="display: flex; flex-direction: column; align-items: flex-start; gap: 16px; flex-shrink: 0;">
-        <a href="#apply" class="act m-nw" style="font-family: 'Google Sans Code', Menlo, monospace; display: flex; align-items: center; gap: 10px; background: #E3A949; color: #1A274E; padding: 20px 32px; border-radius: 999px; font-size: 17px; font-weight: 500; white-space: nowrap; letter-spacing: 0;">
-          <span>Apply to work with Jason’s team</span>
-          <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg>
-        </a>
-        <a href="#apply" style="color: #FFFFFF; font-size: 16px; font-weight: 700; padding-bottom: 3px; border-bottom: 2px solid rgba(255,255,255,0.55);">Prefer to talk first? Book a call with our team</a>
+    <div class="scribble m-px m-gap m-stack" style="background-color: #1A274E; color: #FFFFFF; border-radius: 14px; padding: 72px 88px; display: flex; justify-content: space-between; align-items: center; gap: 64px; box-shadow: 0 6px 20px rgba(26,39,78,0.16);">
+      <div style="display: flex; flex-direction: column; gap: 14px;"><div class="m-f40" style="font-family: Arial, Helvetica, sans-serif; font-weight: 700; font-size: 44px; line-height: 1.1; letter-spacing: -0.01em; max-width: 640px;">Make sure Google and AI <span style="color: #E3A949;">understand, trust and recommend</span> you.</div><h2 style="font-size: 18px; line-height: 1.45; font-weight: 500; letter-spacing: 0; color: rgba(255,255,255,0.8); max-width: 760px;">Apply to work with Jason Barnard’s team</h2></div>
+      <div style="display: flex; flex-direction: column; align-items: stretch; gap: 12px; flex-shrink: 0;">
+        <a href="#apply" class="act m-nw" style="font-family: 'Google Sans Code', Menlo, monospace; display: flex; align-items: center; justify-content: center; gap: 12px; background: #E3A949; color: #1A274E; padding: 20px 34px; border-radius: 999px; font-size: 18px; font-weight: 500; white-space: nowrap; letter-spacing: 0;"><span>Apply to work with Jason’s team</span><svg width="18" height="18" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg></a>
+        <a href="https://audit.kalicube.pro" target="_blank" rel="noopener" class="act m-nw" style="font-family: 'Google Sans Code', Menlo, monospace; display: flex; align-items: center; justify-content: center; color: #FFFFFF; border: 2px solid rgba(255,255,255,0.85); padding: 18px 32px; border-radius: 999px; font-size: 18px; font-weight: 500; white-space: nowrap; letter-spacing: 0;">Get your free audit and strategy</a>
       </div>
     </div>
   </section>
 
   <!-- Footer -->
-  <footer class="m-px m-stack" style="background: #1A274E; color: rgba(255,255,255,0.7); padding: 48px 120px; display: flex; justify-content: space-between; align-items: center; font-size: 14px;">
-    <img src="images/logo.png" alt="Kalicube, Digital Brand Engineers" style="height: 36px; width: auto; display: block; filter: brightness(0) invert(1);">
-    <span>© 2026 Kalicube · Privacy · Terms</span>
+  <footer class="m-px m-pt m-gap" style="background: #131C3A; color: rgba(255,255,255,0.72); padding: 88px 120px 48px; display: flex; flex-direction: column; gap: 72px;">
+    <div class="m-gap m-stack" style="display: flex; justify-content: space-between; gap: 64px;">
+      <div style="display: flex; flex-direction: column; gap: 20px; max-width: 300px;">
+        <a href="../" style="display: block; align-self: flex-start;"><img src="images/logo.png" alt="Kalicube, Digital Brand Engineers" style="height: 44px; width: auto; display: block; filter: brightness(0) invert(1);"></a>
+        <p style="font-size: 16px; line-height: 1.6;">Digital Brand Engineering for entrepreneurs and companies.</p>
+      </div>
+      <div class="m-g2 m-gap" style="display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 56px; font-size: 15px; line-height: 1.4;">
+        <div style="display: flex; flex-direction: column; gap: 12px;">
+          <div style="font-size: 15px; font-weight: 700; color: #FFFFFF; padding-bottom: 4px;">Services</div>
+          <span>For entrepreneurs</span><span>For companies</span><span>Kalicube Pro</span>
+        </div>
+        <div style="display: flex; flex-direction: column; gap: 12px;">
+          <div style="font-size: 15px; font-weight: 700; color: #FFFFFF; padding-bottom: 4px;">Proof</div>
+          <span>Client results</span><span>Knowledge Panel results</span><span>What clients say</span>
+        </div>
+        <div style="display: flex; flex-direction: column; gap: 12px;">
+          <div style="font-size: 15px; font-weight: 700; color: #FFFFFF; padding-bottom: 4px;">Learn</div>
+          <span>The Kalicube Process</span><span>Books by Jason Barnard</span><span>Free guides</span>
+        </div>
+        <div style="display: flex; flex-direction: column; gap: 12px;">
+          <div style="font-size: 15px; font-weight: 700; color: #FFFFFF; padding-bottom: 4px;">About</div>
+          <span>Jason Barnard</span><span>The team</span><span>Data and methodology</span><span>Contact</span>
+        </div>
+      </div>
+    </div>
+    <div style="display: flex; justify-content: space-between; font-size: 14px; color: rgba(255,255,255,0.6); border-top: 1px solid rgba(255,255,255,0.12); padding-top: 28px;">
+      <span>© 2026 Kalicube</span>
+      <span>Privacy · Terms · Cookies</span>
+    </div>
   </footer>
 
 </div>

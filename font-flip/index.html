@@ -38,6 +38,12 @@
   .stage { position: relative; flex: 1; min-height: 0; }
   iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; background: #FFFFFF; }
   iframe.off { visibility: hidden; }
+  .view { display: inline-flex; border: 1px solid var(--rule); border-radius: 999px; padding: 3px; gap: 2px; background: var(--bar); }
+  .view button { font: inherit; font-size: 13px; font-weight: 700; border: 0; background: transparent; color: var(--ink); border-radius: 999px; padding: 6px 14px; cursor: pointer; }
+  .view button[aria-pressed="true"] { background: var(--on); color: var(--on-ink); }
+  /* Mobile: the page at phone width, in a phone-sized frame, so it shows its real phone layout */
+  .stage.mobile { background: #E4E8EF; overflow: auto; }
+  .stage.mobile iframe { left: 50%; top: 18px; right: auto; bottom: auto; width: 390px; height: min(844px, calc(100% - 36px)); transform: translateX(-50%); border-radius: 26px; box-shadow: 0 0 0 10px #1A274E, 0 20px 44px rgba(26,39,78,0.3); }
   @media (max-width: 900px) { header { grid-template-columns: minmax(0, 1fr); } .site-name { width: 104px; } .font { align-items: flex-start; } .hint { display: none; } }
 </style>
 </head>
@@ -47,6 +53,7 @@
   <div class="font">
     <div class="font-top">
       <div class="name">Font Flip</div>
+      <div class="view" role="group" aria-label="View"><button type="button" data-view="desktop" aria-pressed="true">Desktop</button><button type="button" data-view="mobile" aria-pressed="false">Mobile</button></div>
       <label>Font <select id="font">
         <option value="ubuntu">1 · Ubuntu (house font)</option>
         <option value="google">2 · Google Sans Flex</option>
@@ -59,7 +66,7 @@
       <option value="arial">Arial Bold</option>
       <option value="mono">DM Mono</option>
     </select></label>
-    <div class="hint"><kbd>←</kbd> <kbd>→</kbd> pages · <kbd>space</kbd> or <kbd>1</kbd>–<kbd>4</kbd> fonts · <kbd>B</kbd> buttons</div>
+    <div class="hint"><kbd>←</kbd> <kbd>→</kbd> pages · <kbd>space</kbd> or <kbd>1</kbd>–<kbd>4</kbd> fonts · <kbd>B</kbd> buttons · <kbd>M</kbd> desktop / mobile</div>
   </div>
 </header>
 <main class="stage">
@@ -79,7 +86,7 @@
     ['kalicube.com', 'Compare: entrepreneurs', 'compare/entrepreneurs/'],
     ['kalicube.com', 'Name change', 'landing/changed-my-name/'],
     ['kalicube.com', 'One bad story', 'landing/reputation/'],
-    ['kalicube.com', 'Recommended', 'landing/lead-your-field/'],
+    ['kalicube.com', 'Lead your field', 'landing/lead-your-field/'],
     ['jasonbarnard.com', 'Homepage', 'jasonbarnard/'],
     ['kalicube.pro', 'Homepage', 'kalicubepro/'],
     ['Team', 'Mind, Machine, Practice', 'mind-machine-practice/']
@@ -92,6 +99,16 @@
   var current = 0;
   var fontSelect = document.getElementById('font');
   var pageBar = document.getElementById('pages');
+  var stage = document.querySelector('.stage');
+  var view = 'desktop';
+
+  function setView(v) {
+    view = v === 'mobile' ? 'mobile' : 'desktop';
+    stage.classList.toggle('mobile', view === 'mobile');
+    document.querySelectorAll('.view button').forEach(function (b) { b.setAttribute('aria-pressed', String(b.dataset.view === view)); });
+    try { localStorage.setItem('font-flip-view', view); } catch (e) {}
+    markTabs();
+  }
 
   var buttonSelect = document.getElementById('buttons');
   var BUTTON_CSS = {
@@ -179,7 +196,7 @@
       if (Number(b.dataset.i) === current) b.setAttribute('aria-current', 'page'); else b.removeAttribute('aria-current');
     });
     try { localStorage.setItem('font-flip-page', String(current)); } catch (e) {}
-    try { history.replaceState(null, '', '?page=' + slug(PAGES[current][2])); } catch (e) {}
+    try { history.replaceState(null, '', '?page=' + slug(PAGES[current][2]) + (view === 'mobile' ? '&view=mobile' : '')); } catch (e) {}
   }
 
   // Links like font-flip/?page=strategy-plus open that page, so each draft can be shared.
@@ -199,6 +216,8 @@
       show(ORDER[(ORDER.indexOf(shown) + 1) % ORDER.length]);
     } else if (/^[1-4]$/.test(e.key)) {
       show(ORDER[Number(e.key) - 1]);
+    } else if (e.key === 'm' || e.key === 'M') {
+      setView(view === 'mobile' ? 'desktop' : 'mobile');
     } else if (e.key === 'b' || e.key === 'B') {
       setButtons(BUTTON_ORDER[(BUTTON_ORDER.indexOf(buttonFont) + 1) % BUTTON_ORDER.length]);
     } else if (e.key === 'ArrowRight' || e.key === 'ArrowLeft') {
@@ -242,6 +261,7 @@
   });
   fontSelect.addEventListener('change', function () { show(fontSelect.value); fontSelect.blur(); });
   buttonSelect.addEventListener('change', function () { setButtons(buttonSelect.value); buttonSelect.blur(); });
+  document.querySelectorAll('.view button').forEach(function (b) { b.addEventListener('click', function () { setView(b.dataset.view); b.blur(); }); });
 
   // Every visit opens in the house fonts: Ubuntu, with Google Sans Code buttons.
   var startPage = 0;
@@ -249,7 +269,13 @@
     startPage = Math.min(PAGES.length - 1, Math.max(0, parseInt(localStorage.getItem('font-flip-page') || '0', 10) || 0));
   } catch (e) {}
   if (pageFromUrl() >= 0) startPage = pageFromUrl();
+  var startView = 'desktop';
+  try { startView = localStorage.getItem('font-flip-view') || 'desktop'; } catch (e) {}
+  var qv = new URLSearchParams(location.search).get('view');
+  if (qv) startView = qv;
+  view = startView === 'mobile' ? 'mobile' : 'desktop';
   load(startPage);
+  setView(view);
   show('ubuntu');
   setButtons('code');
 </script>
