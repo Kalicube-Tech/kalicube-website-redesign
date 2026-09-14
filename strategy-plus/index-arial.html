@@ -38,6 +38,11 @@
   .m-f60 { font-size: 38px !important; } .m-f48 { font-size: 33px !important; } .m-f40 { font-size: 29px !important; }
   .m-f32 { font-size: 25px !important; } .m-f26 { font-size: 21px !important; } .m-f21 { font-size: 18px !important; } .m-f20 { font-size: 17px !important; }
   .m-nw { white-space: normal !important; }
+  .m-ha { height: auto !important; }
+  .m-ha > [style*="flex: 1"] { min-height: 300px; }
+  div[style*="display: flex"]:has(> a.act) { flex-wrap: wrap !important; }
+  a.act { max-width: 100%; }
+  .fix { font-size: 21px !important; white-space: normal !important; width: max-content; max-width: 55vw; top: auto !important; bottom: calc(100% + 2px); }
   .m-logos { flex-wrap: wrap !important; justify-content: center !important; gap: 12px 22px !important; }
   table.matrix, .matrix { display: block; overflow-x: auto; max-width: 100%; }
   /* The menu: logo and the one button */
@@ -126,7 +131,7 @@
   <section class="hero grid-bg" style="--split: 58%; background-color: #0B1726; color: #FFFFFF;">
     <img class="hero-bg" src="images/hero-strategy-plus.jpg" alt="" style="object-fit: cover; object-position: center; display: block;">
     <div class="hero-bg" style="background: linear-gradient(90deg, rgb(11,23,38) 0%, rgb(11,23,38) var(--split, 50%), rgba(11,23,38,0.55) calc(var(--split, 50%) + 4%), rgba(11,23,38,0) calc(var(--split, 50%) + 10%));"></div>
-    <div class="m-px" style="height: 88px; padding: 0 120px; display: flex; align-items: center; justify-content: space-between; border-bottom: 1px solid rgba(255,255,255,0.08);">
+    <div class="m-px m-nav" style="height: 88px; padding: 0 120px; display: flex; align-items: center; justify-content: space-between; border-bottom: 1px solid rgba(255,255,255,0.08);">
       <a href="../" style="display: flex; align-items: center; gap: 12px;">
         <img src="images/logo.png" alt="Kalicube" style="height: 40px; width: auto; display: block; filter: brightness(0) invert(1);">
         <div style="font-family: Arial, Helvetica, sans-serif; font-size: 13px; font-weight: 500; letter-spacing: 0.08em; color: #0B1726; background: #4FA8E0; padding: 4px 10px; border-radius: 6px;">PRO</div>

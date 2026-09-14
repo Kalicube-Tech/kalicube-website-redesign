@@ -32,6 +32,11 @@
   .m-f60 { font-size: 38px !important; } .m-f48 { font-size: 33px !important; } .m-f40 { font-size: 29px !important; }
   .m-f32 { font-size: 25px !important; } .m-f26 { font-size: 21px !important; } .m-f21 { font-size: 18px !important; } .m-f20 { font-size: 17px !important; }
   .m-nw { white-space: normal !important; }
+  .m-ha { height: auto !important; }
+  .m-ha > [style*="flex: 1"] { min-height: 300px; }
+  div[style*="display: flex"]:has(> a.act) { flex-wrap: wrap !important; }
+  a.act { max-width: 100%; }
+  .fix { font-size: 21px !important; white-space: normal !important; width: max-content; max-width: 55vw; top: auto !important; bottom: calc(100% + 2px); }
   .m-logos { flex-wrap: wrap !important; justify-content: center !important; gap: 12px 22px !important; }
   table.matrix, .matrix { display: block; overflow-x: auto; max-width: 100%; }
   /* The menu: logo and the one button */
@@ -133,7 +138,7 @@
   </section>
 
   <!-- Hero: red panel + stage photograph -->
-  <section style="display: flex; height: 820px;">
+  <section class="m-stack m-ha" style="display: flex; height: 820px;">
     <div class="scribble-light m-w m-px" style="width: 660px; flex-shrink: 0; background-color: #990000; color: #FFFFFF; padding: 0 64px 0 120px; display: flex; flex-direction: column; justify-content: center; gap: 26px; box-sizing: border-box;">
       <p class="m-f60" style="font-family: 'Ubuntu', 'Helvetica Neue', Arial, sans-serif; font-weight: 700; font-size: 96px; line-height: 0.98; letter-spacing: -0.015em;">Jason Barnard</p>
       <h1 class="m-f20" style="font-size: 20px; line-height: 1.4; font-weight: 500; letter-spacing: 0; color: rgba(255,255,255,0.95); max-width: 480px;">Jason Barnard: keynote speaker, author, and founder and CEO of Kalicube, on Google, AI search and Digital Brand Engineering</h1>

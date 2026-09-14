@@ -40,6 +40,11 @@
   .m-f60 { font-size: 38px !important; } .m-f48 { font-size: 33px !important; } .m-f40 { font-size: 29px !important; }
   .m-f32 { font-size: 25px !important; } .m-f26 { font-size: 21px !important; } .m-f21 { font-size: 18px !important; } .m-f20 { font-size: 17px !important; }
   .m-nw { white-space: normal !important; }
+  .m-ha { height: auto !important; }
+  .m-ha > [style*="flex: 1"] { min-height: 300px; }
+  div[style*="display: flex"]:has(> a.act) { flex-wrap: wrap !important; }
+  a.act { max-width: 100%; }
+  .fix { font-size: 21px !important; white-space: normal !important; width: max-content; max-width: 55vw; top: auto !important; bottom: calc(100% + 2px); }
   .m-logos { flex-wrap: wrap !important; justify-content: center !important; gap: 12px 22px !important; }
   table.matrix, .matrix { display: block; overflow-x: auto; max-width: 100%; }
   /* The menu: logo and the one button */
@@ -128,7 +133,7 @@
   <section class="hero scribble" style="--split: 47%; background-color: #1A274E; color: #FFFFFF;">
     <img class="hero-bg" src="images/hero-compare-companies.jpg" alt="" style="object-fit: cover; object-position: center; display: block;">
     <div class="hero-bg" style="background: linear-gradient(90deg, rgb(27,42,74) 0%, rgb(27,42,74) var(--split, 50%), rgba(27,42,74,0.55) calc(var(--split, 50%) + 4%), rgba(27,42,74,0) calc(var(--split, 50%) + 10%));"></div>
-    <div class="m-px" style="height: 88px; padding: 0 120px; display: flex; align-items: center; justify-content: space-between; border-bottom: 1px solid rgba(255,255,255,0.1);">
+    <div class="m-px m-nav" style="height: 88px; padding: 0 120px; display: flex; align-items: center; justify-content: space-between; border-bottom: 1px solid rgba(255,255,255,0.1);">
       <a href="../../" style="display: block;"><img src="images/logo.png" alt="Kalicube, Digital Brand Engineers" style="height: 42px; width: auto; display: block; filter: brightness(0) invert(1);"></a>
       <a href="../../" style="color: #FFFFFF; font-size: 16px; font-weight: 500; display: flex; align-items: center; gap: 8px;"><svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M13 8H3M7 4L3 8l4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg><span>Back to kalicube.com</span></a>
     </div>

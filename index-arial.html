@@ -31,6 +31,11 @@
   .m-f60 { font-size: 38px !important; } .m-f48 { font-size: 33px !important; } .m-f40 { font-size: 29px !important; }
   .m-f32 { font-size: 25px !important; } .m-f26 { font-size: 21px !important; } .m-f21 { font-size: 18px !important; } .m-f20 { font-size: 17px !important; }
   .m-nw { white-space: normal !important; }
+  .m-ha { height: auto !important; }
+  .m-ha > [style*="flex: 1"] { min-height: 300px; }
+  div[style*="display: flex"]:has(> a.act) { flex-wrap: wrap !important; }
+  a.act { max-width: 100%; }
+  .fix { font-size: 21px !important; white-space: normal !important; width: max-content; max-width: 55vw; top: auto !important; bottom: calc(100% + 2px); }
   .m-logos { flex-wrap: wrap !important; justify-content: center !important; gap: 12px 22px !important; }
   table.matrix, .matrix { display: block; overflow-x: auto; max-width: 100%; }
   /* The menu: logo and the one button */
@@ -151,7 +156,7 @@
     <p class="m-w" style="position: absolute; right: 470px; bottom: 34px; width: 420px; text-align: right; font-size: 17px; line-height: 1.45; font-weight: 700; color: #FFFFFF; text-shadow: 0 2px 10px rgba(0,0,0,0.55);">Led by Jason Barnard. Hired by Google to speak on the future of AI Search and how brands win at organic optimization. <a href="jasonbarnard/#reel" style="color: #FFFFFF; text-decoration: underline; text-underline-offset: 3px;">Watch Jason in action.</a></p>
     <div class="m-px" style="position: relative; height: 100%; box-sizing: border-box; padding: 0 120px; display: flex; flex-direction: column; justify-content: center; gap: 16px; max-width: 940px;">
       <div class="m-f20" style="font-size: 20px; font-weight: 500; color: #8CC3E6;">Your brand is what Google and AI say it is.</div>
-      <p class="m-f48" style="font-family: Arial, Helvetica, sans-serif; font-weight: 700; font-size: 52px; line-height: 1.06; letter-spacing: -0.0125em;">Engineer how AI<br><span style="color: #E3A949;">understands, trusts and<br>recommends</span> your brand.</p>
+      <p class="m-f48" style="font-family: Arial, Helvetica, sans-serif; font-weight: 700; font-size: 52px; line-height: 1.06; letter-spacing: -0.0125em;">Engineer how AI <br><span style="color: #E3A949;">understands, trusts and <br>recommends</span> your brand.</p>
       <h1 style="font-size: 19px; line-height: 1.4; font-weight: 500; letter-spacing: 0; color: #FFFFFF; max-width: 680px;">Digital Brand Engineering for founders and companies: your brand and reputation in Google, ChatGPT and AI search</h1>
       <p style="font-size: 19px; line-height: 1.5; color: rgba(255,255,255,0.9); max-width: 680px;">Kalicube is the Digital Brand Engineering company. Tell us who you are, and we’ll tell you where to go and what to do.</p>
       <div style="display: flex; flex-direction: column; align-items: flex-start; gap: 10px; padding-top: 6px;">

@@ -40,6 +40,11 @@
   .m-f60 { font-size: 38px !important; } .m-f48 { font-size: 33px !important; } .m-f40 { font-size: 29px !important; }
   .m-f32 { font-size: 25px !important; } .m-f26 { font-size: 21px !important; } .m-f21 { font-size: 18px !important; } .m-f20 { font-size: 17px !important; }
   .m-nw { white-space: normal !important; }
+  .m-ha { height: auto !important; }
+  .m-ha > [style*="flex: 1"] { min-height: 300px; }
+  div[style*="display: flex"]:has(> a.act) { flex-wrap: wrap !important; }
+  a.act { max-width: 100%; }
+  .fix { font-size: 21px !important; white-space: normal !important; width: max-content; max-width: 55vw; top: auto !important; bottom: calc(100% + 2px); }
   .m-logos { flex-wrap: wrap !important; justify-content: center !important; gap: 12px 22px !important; }
   table.matrix, .matrix { display: block; overflow-x: auto; max-width: 100%; }
   /* The menu: logo and the one button */
