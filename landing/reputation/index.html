@@ -50,8 +50,12 @@
   /* The menu: logo and the one button */
   .m-nav { height: 64px !important; padding-left: 16px !important; padding-right: 16px !important; }
   .m-nav a:not(.act):not(:has(img)), .m-nav .menu, .m-nav a.act[href*="contact"] { display: none !important; }
-  .m-nav img { height: 30px !important; }
-  .m-nav .act { padding: 9px 14px !important; font-size: 14px !important; }
+  .m-nav { gap: 10px; }
+  .m-nav > :first-child { min-width: 0; flex-shrink: 1; }
+  .m-nav img { height: auto !important; max-height: 30px; max-width: 100%; min-width: 0; }
+  .m-nav .act { padding: 9px 14px !important; font-size: 14px !important; white-space: nowrap !important; flex-shrink: 0; }
+  svg[viewBox] { max-width: 100%; height: auto; }
+  .m-stack > div[style*="width: 1px"] { display: none !important; }
   /* Split heroes: text first, then the photo as a band */
   .hero { display: flex !important; flex-direction: column; }
   .hero > * { order: 2; }
