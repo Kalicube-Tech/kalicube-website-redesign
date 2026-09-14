@@ -22,6 +22,10 @@
     .menu-list a:hover, .menu-list a:focus-visible { background: #F2F2F2; color: #1A274E; }
     .menu-list a span { display: block; font-size: 13px; font-weight: 400; color: #4A5470; margin-top: 2px; }
     .matrix td, .matrix th { border-top: 1px solid #EEF1F5; }
+    .hero { position: relative; overflow: hidden; }
+    .hero > * { position: relative; z-index: 1; }
+    .hero > .hero-bg { position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 0; }
+    .hero > img.hero-bg { left: var(--split, 50%); width: calc(100% - var(--split, 50%)); }
   </style>
 <style id="mobile-layout">
 @media (max-width: 759px) {
@@ -158,22 +162,11 @@
     </nav>
   </header>
 
-  <!-- Hero: the homepage's composition. It fills the first screen, so the numbers and the press strip sit below it on any screen -->
-  <section class="m-hero" style="position: relative; overflow: hidden; background: #0B1633; color: #FFFFFF; height: calc(var(--fold, 900px) - 279px); min-height: 770px;">
-    <img src="images/hero-network.jpg" alt="" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 60% 50%; display: block;">
-    <div style="position: absolute; inset: 0; background: linear-gradient(90deg, rgba(6,14,38,0.78) 0%, rgba(6,14,38,0.5) 48%, rgba(6,14,38,0) 72%);"></div>
-    <div aria-hidden="true" style="position: absolute; inset: 0;">
-      <div style="position: absolute; left: 846px; top: 9%; width: 52px; height: 52px; border-radius: 50%; background: rgba(236,241,250,0.86); box-shadow: 0 0 0 5px rgba(140,195,230,0.18); display: flex; align-items: center; justify-content: center;"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#B98B4E" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5h16v11H9l-5 4z"></path><path d="M8 9h8M8 12.5h5"></path></svg></div>
-      <div style="position: absolute; left: 894px; top: 30%; width: 52px; height: 52px; border-radius: 50%; background: rgba(236,241,250,0.86); box-shadow: 0 0 0 5px rgba(140,195,230,0.18); display: flex; align-items: center; justify-content: center;"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#B98B4E" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l2.8 5.7 6.2.9-4.5 4.4 1 6.2L12 17.3 6.5 20.2l1-6.2L3 9.6l6.2-.9z"></path></svg></div>
-      <div style="position: absolute; left: 952px; top: 8%; width: 52px; height: 52px; border-radius: 50%; background: rgba(236,241,250,0.86); box-shadow: 0 0 0 5px rgba(140,195,230,0.18); display: flex; align-items: center; justify-content: center;"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#B98B4E" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l1.8 5.2L19 10l-5.2 1.8L12 17l-1.8-5.2L5 10l5.2-1.8z"></path><path d="M19 15l.8 2.2L22 18l-2.2.8L19 21l-.8-2.2L16 18l2.2-.8z"></path></svg></div>
-      <div style="position: absolute; left: 1060px; top: 5%; width: 52px; height: 52px; border-radius: 50%; background: rgba(236,241,250,0.86); box-shadow: 0 0 0 5px rgba(140,195,230,0.18); display: flex; align-items: center; justify-content: center;"><span class="m-f26" style="font-family: 'DM Sans', 'Helvetica Neue', Arial, sans-serif; font-weight: 700; font-size: 30px; line-height: 1; color: #B98B4E;">G</span></div>
-      <div style="position: absolute; left: 998px; top: 24%; width: 68px; height: 68px; border-radius: 50%; background: rgba(236,241,250,0.86); box-shadow: 0 0 0 5px rgba(140,195,230,0.18); display: flex; align-items: center; justify-content: center;"><img src="images/falcon.png" alt="" style="height: 40px; width: auto; display: block;"></div>
-      <div style="position: absolute; left: 940px; top: 47%; width: 52px; height: 52px; border-radius: 50%; background: rgba(236,241,250,0.86); box-shadow: 0 0 0 5px rgba(140,195,230,0.18); display: flex; align-items: center; justify-content: center;"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#B98B4E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="10.5" cy="10.5" r="6.5"></circle><path d="M15.5 15.5 21 21"></path></svg></div>
-      <div style="position: absolute; left: 1319px; top: 10%; width: 52px; height: 52px; border-radius: 50%; background: rgba(236,241,250,0.86); box-shadow: 0 0 0 5px rgba(140,195,230,0.18); display: flex; align-items: center; justify-content: center;"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#B98B4E" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6z"></path><path d="M8.5 12l2.5 2.5 4.5-5"></path></svg></div>
-    </div>
-    <img src="images/jason-cutout.png" alt="Jason Barnard, founder of Kalicube" style="position: absolute; right: 24px; bottom: 0; height: min(66%, 460px); width: auto; display: block;">
-    <p style="position: absolute; right: 420px; bottom: 34px; width: 236px; text-align: right; font-size: 15px; line-height: 1.45; font-weight: 700; color: #FFFFFF; text-shadow: 0 2px 10px rgba(0,0,0,0.55);">Led by Jason Barnard. Hired by Google to speak on the future of AI Search and how brands win at organic optimization. <a href="../../jasonbarnard/#reel" style="color: #FFFFFF; text-decoration: underline; text-underline-offset: 3px;">Watch Jason in action.</a></p>
-    <div class="m-px" style="position: relative; height: 100%; box-sizing: border-box; padding: 36px 120px; display: flex; flex-direction: column; justify-content: center; gap: 16px; max-width: 900px;">
+  <!-- Hero: the prospect is the hero, bright on the right; Jason small under the buttons -->
+  <section class="hero" style="--split: 54%; background: #1A274E; color: #FFFFFF;">
+    <img src="images/hero-compare-companies.jpg" class="hero-bg" alt="" style="object-fit: cover; object-position: center 40%; display: block;">
+    <div class="hero-bg" style="background: linear-gradient(90deg, rgb(26,39,78) 0%, rgb(26,39,78) var(--split, 50%), rgba(26,39,78,0.55) calc(var(--split, 50%) + 4%), rgba(26,39,78,0) calc(var(--split, 50%) + 10%));"></div>
+    <div class="m-px m-pb" style="padding: 72px 120px 88px; display: flex; flex-direction: column; gap: 18px; max-width: 860px; box-sizing: border-box;">
       <div style="display: flex; align-items: center; gap: 4px; align-self: flex-start; border: 1px solid rgba(255,255,255,0.32); border-radius: 999px; padding: 4px; font-size: 15px; font-weight: 700; background: rgba(6,14,38,0.35);">
         <span style="background: #FFFFFF; color: #1A274E; border-radius: 999px; padding: 8px 18px;">For companies</span>
         <a href="../entrepreneurs/" style="color: #FFFFFF; border-radius: 999px; padding: 8px 18px;">For entrepreneurs</a>
@@ -190,6 +183,7 @@
         </div>
         <div style="font-size: 14px; line-height: 1.5; color: rgba(255,255,255,0.82); max-width: 440px;">Free · Less than 5 minutes · A detailed audit and strategy based on The Kalicube Process</div>
       </div>
+      <div style="display: flex; align-items: center; gap: 14px; padding-top: 16px; margin-top: 4px; border-top: 1px solid rgba(255,255,255,0.16); max-width: 640px;"><img src="images/jason-friendly.jpg" alt="Jason Barnard" style="width: 52px; height: 52px; border-radius: 50%; object-fit: cover; display: block; flex-shrink: 0; border: 2px solid rgba(255,255,255,0.85);"><p style="font-size: 15px; line-height: 1.5; color: rgba(255,255,255,0.86);"><span style="font-weight: 700; color: #FFFFFF;">Led by Jason Barnard.</span> Hired by Google to speak on the future of AI Search and how brands win at organic optimization. <a href="../../jasonbarnard/#reel" style="color: #FFFFFF; text-decoration: underline; text-underline-offset: 3px;">Watch Jason in action.</a></p></div>
     </div>
   </section>
 
@@ -218,13 +212,10 @@
 
   <!-- Fit-filter: the heading and intro beside the photo, as two boxes that stack on a phone -->
   <section class="m-px m-pt m-pb m-gap" style="background: #EDF5FB; padding: 88px 120px 104px; display: flex; flex-direction: column; gap: 56px;">
-    <div class="m-g1 m-gap" style="display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 48px; align-items: stretch;">
+    <div class="m-gap" style="display: grid; grid-template-columns: minmax(0, 1fr); gap: 48px; align-items: stretch;">
       <div style="display: flex; flex-direction: column; gap: 18px; justify-content: center;">
         <div style="display: flex; flex-direction: column; gap: 14px;"><div class="m-f48" style="font-weight: 700; font-size: 48px; line-height: 1.08; letter-spacing: -0.01em;">Is Kalicube <span style="color: #B98B4E;">the right choice for you?</span></div><h2 style="font-size: 18px; line-height: 1.45; font-weight: 500; letter-spacing: 0; color: #4A5470; max-width: 760px;">Who Kalicube is for, and who we refer elsewhere</h2></div>
         <p class="m-f20" style="font-size: 20px; line-height: 1.6; color: #3D4660;">We play the long game. Scale, quick wins and firefighting are short-term jobs that others do brilliantly, so we point you to them.</p>
-      </div>
-      <div style="border-radius: 14px; overflow: hidden; box-shadow: 0 4px 14px rgba(26,39,78,0.08), 0 1px 3px rgba(26,39,78,0.06); min-height: 380px;">
-        <img src="images/hero-compare-companies.jpg" alt="Three colleagues in a business meeting around a café table" style="width: 100%; height: 100%; min-height: 380px; object-fit: cover; object-position: center 40%; display: block;">
       </div>
     </div>
     <div class="m-g1" style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 32px;">
